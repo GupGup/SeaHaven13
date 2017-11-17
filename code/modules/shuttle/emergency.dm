@@ -451,32 +451,6 @@
 	emagged = TRUE
 	to_chat(user, "<span class='warning'>You fry the pod's alert level checking system.</span>")
 
-/obj/docking_port/stationary/random
-	name = "escape pod"
-	id = "pod"
-	dwidth = 1
-	width = 3
-	height = 4
-	var/target_area = /area/lavaland/surface/outdoors
-	var/edge_distance = 16
-	// Minimal distance from the map edge, setting this too low can result in shuttle landing on the edge and getting "sliced"
-
-/obj/docking_port/stationary/random/Initialize(mapload)
-	. = ..()
-	if(!mapload)
-		return
-
-	var/list/turfs = get_area_turfs(target_area)
-	var/turf/T = pick(turfs)
-
-	while(turfs.len)
-		if(T.x<edge_distance || T.y<edge_distance || (world.maxx+1-T.x)<edge_distance || (world.maxy+1-T.y)<edge_distance)
-			turfs -= T
-			T = pick(turfs)
-		else
-			src.loc = T
-			break
-
 //Pod suits/pickaxes
 
 

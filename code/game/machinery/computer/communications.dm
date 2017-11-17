@@ -9,7 +9,7 @@
 	var/authenticated = 0
 	var/auth_id = "Unknown" //Who is currently logged in?
 	var/list/datum/comm_message/messages = list()
-	var/datum/comm_message/currmsg 
+	var/datum/comm_message/currmsg
 	var/datum/comm_message/aicurrmsg
 	var/state = STATE_DEFAULT
 	var/aistate = STATE_DEFAULT
@@ -154,36 +154,6 @@
 		if("purchase_menu")
 			state = STATE_PURCHASE
 
-		if("buyshuttle")
-			if(authenticated==2)
-				var/list/shuttles = flatten_list(SSmapping.shuttle_templates)
-				var/datum/map_template/shuttle/S = locate(href_list["chosen_shuttle"]) in shuttles
-				if(S && istype(S))
-					if(SSshuttle.emergency.mode != SHUTTLE_RECALL && SSshuttle.emergency.mode != SHUTTLE_IDLE)
-						to_chat(usr, "It's a bit late to buy a new shuttle, don't you think?")
-						return
-					if(SSshuttle.shuttle_purchased)
-						to_chat(usr, "A replacement shuttle has already been purchased.")
-					else if(!S.prerequisites_met())
-						to_chat(usr, "You have not met the requirements for purchasing this shuttle.")
-					else
-						if(SSshuttle.points >= S.credit_cost)
-							var/obj/machinery/shuttle_manipulator/M = locate() in GLOB.machines
-							if(M)
-								SSshuttle.shuttle_purchased = TRUE
-								M.unload_preview()
-								M.load_template(S)
-								M.existing_shuttle = SSshuttle.emergency
-								M.action_load(S)
-								SSshuttle.points -= S.credit_cost
-								minor_announce("[usr.name] has purchased [S.name] for [S.credit_cost] credits." , "Shuttle Purchase")
-								message_admins("[key_name_admin(usr)] purchased [S.name].")
-								SSblackbox.add_details("shuttle_purchase", S.name)
-							else
-								to_chat(usr, "Something went wrong! The shuttle exchange system seems to be down.")
-						else
-							to_chat(usr, "Not enough credits.")
-
 		if("callshuttle")
 			state = STATE_DEFAULT
 			if(authenticated)
@@ -233,7 +203,7 @@
 			log_game("[key_name(usr)] answered [currmsg.title] comm message. Answer : [currmsg.answered]")
 			if(currmsg)
 				currmsg.answer_callback.Invoke()
-			
+
 			state = STATE_VIEWMESSAGE
 		if("status")
 			state = STATE_STATUSDISPLAY
@@ -553,17 +523,6 @@
 			else
 				dat += "<b>Emergency Maintenance Access is currently <font color='green'>DISABLED</font></b>"
 				dat += "<BR>Lift access restrictions on maintenance and external airlocks? <BR>\[ <A HREF='?src=[REF(src)];operation=enableemergency'>OK</A> | <A HREF='?src=[REF(src)];operation=viewmessage'>Cancel</A> \]"
-
-		if(STATE_PURCHASE)
-			dat += "Budget: [SSshuttle.points] Credits.<BR>"
-			for(var/shuttle_id in SSmapping.shuttle_templates)
-				var/datum/map_template/shuttle/S = SSmapping.shuttle_templates[shuttle_id]
-				if(S.can_be_bought && S.credit_cost < INFINITY)
-					dat += "[S.name] | [S.credit_cost] Credits<BR>"
-					dat += "[S.description]<BR>"
-					if(S.prerequisites)
-						dat += "Prerequisites: [S.prerequisites]<BR>"
-					dat += "<A href='?src=[REF(src)];operation=buyshuttle;chosen_shuttle=[REF(S)]'>(<font color=red><i>Purchase</i></font>)</A><BR><BR>"
 
 	dat += "<BR><BR>\[ [(state != STATE_DEFAULT) ? "<A HREF='?src=[REF(src)];operation=main'>Main Menu</A> | " : ""]<A HREF='?src=[REF(user)];mach_close=communications'>Close</A> \]"
 

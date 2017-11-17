@@ -19,27 +19,15 @@
 	var/datum/map_template/shelter/template
 	var/used = FALSE
 
-/obj/item/survivalcapsule/proc/get_template()
-	if(template)
-		return
-	template = SSmapping.shelter_templates[template_id]
-	if(!template)
-		throw EXCEPTION("Shelter template ([template_id]) not found!")
-		qdel(src)
-
 /obj/item/survivalcapsule/Destroy()
 	template = null // without this, capsules would be one use. per round.
 	. = ..()
 
 /obj/item/survivalcapsule/examine(mob/user)
 	. = ..()
-	get_template()
-	to_chat(user, "This capsule has the [template.name] stored.")
-	to_chat(user, template.description)
 
 /obj/item/survivalcapsule/attack_self()
 	//Can't grab when capsule is New() because templates aren't loaded then
-	get_template()
 	if(!used)
 		loc.visible_message("<span class='warning'>\The [src] begins to shake. Stand back!</span>")
 		used = TRUE
