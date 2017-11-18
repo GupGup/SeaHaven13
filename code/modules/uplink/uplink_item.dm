@@ -250,19 +250,6 @@ GLOBAL_LIST_EMPTY(uplink_items) // Global list so we only initialize this once.
 	cost = 2
 	include_modes = list(/datum/game_mode/nuclear)
 
-/datum/uplink_item/dangerous/crossbow
-	name = "Miniature Energy Crossbow"
-	desc = "A short bow mounted across a tiller in miniature. Small enough to \
-		fit into a pocket or slip into a bag unnoticed. It will synthesize \
-		and fire bolts tipped with a paralyzing toxin that will briefly stun \
-		targets and cause them to slur as if inebriated. It can produce an \
-		infinite number of bolts, but takes time to automatically recharge \
-		after each shot."
-	item = /obj/item/gun/energy/kinetic_accelerator/crossbow
-	cost = 12
-	surplus = 50
-	exclude_modes = list(/datum/game_mode/nuclear)
-
 /datum/uplink_item/dangerous/flamethrower
 	name = "Flamethrower"
 	desc = "A flamethrower, fueled by a portion of highly flammable biotoxins stolen previously from Nanotrasen \
@@ -368,7 +355,7 @@ GLOBAL_LIST_EMPTY(uplink_items) // Global list so we only initialize this once.
 	cost = 12
 	surplus = 35
 	include_modes = list(/datum/game_mode/nuclear)
-	
+
 /datum/uplink_item/dangerous/guardian
 	name = "Holoparasites"
 	desc = "Though capable of near sorcerous feats via use of hardlight holograms and nanomachines, they require an \
@@ -968,24 +955,6 @@ GLOBAL_LIST_EMPTY(uplink_items) // Global list so we only initialize this once.
 	item = /obj/item/aiModule/syndicate
 	cost = 9
 
-/datum/uplink_item/device_tools/briefcase_launchpad
-	name = "Briefcase Launchpad"
-	desc = "A briefcase containing a launchpad, a device able to teleport items and people to and from targets up to three tiles away from the briefcase. \
-			Also includes a remote control. Touch the briefcase with the remote to link it."
-	surplus = 0
-	item = /obj/item/briefcase_launchpad
-	cost = 6
-
-/datum/uplink_item/device_tools/briefcase_launchpad/buy(mob/user, obj/item/device/uplink/U)
-	var/obj/item/device/launchpad_remote/L = new(get_turf(user)) //free remote
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.put_in_hands(L))
-			to_chat(H, "[L] materializes into your hands!")
-		else
-			to_chat(H, "\The [L] materializes onto the floor.")
-	return ..()
-
 /datum/uplink_item/device_tools/magboots
 	name = "Blood-Red Magboots"
 	desc = "A pair of magnetic boots with a Syndicate paintjob that assist with freer movement in space or on-station \
@@ -1315,14 +1284,6 @@ GLOBAL_LIST_EMPTY(uplink_items) // Global list so we only initialize this once.
 	item = /obj/item/reagent_containers/hypospray/magillitis
 	cost = 15
 	restricted_roles = list("Geneticist", "Chief Medical Officer")
-
-/datum/uplink_item/role_restricted/pressure_mod
-	name = "Kinetic Accelerator Pressure Mod"
-	desc = "A modification kit which allows Kinetic Accelerators to do greatly increased damage while indoors. Occupies 35% mod capacity."
-	item = /obj/item/borg/upgrade/modkit/indoors
-	cost = 5 //you need two for full damage, so total of 10 for maximum damage
-	limited_stock = 2 //you can't use more than two!
-	restricted_roles = list("Shaft Miner")
 
 // Pointless
 /datum/uplink_item/badass

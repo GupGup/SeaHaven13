@@ -69,7 +69,3 @@
 /obj/item/storage/attack_ghost(mob/user)
 	orient2hud(user)
 	show_to(user)
-
-/obj/machinery/teleport/hub/attack_ghost(mob/user)
-	if(power_station && power_station.engaged && power_station.teleporter_console && power_station.teleporter_console.target)
-		user.forceMove(get_turf(power_station.teleporter_console.target))

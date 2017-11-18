@@ -124,7 +124,6 @@
 		/obj/item/device/sensor_device,
 		/obj/item/device/radio,
 		/obj/item/clothing/gloves/,
-		/obj/item/lazarus_injector,
 		/obj/item/bikehorn/rubberducky,
 		/obj/item/clothing/mask/surgical,
 		/obj/item/clothing/mask/breath,
@@ -207,8 +206,6 @@
 		/obj/item/extinguisher/mini,
 		/obj/item/device/radio,
 		/obj/item/clothing/gloves,
-		/obj/item/resonator,
-		/obj/item/device/mining_scanner,
 		/obj/item/pickaxe,
 		/obj/item/stack/sheet/animalhide,
 		/obj/item/stack/sheet/sinew,
@@ -220,16 +217,10 @@
 		/obj/item/kitchen/knife,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/device/gps,
-		/obj/item/storage/bag/ore,
-		/obj/item/device/t_scanner/adv_mining_scanner,
 		/obj/item/reagent_containers/pill,
 		/obj/item/storage/pill_bottle,
-		/obj/item/ore,
 		/obj/item/reagent_containers/food/drinks,
-		/obj/item/organ/regenerative_core,
-		/obj/item/device/wormhole_jaunter,
 		/obj/item/storage/bag/plants,
-		/obj/item/stack/marker_beacon
 		)
 
 /obj/item/storage/belt/mining/alt

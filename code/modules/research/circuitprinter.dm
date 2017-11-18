@@ -29,7 +29,7 @@ using metal and glass, it uses glass and reagents (usually sulfuric acis).
 
 /obj/machinery/r_n_d/circuit_imprinter/Initialize()
 	var/datum/component/material_container/materials = AddComponent(/datum/component/material_container, list(MAT_GLASS, MAT_GOLD, MAT_DIAMOND, MAT_METAL, MAT_BLUESPACE),
-		FALSE, list(/obj/item/stack, /obj/item/ore/bluespace_crystal), CALLBACK(src, .proc/is_insertion_ready))
+		FALSE, list(/obj/item/stack), CALLBACK(src, .proc/is_insertion_ready))
 	materials.precise_insertion = TRUE
 	create_reagents(0)
 	return ..()
@@ -85,12 +85,8 @@ using metal and glass, it uses glass and reagents (usually sulfuric acis).
 			return
 		var/lit = M.last_inserted_type
 		var/stack_name
-		if(ispath(lit, /obj/item/ore/bluespace_crystal))
-			stack_name = "bluespace"
-			use_power(MINERAL_MATERIAL_AMOUNT / 10)
-		else
-			var/obj/item/stack/S = lit
-			stack_name = initial(S.name)
-			use_power(max(1000, (MINERAL_MATERIAL_AMOUNT * M.last_amount_inserted / 10)))
+		var/obj/item/stack/S = lit
+		stack_name = initial(S.name)
+		use_power(max(1000, (MINERAL_MATERIAL_AMOUNT * M.last_amount_inserted / 10)))
 		add_overlay("protolathe_[stack_name]")
 		addtimer(CALLBACK(src, /atom/proc/cut_overlay, "protolathe_[stack_name]"), 10)

@@ -37,12 +37,6 @@
 	difficulty = 10
 	excludefromjob = list("Head Of Security")
 
-/datum/objective_item/steal/handtele
-	name = "a hand teleporter."
-	targetitem = /obj/item/hand_tele
-	difficulty = 5
-	excludefromjob = list("Captain")
-
 /datum/objective_item/steal/jetpack
 	name = "the Captain's jetpack."
 	targetitem = /obj/item/tank/jetpack/oxygen/captain
@@ -194,11 +188,6 @@
 /datum/objective_item/special/aegun
 	name = "an advanced energy gun."
 	targetitem = /obj/item/gun/energy/e_gun/nuclear
-	difficulty = 10
-
-/datum/objective_item/special/ddrill
-	name = "a diamond drill."
-	targetitem = /obj/item/pickaxe/drill/diamonddrill
 	difficulty = 10
 
 /datum/objective_item/special/boh

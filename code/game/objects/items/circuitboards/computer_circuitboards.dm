@@ -3,11 +3,6 @@
 	build_path = /obj/machinery/computer/turbine_computer
 	origin_tech = "programming=4;engineering=4;powerstorage=4"
 
-/obj/item/circuitboard/computer/launchpad_console
-	name = "Launchpad Control Console (Computer Board)"
-	build_path = /obj/machinery/computer/launchpad
-	origin_tech = "programming=3;bluespace=3;plasmatech=2"
-
 /obj/item/circuitboard/computer/message_monitor
 	name = "Message Monitor (Computer Board)"
 	build_path = /obj/machinery/computer/message_monitor
@@ -83,10 +78,6 @@
 //obj/item/circuitboard/computer/shield
 //	name = "Shield Control (Computer Board)"
 //	build_path = /obj/machinery/computer/stationshield
-/obj/item/circuitboard/computer/teleporter
-	name = "Teleporter (Computer Board)"
-	build_path = /obj/machinery/computer/teleporter
-	origin_tech = "programming=3;bluespace=3;plasmatech=3"
 
 /obj/item/circuitboard/computer/secure_data
 	name = "Security Records Console (Computer Board)"
@@ -163,9 +154,6 @@
 /obj/item/circuitboard/computer/prisoner
 	name = "Prisoner Management Console (Computer Board)"
 	build_path = /obj/machinery/computer/prisoner
-/obj/item/circuitboard/computer/gulag_teleporter_console
-	name = "Labor Camp teleporter console (Computer Board)"
-	build_path = /obj/machinery/computer/gulag_teleporter_computer
 
 /obj/item/circuitboard/computer/rdconsole
 	name = "R&D Console (Computer Board)"
@@ -252,14 +240,6 @@
 	build_path = /obj/machinery/computer/telecomms/server
 	origin_tech = "programming=3;magnets=3;bluespace=2"
 
-/obj/item/circuitboard/computer/labor_shuttle
-	name = "Labor Shuttle (Computer Board)"
-	build_path = /obj/machinery/computer/shuttle/labor
-
-/obj/item/circuitboard/computer/labor_shuttle/one_way
-	name = "Prisoner Shuttle Console (Computer Board)"
-	build_path = /obj/machinery/computer/shuttle/labor/one_way
-
 /obj/item/circuitboard/computer/ferry
 	name = "Transport Ferry (Computer Board)"
 	build_path = /obj/machinery/computer/shuttle/ferry
@@ -267,10 +247,6 @@
 /obj/item/circuitboard/computer/ferry/request
 	name = "Transport Ferry Console (Computer Board)"
 	build_path = /obj/machinery/computer/shuttle/ferry/request
-
-/obj/item/circuitboard/computer/mining_shuttle
-	name = "Mining Shuttle (Computer Board)"
-	build_path = /obj/machinery/computer/shuttle/mining
 
 /obj/item/circuitboard/computer/holodeck// Not going to let people get this, but it's just here for future
 	name = "Holodeck Control (Computer Board)"
@@ -281,11 +257,6 @@
 	name = "AI Integrity Restorer (Computer Board)"
 	build_path = /obj/machinery/computer/aifixer
 	origin_tech = "programming=2;biotech=2"
-
-/obj/item/circuitboard/computer/slot_machine
-	name = "Slot Machine (Computer Board)"
-	build_path = /obj/machinery/computer/slot_machine
-	origin_tech = "programming=1"
 
 /obj/item/circuitboard/computer/libraryconsole
 	name = "Library Visitor Console (Computer Board)"
@@ -327,11 +298,6 @@
 /obj/item/circuitboard/computer/syndicate_shuttle/Destroy()
 	GLOB.syndicate_shuttle_boards -= src
 	return ..()
-
-/obj/item/circuitboard/computer/bsa_control
-	name = "Bluespace Artillery Controls (Computer Board)"
-	build_path = /obj/machinery/computer/bsa_control
-	origin_tech = "engineering=2;combat=2;bluespace=2"
 
 /obj/item/circuitboard/computer/sat_control
 	name = "Satellite Network Control (Computer Board)"

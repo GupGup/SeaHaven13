@@ -31,25 +31,7 @@
 
 /obj/structure/girder/attackby(obj/item/W, mob/user, params)
 	add_fingerprint(user)
-
-	if(istype(W, /obj/item/gun/energy/plasmacutter))
-		to_chat(user, "<span class='notice'>You start slicing apart the girder...</span>")
-		playsound(src, 'sound/items/welder.ogg', 100, 1)
-		if(do_after(user, 40*W.toolspeed, target = src))
-			to_chat(user, "<span class='notice'>You slice apart the girder.</span>")
-			var/obj/item/stack/sheet/metal/M = new (loc, 2)
-			M.add_fingerprint(user)
-			qdel(src)
-
-	else if(istype(W, /obj/item/pickaxe/drill/jackhammer))
-		var/obj/item/pickaxe/drill/jackhammer/D = W
-		to_chat(user, "<span class='notice'>You smash through the girder!</span>")
-		new /obj/item/stack/sheet/metal(get_turf(src))
-		D.playDigSound()
-		qdel(src)
-
-
-	else if(istype(W, /obj/item/stack))
+	if(istype(W, /obj/item/stack))
 		if(iswallturf(loc))
 			to_chat(user, "<span class='warning'>There is already a wall present!</span>")
 			return
@@ -365,25 +347,6 @@
 				R.amount = 1
 				transfer_fingerprints_to(R)
 				qdel(src)
-
-	else if(istype(W, /obj/item/gun/energy/plasmacutter))
-		to_chat(user, "<span class='notice'>You start slicing apart the girder...</span>")
-		playsound(src, 'sound/items/welder.ogg', 100, 1)
-		if(do_after(user, 40*W.toolspeed, target = src))
-			to_chat(user, "<span class='notice'>You slice apart the girder.</span>")
-			var/obj/item/stack/sheet/runed_metal/R = new(get_turf(src))
-			R.amount = 1
-			transfer_fingerprints_to(R)
-			qdel(src)
-
-	else if(istype(W, /obj/item/pickaxe/drill/jackhammer))
-		var/obj/item/pickaxe/drill/jackhammer/D = W
-		to_chat(user, "<span class='notice'>Your jackhammer smashes through the girder!</span>")
-		var/obj/item/stack/sheet/runed_metal/R = new(get_turf(src))
-		R.amount = 2
-		transfer_fingerprints_to(R)
-		D.playDigSound()
-		qdel(src)
 
 	else if(istype(W, /obj/item/stack/sheet/runed_metal))
 		var/obj/item/stack/sheet/runed_metal/R = W

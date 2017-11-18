@@ -130,16 +130,12 @@
 		var/datum/component/material_container/M = C
 		if(!M.last_insert_success)
 			return
-		var/lit = M.last_inserted_type
-		if(ispath(lit, /obj/item/ore/bluespace_crystal))
-			use_power(max(500,M.last_amount_inserted/10))
-		else
-			switch(M.last_inserted_id)
-				if (MAT_METAL)
-					flick("autolathe_o",src)//plays metal insertion animation
-				if (MAT_GLASS)
-					flick("autolathe_r",src)//plays glass insertion animation
-			use_power(M.last_amount_inserted*100)
+		switch(M.last_inserted_id)
+			if (MAT_METAL)
+				flick("autolathe_o",src)//plays metal insertion animation
+			if (MAT_GLASS)
+				flick("autolathe_r",src)//plays glass insertion animation
+		use_power(M.last_amount_inserted*100)
 		updateUsrDialog()
 
 /obj/machinery/autolathe/Topic(href, href_list)

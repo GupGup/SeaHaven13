@@ -1100,8 +1100,6 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 
 /datum/reagent/consumable/ethanol/fetching_fizz/on_mob_life(mob/living/M)
-	for(var/obj/item/ore/O in orange(3, M))
-		step_towards(O, get_turf(M))
 	return ..()
 
 //Another reference. Heals those in critical condition extremely quickly.

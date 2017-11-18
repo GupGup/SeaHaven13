@@ -74,17 +74,6 @@
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
 
-/datum/crafting_recipe/teleprod
-	name = "Teleprod"
-	result = /obj/item/melee/baton/cattleprod/teleprod
-	reqs = list(/obj/item/restraints/handcuffs/cable = 1,
-				/obj/item/stack/rods = 1,
-				/obj/item/device/assembly/igniter = 1,
-				/obj/item/ore/bluespace_crystal = 1)
-	time = 40
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
-
 /datum/crafting_recipe/bola
 	name = "Bola"
 	result = /obj/item/restraints/legcuffs/bola
@@ -436,75 +425,6 @@
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
 
-/datum/crafting_recipe/chemical_payload2
-	name = "Chemical Payload (gibtonite)"
-	result = /obj/item/bombcore/chemical
-	reqs = list(
-		/obj/item/stock_parts/matter_bin = 1,
-		/obj/item/twohanded/required/gibtonite = 1,
-		/obj/item/grenade/chem_grenade = 2
-	)
-	parts = list(/obj/item/stock_parts/matter_bin = 1, /obj/item/grenade/chem_grenade = 2)
-	time = 50
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
-
-/datum/crafting_recipe/bonearmor
-	name = "Bone Armor"
-	result = /obj/item/clothing/suit/armor/bone
-	time = 30
-	reqs = list(/obj/item/stack/sheet/bone = 6)
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/bonetalisman
-	name = "Bone Talisman"
-	result = /obj/item/clothing/accessory/talisman
-	time = 20
-	reqs = list(/obj/item/stack/sheet/bone = 2,
-				 /obj/item/stack/sheet/sinew = 1)
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/bonecodpiece
-	name = "Skull Codpiece"
-	result = /obj/item/clothing/accessory/skullcodpiece
-	time = 20
-	reqs = list(/obj/item/stack/sheet/bone = 2,
-				 /obj/item/stack/sheet/animalhide/goliath_hide = 1)
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/bracers
-	name = "Bone Bracers"
-	result = /obj/item/clothing/gloves/bracer
-	time = 20
-	reqs = list(/obj/item/stack/sheet/bone = 2,
-				 /obj/item/stack/sheet/sinew = 1)
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/skullhelm
-	name = "Skull Helmet"
-	result = /obj/item/clothing/head/helmet/skull
-	time = 30
-	reqs = list(/obj/item/stack/sheet/bone = 4)
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/goliathcloak
-	name = "Goliath Cloak"
-	result = /obj/item/clothing/suit/hooded/cloak/goliath
-	time = 50
-	reqs = list(/obj/item/stack/sheet/leather = 2,
-				/obj/item/stack/sheet/sinew = 2,
-				/obj/item/stack/sheet/animalhide/goliath_hide = 2) //it takes 4 goliaths to make 1 cloak if the plates are skinned
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/drakecloak
-	name = "Ash Drake Armour"
-	result = /obj/item/clothing/suit/hooded/cloak/drake
-	time = 60
-	reqs = list(/obj/item/stack/sheet/bone = 10,
-				/obj/item/stack/sheet/sinew = 2,
-				/obj/item/stack/sheet/animalhide/ashdrake = 5)
-	category = CAT_PRIMAL
-
 /datum/crafting_recipe/gold_horn
 	name = "Golden bike horn"
 	result = /obj/item/bikehorn/golden
@@ -512,36 +432,6 @@
 	reqs = list(/obj/item/stack/sheet/mineral/bananium = 5,
 				/obj/item/bikehorn)
 	category = CAT_MISC
-
-/datum/crafting_recipe/bonedagger
-	name = "Bone Dagger"
-	result = /obj/item/kitchen/knife/combat/bone
-	time = 20
-	reqs = list(/obj/item/stack/sheet/bone = 2)
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/bonespear
-	name = "Bone Spear"
-	result = /obj/item/twohanded/bonespear
-	time = 30
-	reqs = list(/obj/item/stack/sheet/bone = 4,
-				 /obj/item/stack/sheet/sinew = 1)
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/boneaxe
-	name = "Bone Axe"
-	result = /obj/item/twohanded/fireaxe/boneaxe
-	time = 50
-	reqs = list(/obj/item/stack/sheet/bone = 6,
-				 /obj/item/stack/sheet/sinew = 3)
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/bonfire
-	name = "Bonfire"
-	time = 60
-	reqs = list(/obj/item/grown/log = 5)
-	result = /obj/structure/bonfire
-	category = CAT_PRIMAL
 
 /datum/crafting_recipe/smallcarton
 	name = "Small Carton"

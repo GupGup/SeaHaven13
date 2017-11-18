@@ -19,10 +19,6 @@
 	export_types = list(/obj/structure/closet/crate/large)
 	exclude_types = list()
 
-/datum/export/large/crate/wooden/ore
-	unit_name = "ore box"
-	export_types = list(/obj/structure/ore_box)
-
 /datum/export/large/crate/wood
 	cost = 240
 	unit_name = "wooden crate"

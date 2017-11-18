@@ -70,11 +70,3 @@
 /datum/wires/explosive/pizza/explode()
 	var/obj/item/pizzabox/P = holder
 	P.bomb.detonate()
-
-
-/datum/wires/explosive/gibtonite
-	holder_type = /obj/item/twohanded/required/gibtonite
-
-/datum/wires/explosive/gibtonite/explode()
-	var/obj/item/twohanded/required/gibtonite/P = holder
-	P.GibtoniteReaction(null, 2)

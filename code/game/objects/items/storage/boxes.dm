@@ -95,12 +95,6 @@
 	..() // we want the survival stuff too.
 	new /obj/item/device/radio/off(src)
 
-/obj/item/storage/box/survival_mining/PopulateContents()
-	new /obj/item/clothing/mask/gas/explorer(src)
-	new /obj/item/tank/internals/emergency_oxygen/engi(src)
-	new /obj/item/crowbar/red(src)
-	new /obj/item/reagent_containers/hypospray/medipen(src)
-
 
 // Engineer survival box
 /obj/item/storage/box/engineer/PopulateContents()
@@ -247,30 +241,6 @@
 /obj/item/storage/box/emps/PopulateContents()
 	for(var/i in 1 to 5)
 		new /obj/item/grenade/empgrenade(src)
-
-/obj/item/storage/box/trackimp
-	name = "boxed tracking implant kit"
-	desc = "Box full of scum-bag tracking utensils."
-	illustration = "implant"
-
-/obj/item/storage/box/trackimp/PopulateContents()
-	for(var/i in 1 to 4)
-		new /obj/item/implantcase/tracking(src)
-	new /obj/item/implanter(src)
-	new /obj/item/implantpad(src)
-	new /obj/item/locator(src)
-
-/obj/item/storage/box/minertracker
-	name = "boxed tracking implant kit"
-	desc = "For finding those who have died on the accursed lavaworld."
-	illustration = "implant"
-
-/obj/item/storage/box/minertracker/PopulateContents()
-	for(var/i in 1 to 3)
-		new /obj/item/implantcase/tracking(src)
-	new /obj/item/implanter(src)
-	new /obj/item/implantpad(src)
-	new /obj/item/locator(src)
 
 /obj/item/storage/box/chemimp
 	name = "boxed chemical implant kit"

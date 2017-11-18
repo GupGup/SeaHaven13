@@ -210,22 +210,8 @@
 
 /obj/machinery/gibber/autogibber/Initialize()
 	. = ..()
-	for(var/i in GLOB.cardinals)
-		var/obj/machinery/mineral/input/input_obj = locate() in get_step(loc, i)
-		if(input_obj)
-			if(isturf(input_obj.loc))
-				input_plate = input_obj.loc
-				qdel(input_obj)
-				break
-
-	if(!input_plate)
-		CRASH("Didn't find an input plate.")
-		return
 
 /obj/machinery/gibber/autogibber/CollidedWith(atom/movable/AM)
-	if(!input_plate)
-		return
-
 	if(ismob(AM))
 		var/mob/M = AM
 

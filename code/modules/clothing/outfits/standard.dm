@@ -157,48 +157,6 @@
 		I.add_mob_blood(H)
 	H.regenerate_icons()
 
-/datum/outfit/assassin
-	name = "Assassin"
-
-	uniform = /obj/item/clothing/under/suit_jacket
-	shoes = /obj/item/clothing/shoes/sneakers/black
-	gloves = /obj/item/clothing/gloves/color/black
-	ears = /obj/item/device/radio/headset
-	glasses = /obj/item/clothing/glasses/sunglasses
-	l_pocket = /obj/item/melee/transforming/energy/sword/saber
-	l_hand = /obj/item/storage/secure/briefcase
-	id = /obj/item/card/id/syndicate
-	belt = /obj/item/device/pda/heads
-
-/datum/outfit/assassin/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	var/obj/item/clothing/under/U = H.w_uniform
-	U.attach_accessory(new /obj/item/clothing/accessory/waistcoat(H))
-
-	if(visualsOnly)
-		return
-
-	//Could use a type
-	var/obj/item/storage/secure/briefcase/sec_briefcase = H.get_item_for_held_index(1)
-	for(var/obj/item/briefcase_item in sec_briefcase)
-		qdel(briefcase_item)
-	for(var/i = 3 to 0 step -1)
-		sec_briefcase.handle_item_insertion(new /obj/item/stack/spacecash/c1000,1)
-	sec_briefcase.handle_item_insertion(new /obj/item/gun/energy/kinetic_accelerator/crossbow,1)
-	sec_briefcase.handle_item_insertion(new /obj/item/gun/ballistic/revolver/mateba,1)
-	sec_briefcase.handle_item_insertion(new /obj/item/ammo_box/a357,1)
-	sec_briefcase.handle_item_insertion(new /obj/item/grenade/plastic/x4,1)
-
-	var/obj/item/device/pda/heads/pda = H.belt
-	pda.owner = H.real_name
-	pda.ownjob = "Reaper"
-	pda.update_label()
-
-	var/obj/item/card/id/syndicate/W = H.wear_id
-	W.access = get_all_accesses()
-	W.assignment = "Reaper"
-	W.registered_name = H.real_name
-	W.update_label(H.real_name)
-
 /datum/outfit/centcom_commander
 	name = "CentCom Commander"
 

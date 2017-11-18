@@ -245,8 +245,7 @@
 	resistance_flags = FLAMMABLE
 	max_integrity = 70
 	canSmoothWith = list(/obj/structure/table/wood,
-		/obj/structure/table/wood/poker,
-		/obj/structure/table/wood/bar)
+		/obj/structure/table/wood/poker)
 
 /obj/structure/table/wood/narsie_act()
 	return

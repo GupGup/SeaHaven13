@@ -508,19 +508,6 @@
 	new /obj/item/stack/tile/bluespace(get_turf(holder.my_atom), 25)
 	..()
 
-
-/datum/chemical_reaction/slime/slimecrystal
-	name = "Slime Crystal"
-	id = "m_crystal"
-	required_reagents = list("plasma" = 1)
-	required_container = /obj/item/slime_extract/bluespace
-	required_other = 1
-
-/datum/chemical_reaction/slime/slimecrystal/on_reaction(datum/reagents/holder, created_volume)
-	var/obj/item/ore/bluespace_crystal/BC = new (get_turf(holder.my_atom))
-	BC.visible_message("<span class='notice'>The [BC.name] appears out of thin air!</span>")
-	..()
-
 //Cerulean
 /datum/chemical_reaction/slime/slimepsteroid2
 	name = "Slime Steroid 2"

@@ -18,21 +18,9 @@
 
 /obj/mecha/working/ripley/Move()
 	. = ..()
-	if(.)
-		collect_ore()
 	update_pressure()
 
-/obj/mecha/working/ripley/proc/collect_ore()
-	if(locate(/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp) in equipment)
-		var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in cargo
-		if(ore_box)
-			for(var/obj/item/ore/ore in range(1, src))
-				if(ore.Adjacent(src) && ((get_dir(src, ore) & dir) || ore.loc == loc)) //we can reach it and it's in front of us? grab it!
-					ore.forceMove(ore_box)
-
 /obj/mecha/working/ripley/Destroy()
-	for(var/i=1, i <= hides, i++)
-		new /obj/item/stack/sheet/animalhide/goliath_hide(loc) //If a goliath-plated ripley gets killed, all the plates drop
 	for(var/atom/movable/A in cargo)
 		A.forceMove(loc)
 		step_rand(A)
@@ -106,9 +94,6 @@
 	else //Add plasma cutter if no drill
 		var/obj/item/mecha_parts/mecha_equipment/weapon/energy/plasma/P = new
 		P.attach(src)
-
-	//Add ore box to cargo
-	cargo.Add(new /obj/structure/ore_box(src))
 
 	//Attach hydraulic clamp
 	var/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp/HC = new

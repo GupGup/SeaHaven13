@@ -95,10 +95,7 @@
 	name = "lootcrate spawner" //USE PROMO CODE "SELLOUT" FOR 20% OFF!
 	lootdoubles = FALSE
 
-	loot = list(
-				/obj/structure/closet/crate/secure/loot = 20,
-				"" = 80
-				)
+	loot = list("" = 80)
 
 /obj/effect/spawner/lootdrop/organ_spawner
 	name = "organ spawner"
@@ -113,8 +110,7 @@
 		/obj/item/organ/heart/gland/slime = 4,
 		/obj/item/organ/heart/gland/spiderman = 5,
 		/obj/item/organ/heart/gland/ventcrawling = 1,
-		/obj/item/organ/body_egg/alien_embryo = 1,
-		/obj/item/organ/regenerative_core = 2)
+		/obj/item/organ/body_egg/alien_embryo = 1)
 	lootcount = 3
 
 /obj/effect/spawner/lootdrop/two_percent_xeno_egg_spawner

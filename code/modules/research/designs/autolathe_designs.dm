@@ -311,22 +311,6 @@
 	build_path = /obj/item/device/plant_analyzer
 	category = list("initial","Misc")
 
-/datum/design/shovel
-	name = "Shovel"
-	id = "shovel"
-	build_type = AUTOLATHE
-	materials = list(MAT_METAL = 50)
-	build_path = /obj/item/shovel
-	category = list("initial","Misc")
-
-/datum/design/spade
-	name = "Spade"
-	id = "spade"
-	build_type = AUTOLATHE
-	materials = list(MAT_METAL = 50)
-	build_path = /obj/item/shovel/spade
-	category = list("initial","Misc")
-
 /datum/design/hatchet
 	name = "Hatchet"
 	id = "hatchet"

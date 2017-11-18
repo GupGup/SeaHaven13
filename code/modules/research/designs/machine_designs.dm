@@ -66,54 +66,6 @@
 	build_path = /obj/item/circuitboard/machine/space_heater
 	category = list ("Engineering Machinery")
 
-/datum/design/board/teleport_station
-	name = "Machine Design (Teleportation Station Board)"
-	desc = "The circuit board for a teleportation station."
-	id = "tele_station"
-	req_tech = list("programming" = 5, "bluespace" = 4, "engineering" = 4, "plasmatech" = 4)
-	build_path = /obj/item/circuitboard/machine/teleporter_station
-	category = list ("Teleportation Machinery")
-
-/datum/design/board/teleport_hub
-	name = "Machine Design (Teleportation Hub Board)"
-	desc = "The circuit board for a teleportation hub."
-	id = "tele_hub"
-	req_tech = list("programming" = 3, "bluespace" = 5, "materials" = 4, "engineering" = 5)
-	build_path = /obj/item/circuitboard/machine/teleporter_hub
-	category = list ("Teleportation Machinery")
-
-/datum/design/board/quantumpad
-	name = "Machine Design (Quantum Pad Board)"
-	desc = "The circuit board for a quantum telepad."
-	id = "quantumpad"
-	req_tech = list("programming" = 4, "bluespace" = 4, "plasmatech" = 3, "engineering" = 4)
-	build_path = /obj/item/circuitboard/machine/quantumpad
-	category = list ("Teleportation Machinery")
-
-/datum/design/board/launchpad
-	name = "Machine Design (Bluespace Launchpad Board)"
-	desc = "The circuit board for a bluespace Launchpad."
-	id = "launchpad"
-	req_tech = list("programming" = 3, "bluespace" = 3, "plasmatech" = 2, "engineering" = 3)
-	build_path = /obj/item/circuitboard/machine/launchpad
-	category = list ("Teleportation Machinery")
-
-/datum/design/board/launchpad_console
-	name = "Machine Design (Bluespace Launchpad Console Board)"
-	desc = "The circuit board for a bluespace launchpad Console."
-	id = "launchpad_console"
-	req_tech = list("programming" = 4, "bluespace" = 3, "plasmatech" = 3)
-	build_path = /obj/item/circuitboard/computer/launchpad_console
-	category = list ("Teleportation Machinery")
-
-/datum/design/board/teleconsole
-	name = "Computer Design (Teleporter Console)"
-	desc = "Allows for the construction of circuit boards used to build a teleporter control console."
-	id = "teleconsole"
-	req_tech = list("programming" = 3, "bluespace" = 3, "plasmatech" = 4)
-	build_path = /obj/item/circuitboard/computer/teleporter
-	category = list("Teleportation Machinery")
-
 /datum/design/board/sleeper
 	name = "Machine Design (Sleeper Board)"
 	desc = "The circuit board for a sleeper."
@@ -369,22 +321,6 @@
 	id = "vendor"
 	req_tech = list("programming" = 1)
 	build_path = /obj/item/circuitboard/machine/vendor
-	category = list ("Misc. Machinery")
-
-/datum/design/board/ore_redemption
-	name = "Machine Design (Ore Redemption Board)"
-	desc = "The circuit board for an Ore Redemption machine."
-	id = "ore_redemption"
-	req_tech = list("programming" = 2, "engineering" = 2, "plasmatech" = 3)
-	build_path = /obj/item/circuitboard/machine/ore_redemption
-	category = list ("Misc. Machinery")
-
-/datum/design/board/mining_equipment_vendor
-	name = "Machine Design (Mining Rewards Vender Board)"
-	desc = "The circuit board for a Mining Rewards Vender."
-	id = "mining_equipment_vendor"
-	req_tech = list("engineering" = 3)
-	build_path = /obj/item/circuitboard/machine/mining_equipment_vendor
 	category = list ("Misc. Machinery")
 
 /datum/design/board/tesla_coil

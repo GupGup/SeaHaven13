@@ -41,26 +41,6 @@
 									 "<span class='notice'>You have secured the [name]'s bolts.</span>")
 				anchored = TRUE
 
-	else if(istype(W, /obj/item/gun/energy/plasmacutter))
-		playsound(src, 'sound/items/welder.ogg', 100, 1)
-		user.visible_message("[user] is slicing apart the [name]...", \
-							 "<span class='notice'>You are slicing apart the [name]...</span>")
-		if(do_after(user,40*W.toolspeed, target = src))
-			if(!src.loc)
-				return
-			user.visible_message("[user] slices apart the [name].", \
-								 "<span class='notice'>You slice apart the [name].</span>")
-			deconstruct(TRUE)
-
-	else if(istype(W, /obj/item/pickaxe/drill/jackhammer))
-		var/obj/item/pickaxe/drill/jackhammer/D = W
-		if(!src.loc)
-			return
-		user.visible_message("[user] destroys the [name]!", \
-							 "<span class='notice'>You destroy the [name].</span>")
-		D.playDigSound()
-		qdel(src)
-
 	else if(istype(W, /obj/item/weldingtool) && !anchored)
 		playsound(loc, W.usesound, 40, 1)
 		user.visible_message("[user] is slicing apart the [name].", \

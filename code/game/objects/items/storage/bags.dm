@@ -76,35 +76,6 @@
 	flags_2 = NO_MAT_REDEMPTION_2
 
 // -----------------------------
-//        Mining Satchel
-// -----------------------------
-
-/obj/item/storage/bag/ore
-	name = "mining satchel"
-	desc = "This little bugger can be used to store and transport ores."
-	icon = 'icons/obj/mining.dmi'
-	icon_state = "satchel"
-	origin_tech = "engineering=2"
-	slot_flags = SLOT_BELT | SLOT_POCKET
-	w_class = WEIGHT_CLASS_NORMAL
-	storage_slots = 50
-	max_combined_w_class = 200 //Doesn't matter what this is, so long as it's more or equal to storage_slots * ore.w_class
-	max_w_class = WEIGHT_CLASS_NORMAL
-	can_hold = list(/obj/item/ore)
-	var/spam_protection = FALSE //If this is TRUE, the holder won't receive any messages when they fail to pick up ore through crossing it
-
-/obj/item/storage/bag/ore/cyborg
-	name = "cyborg mining satchel"
-
-/obj/item/storage/bag/ore/holding //miners, your messiah has arrived
-	name = "mining satchel of holding"
-	desc = "A revolution in convenience, this satchel allows for huge amounts of ore storage. It's been outfitted with anti-malfunction safety measures."
-	storage_slots = INFINITY
-	max_combined_w_class = INFINITY
-	origin_tech = "bluespace=4;materials=3;engineering=3"
-	icon_state = "satchel_bspace"
-
-// -----------------------------
 //          Plant bag
 // -----------------------------
 

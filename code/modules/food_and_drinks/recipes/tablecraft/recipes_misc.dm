@@ -22,15 +22,6 @@
  	result = /obj/item/reagent_containers/food/snacks/spiderlollipop
  	subcategory = CAT_MISCFOOD
 
-/datum/crafting_recipe/food/chococoin
-	name = "Choco coin"
-	reqs = list(
-		/obj/item/coin = 1,
-		/obj/item/reagent_containers/food/snacks/chocolatebar = 1,
-	)
-	result = /obj/item/reagent_containers/food/snacks/chococoin
-	subcategory = CAT_MISCFOOD
-
 /datum/crafting_recipe/food/fudgedice
 	name = "Fudge dice"
 	reqs = list(
@@ -266,19 +257,6 @@
 		/datum/reagent/consumable/honey = 5
 	)
 	result = /obj/item/reagent_containers/food/snacks/honeybar
-	subcategory = CAT_MISCFOOD
-
-
-/datum/crafting_recipe/food/stuffedlegion
-	name = "Stuffed legion"
-	time = 40
-	reqs = list(
-		/obj/item/reagent_containers/food/snacks/meat/steak/goliath = 1,
-		/obj/item/organ/regenerative_core/legion = 1,
-		/datum/reagent/consumable/ketchup = 2,
-		/datum/reagent/consumable/capsaicin = 2
-	)
-	result = /obj/item/reagent_containers/food/snacks/stuffedlegion
 	subcategory = CAT_MISCFOOD
 
 

@@ -62,15 +62,6 @@
 	origin_tech = "programming=1"
 	req_components = list(/obj/item/stock_parts/capacitor = 1)
 
-/obj/item/circuitboard/machine/launchpad
-	name = "Bluespace Launchpad (Machine Board)"
-	build_path = /obj/machinery/launchpad
-	origin_tech = "programming=3;engineering=3;plasmatech=2;bluespace=3"
-	req_components = list(
-		/obj/item/ore/bluespace_crystal = 1,
-		/obj/item/stock_parts/manipulator = 1)
-	def_components = list(/obj/item/ore/bluespace_crystal = /obj/item/ore/bluespace_crystal/artificial)
-
 /obj/item/circuitboard/machine/limbgrower
 	name = "Limb Grower (Machine Board)"
 	build_path = /obj/machinery/limbgrower
@@ -79,17 +70,6 @@
 		/obj/item/stock_parts/manipulator = 1,
 		/obj/item/reagent_containers/glass/beaker = 2,
 		/obj/item/stock_parts/console_screen = 1)
-
-/obj/item/circuitboard/machine/quantumpad
-	name = "Quantum Pad (Machine Board)"
-	build_path = /obj/machinery/quantumpad
-	origin_tech = "programming=3;engineering=3;plasmatech=3;bluespace=4"
-	req_components = list(
-		/obj/item/ore/bluespace_crystal = 1,
-		/obj/item/stock_parts/capacitor = 1,
-		/obj/item/stock_parts/manipulator = 1,
-		/obj/item/stack/cable_coil = 1)
-	def_components = list(/obj/item/ore/bluespace_crystal = /obj/item/ore/bluespace_crystal/artificial)
 
 /obj/item/circuitboard/machine/recharger
 	name = "Weapon Recharger (Machine Board)"
@@ -205,25 +185,6 @@
 							/obj/item/stock_parts/subspace/crystal = 1,
 							/obj/item/stock_parts/subspace/treatment = 2,
 							/obj/item/stack/cable_coil = 2)
-
-/obj/item/circuitboard/machine/teleporter_hub
-	name = "Teleporter Hub (Machine Board)"
-	build_path = /obj/machinery/teleport/hub
-	origin_tech = "programming=3;engineering=4;bluespace=4;materials=4"
-	req_components = list(
-		/obj/item/ore/bluespace_crystal = 3,
-		/obj/item/stock_parts/matter_bin = 1)
-	def_components = list(/obj/item/ore/bluespace_crystal = /obj/item/ore/bluespace_crystal/artificial)
-
-/obj/item/circuitboard/machine/teleporter_station
-	name = "Teleporter Station (Machine Board)"
-	build_path = /obj/machinery/teleport/station
-	origin_tech = "programming=4;engineering=4;bluespace=4;plasmatech=3"
-	req_components = list(
-		/obj/item/ore/bluespace_crystal = 2,
-		/obj/item/stock_parts/capacitor = 2,
-		/obj/item/stock_parts/console_screen = 1)
-	def_components = list(/obj/item/ore/bluespace_crystal = /obj/item/ore/bluespace_crystal/artificial)
 
 /obj/item/circuitboard/machine/vendor
 	name = "Booze-O-Mat Vendor (Machine Board)"
@@ -471,29 +432,6 @@
 		/obj/item/stock_parts/matter_bin = 1,
 		/obj/item/stock_parts/manipulator = 1)
 
-/obj/item/circuitboard/machine/ore_redemption
-	name = "Ore Redemption (Machine Board)"
-	build_path = /obj/machinery/mineral/ore_redemption
-	origin_tech = "programming=1;engineering=2"
-	req_components = list(
-		/obj/item/stock_parts/console_screen = 1,
-		/obj/item/stock_parts/matter_bin = 1,
-		/obj/item/stock_parts/micro_laser = 1,
-		/obj/item/stock_parts/manipulator = 1,
-		/obj/item/device/assembly/igniter = 1)
-
-/obj/item/circuitboard/machine/mining_equipment_vendor
-	name = "Mining Equipment Vendor (Machine Board)"
-	build_path = /obj/machinery/mineral/equipment_vendor
-	origin_tech = "programming=1;engineering=3"
-	req_components = list(
-		/obj/item/stock_parts/console_screen = 1,
-		/obj/item/stock_parts/matter_bin = 3)
-
-/obj/item/circuitboard/machine/mining_equipment_vendor/golem
-	name = "Golem Ship Equipment Vendor (Machine Board)"
-	build_path = /obj/machinery/mineral/equipment_vendor/golem
-
 /obj/item/circuitboard/machine/ntnet_relay
 	name = "NTNet Relay (Machine Board)"
 	build_path = /obj/machinery/ntnet_relay
@@ -702,30 +640,6 @@
 	req_components = list(
 		/obj/item/stack/cable_coil = 2,
 		/obj/item/stock_parts/scanning_module = 1)
-
-/obj/item/circuitboard/machine/bsa/back
-	name = "Bluespace Artillery Generator (Machine Board)"
-	build_path = /obj/machinery/bsa/back
-	origin_tech = "engineering=2;combat=2;bluespace=2" //No freebies!
-	req_components = list(
-		/obj/item/stock_parts/capacitor/quadratic = 5,
-		/obj/item/stack/cable_coil = 2)
-
-/obj/item/circuitboard/machine/bsa/middle
-	name = "Bluespace Artillery Fusor (Machine Board)"
-	build_path = /obj/machinery/bsa/middle
-	origin_tech = "engineering=2;combat=2;bluespace=2"
-	req_components = list(
-		/obj/item/ore/bluespace_crystal = 20,
-		/obj/item/stack/cable_coil = 2)
-
-/obj/item/circuitboard/machine/bsa/front
-	name = "Bluespace Artillery Bore (Machine Board)"
-	build_path = /obj/machinery/bsa/front
-	origin_tech = "engineering=2;combat=2;bluespace=2"
-	req_components = list(
-		/obj/item/stock_parts/manipulator/femto = 5,
-		/obj/item/stack/cable_coil = 2)
 
 /obj/item/circuitboard/machine/dna_vault
 	name = "DNA Vault (Machine Board)"

@@ -128,48 +128,6 @@
 	R.ionpulse = TRUE
 	return 1
 
-/obj/item/borg/upgrade/ddrill
-	name = "mining cyborg diamond drill"
-	desc = "A diamond drill replacement for the mining module's standard drill."
-	icon_state = "cyborg_upgrade3"
-	require_module = 1
-	module_type = /obj/item/robot_module/miner
-	origin_tech = "engineering=4;materials=5"
-
-/obj/item/borg/upgrade/ddrill/action(mob/living/silicon/robot/R)
-	if(..())
-		return
-
-	for(var/obj/item/pickaxe/drill/cyborg/D in R.module)
-		R.module.remove_module(D, TRUE)
-	for(var/obj/item/shovel/S in R.module)
-		R.module.remove_module(S, TRUE)
-
-	var/obj/item/pickaxe/drill/cyborg/diamond/DD = new /obj/item/pickaxe/drill/cyborg/diamond(R.module)
-	R.module.basic_modules += DD
-	R.module.add_module(DD, FALSE, TRUE)
-	return 1
-
-/obj/item/borg/upgrade/soh
-	name = "mining cyborg satchel of holding"
-	desc = "A satchel of holding replacement for mining cyborg's ore satchel module."
-	icon_state = "cyborg_upgrade3"
-	require_module = 1
-	module_type = /obj/item/robot_module/miner
-	origin_tech = "engineering=4;materials=4;bluespace=4"
-
-/obj/item/borg/upgrade/soh/action(mob/living/silicon/robot/R)
-	if(..())
-		return
-
-	for(var/obj/item/storage/bag/ore/cyborg/S in R.module)
-		R.module.remove_module(S, TRUE)
-
-	var/obj/item/storage/bag/ore/holding/H = new /obj/item/storage/bag/ore/holding(R.module)
-	R.module.basic_modules += H
-	R.module.add_module(H, FALSE, TRUE)
-	return 1
-
 /obj/item/borg/upgrade/syndicate
 	name = "illegal equipment module"
 	desc = "Unlocks the hidden, deadlier functions of a cyborg."

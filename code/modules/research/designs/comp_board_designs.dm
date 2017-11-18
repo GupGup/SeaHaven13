@@ -140,14 +140,6 @@
 	build_path = /obj/item/circuitboard/computer/robotics
 	category = list("Computer Boards")
 
-/datum/design/board/slot_machine
-	name = "Computer Design (Slot Machine)"
-	desc = "Allows for the construction of circuit boards used to build a new slot machine."
-	id = "slotmachine"
-	req_tech = list("programming" = 1)
-	build_path = /obj/item/circuitboard/computer/slot_machine
-	category = list("Computer Boards")
-
 /datum/design/board/powermonitor
 	name = "Computer Design (Power Monitor)"
 	desc = "Allows for the construction of circuit boards used to build a new power monitor."

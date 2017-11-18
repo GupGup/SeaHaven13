@@ -412,12 +412,6 @@
 	contains = list(/obj/item/storage/lockbox/loyalty)
 	crate_name = "mindshield implant crate"
 
-/datum/supply_pack/security/armory/trackingimp
-	name = "Tracking Implants Crate"
-	cost = 2000
-	contains = list(/obj/item/storage/box/trackimp)
-	crate_name = "tracking implant crate"
-
 /datum/supply_pack/security/armory/chemimp
 	name = "Chemical Implants Crate"
 	cost = 2000
@@ -1292,20 +1286,6 @@
 /datum/supply_pack/misc
 	group = "Miscellaneous Supplies"
 
-/datum/supply_pack/misc/minerkit
-	name = "Shaft Miner Starter Kit"
-	cost = 2500
-	access = ACCESS_QM
-	contains = list(/obj/item/pickaxe/mini,
-			/obj/item/clothing/glasses/meson,
-			/obj/item/device/t_scanner/adv_mining_scanner/lesser,
-			/obj/item/device/radio/headset/headset_cargo/mining,
-			/obj/item/storage/bag/ore,
-			/obj/item/clothing/suit/hooded/explorer,
-			/obj/item/clothing/mask/gas/explorer)
-	crate_name = "shaft miner starter kit"
-	crate_type = /obj/structure/closet/crate/secure
-
 /datum/supply_pack/misc/mule
 	name = "MULEbot Crate"
 	cost = 2000
@@ -1631,7 +1611,6 @@
 	                /obj/item/toy/plush/snakeplushie,
 	                /obj/item/toy/plush/nukeplushie,
 	                /obj/item/toy/plush/slimeplushie,
-	                /obj/item/coin/antagtoken,
 	                /obj/item/stack/tile/fakespace/loaded,
 	                /obj/item/gun/ballistic/shotgun/toy/crossbow,
 	                /obj/item/toy/redbutton,
@@ -1715,17 +1694,6 @@
 					/obj/item/toy/crayon/rainbow,
 					/obj/item/toy/crayon/rainbow)
 	crate_name = "art supply crate"
-
-/datum/supply_pack/misc/bsa
-	name = "Bluespace Artillery Parts"
-	cost = 15000
-	special = TRUE
-	contains = list(/obj/item/circuitboard/machine/bsa/front,
-					/obj/item/circuitboard/machine/bsa/middle,
-					/obj/item/circuitboard/machine/bsa/back,
-					/obj/item/circuitboard/computer/bsa_control
-					)
-	crate_name= "bluespace artillery parts crate"
 
 /datum/supply_pack/misc/dna_vault
 	name = "DNA Vault Parts"

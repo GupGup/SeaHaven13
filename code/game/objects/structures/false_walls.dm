@@ -113,12 +113,6 @@
 		var/obj/item/weldingtool/WT = W
 		if(WT.remove_fuel(0,user))
 			dismantle(user, TRUE)
-	else if(istype(W, /obj/item/gun/energy/plasmacutter))
-		dismantle(user, TRUE)
-	else if(istype(W, /obj/item/pickaxe/drill/jackhammer))
-		var/obj/item/pickaxe/drill/jackhammer/D = W
-		D.playDigSound()
-		dismantle(user, TRUE)
 	else
 		return ..()
 

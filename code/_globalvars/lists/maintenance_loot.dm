@@ -59,8 +59,6 @@ GLOBAL_LIST_INIT(maintenance_loot, list(
 	/obj/item/book/manual/wiki/engineering_construction = 1,
 	/obj/item/book/manual/wiki/engineering_hacking = 1,
 	/obj/item/clothing/head/cone = 1,
-	/obj/item/coin/silver = 1,
-	/obj/item/coin/twoheaded = 1,
 	/obj/item/poster/random_contraband = 1,
 	/obj/item/poster/random_official = 1,
 	/obj/item/crowbar = 1,

@@ -106,10 +106,6 @@
 			S.cost = 1
 			S.source = get_or_create_estorage(/datum/robot_energy_storage/wire)
 
-		else if(istype(S, /obj/item/stack/marker_beacon))
-			S.cost = 1
-			S.source = get_or_create_estorage(/datum/robot_energy_storage/beacon)
-
 		if(S && S.source)
 			S.materials = list()
 			S.is_cyborg = 1
@@ -244,7 +240,6 @@
 		/obj/item/stack/tile/plasteel/cyborg,
 		/obj/item/extinguisher,
 		/obj/item/pickaxe,
-		/obj/item/device/t_scanner/adv_mining_scanner,
 		/obj/item/restraints/handcuffs/cable/zipties/cyborg,
 		/obj/item/soap/nanotrasen,
 		/obj/item/borg/cyborghug)
@@ -491,17 +486,11 @@
 	name = "Miner"
 	basic_modules = list(
 		/obj/item/device/assembly/flash/cyborg,
-		/obj/item/storage/bag/ore/cyborg,
-		/obj/item/pickaxe/drill/cyborg,
-		/obj/item/shovel,
 		/obj/item/crowbar/cyborg,
 		/obj/item/weldingtool/mini,
 		/obj/item/extinguisher/mini,
 		/obj/item/storage/bag/sheetsnatcher/borg,
-		/obj/item/device/t_scanner/adv_mining_scanner,
-		/obj/item/gun/energy/kinetic_accelerator/cyborg,
-		/obj/item/device/gps/cyborg,
-		/obj/item/stack/marker_beacon)
+		/obj/item/device/gps/cyborg)
 	emag_modules = list(/obj/item/borg/stun)
 	ratvar_modules = list(
 		/obj/item/clockwork/slab/cyborg/miner,

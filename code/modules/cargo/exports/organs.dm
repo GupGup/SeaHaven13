@@ -63,19 +63,6 @@
 	unit_name = "changeling egg"
 	export_types = list(/obj/item/organ/body_egg/changeling_egg)
 
-
-/datum/export/organ/hivelord
-	cost = 1500
-	unit_name = "active regenerative core"
-	export_types = list(/obj/item/organ/regenerative_core)
-
-/datum/export/organ/alien/plasmavessel/get_cost(obj/item/organ/regenerative_core/C)
-	if(C.inert)
-		return ..() / 3
-	if(C.preserved)
-		return ..() * 2
-	return ..()
-
 // Mutant race organs.
 /datum/export/organ/mutant/cat_ears
 	cost = 1000

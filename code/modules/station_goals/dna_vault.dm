@@ -141,8 +141,6 @@
 	var/completed = FALSE
 	var/list/power_lottery = list()
 
-	var/list/obj/structure/fillers = list()
-
 /obj/machinery/dna_vault/Initialize()
 	//TODO: Replace this,bsa and gravgen with some big machinery datum
 	var/list/occupied = list()
@@ -150,11 +148,6 @@
 		occupied += get_step(src,direct)
 	occupied += locate(x+1,y-2,z)
 	occupied += locate(x-1,y-2,z)
-
-	for(var/T in occupied)
-		var/obj/structure/filler/F = new(T)
-		F.parent = src
-		fillers += F
 
 	if(SSticker.mode)
 		for(var/datum/station_goal/dna_vault/G in SSticker.mode.station_goals)
@@ -165,10 +158,6 @@
 	. = ..()
 
 /obj/machinery/dna_vault/Destroy()
-	for(var/V in fillers)
-		var/obj/structure/filler/filler = V
-		filler.parent = null
-		qdel(filler)
 	. = ..()
 
 

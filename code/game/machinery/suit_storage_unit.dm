@@ -62,14 +62,6 @@
 	mask_type = /obj/item/clothing/mask/gas
 	storage_type = /obj/item/watertank/atmos
 
-/obj/machinery/suit_storage_unit/mining
-	suit_type = /obj/item/clothing/suit/hooded/explorer
-	mask_type = /obj/item/clothing/mask/gas/explorer
-
-/obj/machinery/suit_storage_unit/mining/eva
-	suit_type = /obj/item/clothing/suit/space/hardsuit/mining
-	mask_type = /obj/item/clothing/mask/breath
-
 /obj/machinery/suit_storage_unit/cmo
 	suit_type = /obj/item/clothing/suit/space/hardsuit/medical
 	mask_type = /obj/item/clothing/mask/breath
@@ -210,7 +202,7 @@
 				mob_occupant.adjustFireLoss(rand(20, 36))
 			else
 				mob_occupant.adjustFireLoss(rand(10, 16))
-			mob_occupant.emote("scream") 
+			mob_occupant.emote("scream")
 		addtimer(CALLBACK(src, .proc/cook), 50)
 	else
 		uv_cycles = initial(uv_cycles)

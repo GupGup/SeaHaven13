@@ -229,13 +229,3 @@
 	materials = list(MAT_SILVER = 8000, MAT_URANIUM = 8000, MAT_GLASS = 12000, MAT_METAL = 12000, MAT_DIAMOND = 3000, MAT_BLUESPACE = 3000)
 	build_path = /obj/item/gun/energy/gravity_gun
 	category = list("Weapons")
-
-/datum/design/largecrossbow
-	name = "Energy Crossbow"
-	desc = "A reverse-engineered energy crossbow favored by syndicate infiltration teams and carp hunters."
-	id = "largecrossbow"
-	req_tech = list("combat" = 5, "engineering" = 3, "magnets" = 5, "syndicate" = 3)
-	build_type = PROTOLATHE
-	materials = list(MAT_METAL = 5000, MAT_GLASS = 1500, MAT_URANIUM = 1500, MAT_SILVER = 1500)
-	build_path = /obj/item/gun/energy/kinetic_accelerator/crossbow/large
-	category = list("Weapons")

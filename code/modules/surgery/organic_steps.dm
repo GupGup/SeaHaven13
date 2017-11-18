@@ -105,7 +105,7 @@
 //drill bone
 /datum/surgery_step/drill
 	name = "drill bone"
-	implements = list(/obj/item/surgicaldrill = 100, /obj/item/pickaxe/drill = 60, /obj/item/mecha_parts/mecha_equipment/drill = 60, /obj/item/screwdriver = 20)
+	implements = list(/obj/item/surgicaldrill = 100, /obj/item/mecha_parts/mecha_equipment/drill = 60, /obj/item/screwdriver = 20)
 	time = 30
 
 /datum/surgery_step/drill/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)

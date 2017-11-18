@@ -180,7 +180,7 @@
 	var/turf/T = user.loc	//get user's location for delay checks
 
 	//the istype cascade has been spread among various procs for easy overriding
-	if(try_clean(W, user, T) || try_wallmount(W, user, T) || try_decon(W, user, T) || try_destroy(W, user, T))
+	if(try_clean(W, user, T) || try_wallmount(W, user, T) || try_decon(W, user, T))
 		return
 
 	return ..()
@@ -225,30 +225,6 @@
 					to_chat(user, "<span class='notice'>You remove the outer plating.</span>")
 					dismantle_wall()
 				return TRUE
-	else if(istype(W, /obj/item/gun/energy/plasmacutter))
-		to_chat(user, "<span class='notice'>You begin slicing through the outer plating...</span>")
-		playsound(src, 'sound/items/welder.ogg', 100, 1)
-		if(do_after(user, slicing_duration * W.toolspeed, target = src))
-			if(!iswallturf(src) || !user || QDELETED(W) || QDELETED(T))
-				return TRUE
-			if((user.loc == T) && (user.get_active_held_item() == W))
-				to_chat(user, "<span class='notice'>You remove the outer plating.</span>")
-				dismantle_wall()
-				visible_message("The wall was sliced apart by [user]!", "<span class='italics'>You hear metal being sliced apart.</span>")
-				return TRUE
-	return FALSE
-
-
-/turf/closed/wall/proc/try_destroy(obj/item/W, mob/user, turf/T)
-	if(istype(W, /obj/item/pickaxe/drill/jackhammer))
-		var/obj/item/pickaxe/drill/jackhammer/D = W
-		if(!iswallturf(src) || !user || !W || !T)
-			return TRUE
-		if( user.loc == T && user.get_active_held_item() == W )
-			D.playDigSound()
-			dismantle_wall()
-			visible_message("<span class='warning'>[user] smashes through the [name] with the [W.name]!</span>", "<span class='italics'>You hear the grinding of metal.</span>")
-			return TRUE
 	return FALSE
 
 /turf/closed/wall/singularity_pull(S, current_size)

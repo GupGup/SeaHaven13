@@ -628,26 +628,6 @@
 	construction_time = 120
 	category = list("Cyborg Upgrade Modules")
 
-/datum/design/borg_upgrade_diamonddrill
-	name = "Cyborg Upgrade (Diamond Drill)"
-	id = "borg_upgrade_diamonddrill"
-	build_type = MECHFAB
-	build_path = /obj/item/borg/upgrade/ddrill
-	req_tech = list("engineering" = 5, "materials" = 6)
-	materials = list(MAT_METAL=10000, MAT_DIAMOND=2000)
-	construction_time = 120
-	category = list("Cyborg Upgrade Modules")
-
-/datum/design/borg_upgrade_holding
-	name = "Cyborg Upgrade (Ore Satchel of Holding)"
-	id = "borg_upgrade_holding"
-	build_type = MECHFAB
-	build_path = /obj/item/borg/upgrade/soh
-	req_tech = list("engineering" = 4, "materials" = 4, "bluespace" = 4)
-	materials = list(MAT_METAL = 10000, MAT_GOLD = 250, MAT_URANIUM = 500)
-	construction_time = 120
-	category = list("Cyborg Upgrade Modules")
-
 /datum/design/borg_upgrade_lavaproof
 	name = "Cyborg Upgrade (Lavaproof Tracks)"
 	id = "borg_upgrade_lavaproof"
