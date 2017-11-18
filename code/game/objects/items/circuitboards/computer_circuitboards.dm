@@ -23,11 +23,6 @@
 	build_path = /obj/machinery/computer/camera_advanced/xenobio
 	origin_tech = "programming=3;biotech=3"
 
-/obj/item/circuitboard/computer/base_construction
-	name = "circuit board (Aux Mining Base Construction Console)"
-	build_path = /obj/machinery/computer/camera_advanced/base_construction
-	origin_tech = "programming=3;engineering=3"
-
 /obj/item/circuitboard/computer/aiupload
 	name = "AI Upload (Computer Board)"
 	build_path = /obj/machinery/computer/upload/ai
@@ -276,14 +271,6 @@
 /obj/item/circuitboard/computer/mining_shuttle
 	name = "Mining Shuttle (Computer Board)"
 	build_path = /obj/machinery/computer/shuttle/mining
-
-/obj/item/circuitboard/computer/white_ship
-	name = "White Ship (Computer Board)"
-	build_path = /obj/machinery/computer/shuttle/white_ship
-
-/obj/item/circuitboard/computer/auxillary_base
-	name = "Auxillary Base Management Console (Computer Board)"
-	build_path = /obj/machinery/computer/auxillary_base
 
 /obj/item/circuitboard/computer/holodeck// Not going to let people get this, but it's just here for future
 	name = "Holodeck Control (Computer Board)"

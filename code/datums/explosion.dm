@@ -54,15 +54,13 @@ GLOBAL_LIST_EMPTY(explosions)
 	var/orig_dev_range = devastation_range
 	var/orig_heavy_range = heavy_impact_range
 	var/orig_light_range = light_impact_range
-	
+
 	//Zlevel specific bomb cap multiplier
 	var/cap_multiplier = 1
 	switch(epicenter.z)
 		if(ZLEVEL_CITYOFCOGS)
 			cap_multiplier = CITYOFCOGS_CAP_MULTIPLIER
-		if(ZLEVEL_MINING)
-			cap_multiplier = MINING_CAP_MULTIPLIER
-	
+
 	if(!ignorecap)
 		devastation_range = min(GLOB.MAX_EX_DEVESTATION_RANGE * cap_multiplier, devastation_range)
 		heavy_impact_range = min(GLOB.MAX_EX_HEAVY_RANGE * cap_multiplier, heavy_impact_range)
@@ -187,7 +185,7 @@ GLOBAL_LIST_EMPTY(explosions)
 		//------- EX_ACT AND TURF FIRES -------
 
 		if(T == epicenter) // Ensures explosives detonating from bags trigger other explosives in that bag
-			var/list/items = list() 
+			var/list/items = list()
 			for(var/I in T)
 				var/atom/A = I
 				items += A.GetAllContents()

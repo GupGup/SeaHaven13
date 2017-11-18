@@ -182,11 +182,6 @@ All ShuttleMove procs go here
 	if(pipe_vision_img)
 		pipe_vision_img.loc = loc
 
-/obj/machinery/computer/auxillary_base/afterShuttleMove(list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
-	. = ..()
-	if(z == ZLEVEL_MINING) //Avoids double logging and landing on other Z-levels due to badminnery
-		SSblackbox.add_details("colonies_dropped", "[x]|[y]|[z]") //Number of times a base has been dropped!
-
 /obj/machinery/gravity_generator/main/beforeShuttleMove(turf/newT, rotation, move_mode)
 	. = ..()
 	on = FALSE

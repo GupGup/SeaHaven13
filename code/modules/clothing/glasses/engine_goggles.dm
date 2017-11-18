@@ -60,9 +60,7 @@
 
 /obj/item/clothing/glasses/meson/engine/process()
 	if(mode == MODE_MESON)
-		var/turf/T = get_turf(src)
-		if(T && T.z == ZLEVEL_MINING)
-			toggle_mode(loc)
+		toggle_mode(loc)
 		return
 
 	if(!ishuman(loc))

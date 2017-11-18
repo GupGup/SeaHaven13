@@ -318,16 +318,6 @@
 	name = "Scientist"
 	outfit = /datum/outfit/job/scientist
 
-/obj/effect/mob_spawn/human/miner
-	name = "Shaft Miner"
-	outfit = /datum/outfit/job/miner/asteroid
-
-/obj/effect/mob_spawn/human/miner/rig
-	outfit = /datum/outfit/job/miner/equipped/asteroid
-
-/obj/effect/mob_spawn/human/miner/explorer
-	outfit = /datum/outfit/job/miner/equipped
-
 
 /obj/effect/mob_spawn/human/plasmaman
 	mob_species = /datum/species/plasmaman
