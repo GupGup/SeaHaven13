@@ -227,9 +227,6 @@
 /turf/closed/wall/mineral/titanium/survival/nodiagonal
 	smooth = SMOOTH_MORE
 
-/turf/closed/wall/mineral/titanium/survival/pod
-	canSmoothWith = list(/turf/closed/wall/mineral/titanium/survival, /obj/machinery/door/airlock/survival_pod, /obj/structure/window/shuttle/survival_pod)
-
 /////////////////////Plastitanium walls/////////////////////
 
 /turf/closed/wall/mineral/plastitanium

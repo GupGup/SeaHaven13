@@ -253,27 +253,6 @@
 		if(4)
 			return list("[NORTH]" = list(19, -18, 4.2), "[SOUTH]" = list(-13, 25, 3.9), "[EAST]" = list(-22, 3, 3.9), "[WEST]" = list(22, 28))
 
-///////////////BOATS////////////
-/datum/riding/boat
-	keytype = /obj/item/oar
-
-/datum/riding/boat/handle_ride(mob/user, direction)
-	var/turf/next = get_step(ridden, direction)
-	var/turf/current = get_turf(ridden)
-
-	if(islava(next) || islava(current)) //We can move from land to lava, or lava to land, but not from land to land
-		..()
-	else
-		to_chat(user, "Boats don't go on land!")
-		return 0
-
-/datum/riding/boat/dragon
-	keytype = null
-	vehicle_move_delay = 1
-
-/datum/riding/boat/dragon/get_offsets(pass_index) // list(dir = x, y, layer)
-	return list("[NORTH]" = list(1, 2), "[SOUTH]" = list(1, 2), "[EAST]" = list(1, 2), "[WEST]" = list( 1, 2))
-
 ///////////////ANIMALS////////////
 //general animals
 /datum/riding/animal

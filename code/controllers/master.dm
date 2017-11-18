@@ -67,9 +67,9 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 			Recover()
 			qdel(Master)
 		else
-			var/list/subsytem_types = subtypesof(/datum/controller/subsystem)
-			sortTim(subsytem_types, /proc/cmp_subsystem_init)
-			for(var/I in subsytem_types)
+			var/list/subsystem_types = subtypesof(/datum/controller/subsystem)
+			sortTim(subsystem_types, /proc/cmp_subsystem_init)
+			for(var/I in subsystem_types)
 				_subsystems += new I
 		Master = src
 

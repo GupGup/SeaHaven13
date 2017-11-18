@@ -12,7 +12,7 @@
 
 /obj/effect/decal/HandleTurfChange(turf/T)
 	..()
-	if(T == loc && (isspaceturf(T) || isclosedturf(T) || islava(T) || istype(T, /turf/open/water) || ischasm(T)))
+	if(T == loc && (isspaceturf(T) || isclosedturf(T)))
 		qdel(src)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

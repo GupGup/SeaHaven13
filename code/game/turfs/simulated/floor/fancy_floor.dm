@@ -105,37 +105,6 @@
 		return
 	..()
 
-/turf/open/floor/grass/snow/basalt //By your powers combined, I am captain planet
-	name = "volcanic floor"
-	icon = 'icons/turf/floors.dmi'
-	icon_state = "basalt"
-	ore_type = /obj/item/ore/glass/basalt
-	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
-	slowdown = 0
-
-/turf/open/floor/grass/snow/basalt/Initialize()
-	. = ..()
-	if(prob(15))
-		icon_state = "basalt[rand(0, 12)]"
-		set_basalt_light(src)
-
-
-/turf/open/floor/grass/fakebasalt //Heart is not a real planeteer power
-	name = "aesthetic volcanic flooring"
-	desc = "Safely recreated turf for your hellplanet-scaping."
-	icon = 'icons/turf/floors.dmi'
-	icon_state = "basalt"
-	floor_tile = /obj/item/stack/tile/basalt
-	ore_type = /obj/item/ore/glass/basalt
-	turfverb = "dig up"
-	slowdown = 0
-
-/turf/open/floor/grass/fakebasalt/Initialize()
-	. = ..()
-	if(prob(15))
-		icon_state = "basalt[rand(0, 12)]"
-		set_basalt_light(src)
-
 
 /turf/open/floor/carpet
 	name = "carpet"

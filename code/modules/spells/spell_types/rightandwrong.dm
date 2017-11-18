@@ -179,10 +179,6 @@
 					new /obj/item/warpwhistle(get_turf(H))
 				if("battlemage")
 					new /obj/item/clothing/suit/space/hardsuit/shielded/wizard(get_turf(H))
-				if("immortality")
-					new /obj/item/device/immortality_talisman(get_turf(H))
-				if("ghostsword")
-					new /obj/item/melee/ghost_sword(get_turf(H))
 				if("special")
 					magiclist -= "special" //only one super OP item per summoning max
 					switch (randomizemagicspecial)
@@ -198,8 +194,6 @@
 							new /obj/item/gun/magic/staff/chaos(get_turf(H))
 						if("necromantic")
 							new /obj/item/device/necromantic_stone(get_turf(H))
-						if("bloodcontract")
-							new /obj/item/blood_contract(get_turf(H))
 					to_chat(H, "<span class='notice'>You suddenly feel lucky.</span>")
 			playsound(get_turf(H),'sound/magic/summon_magic.ogg', 50, 1)
 

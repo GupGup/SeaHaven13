@@ -53,7 +53,6 @@
 	new /obj/item/device/t_scanner/adv_mining_scanner/lesser(src)
 	new /obj/item/gun/energy/kinetic_accelerator(src)
 	new /obj/item/clothing/glasses/meson(src)
-	new /obj/item/survivalcapsule(src)
 	new /obj/item/device/assault_pod/mining(src)
 
 

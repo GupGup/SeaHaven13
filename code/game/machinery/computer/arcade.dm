@@ -67,7 +67,6 @@
 /obj/machinery/computer/arcade/proc/prizevend()
 	if(prob(0.0001)) //1 in a million
 		new /obj/item/gun/energy/pulse/prize(src)
-		UnlockMedal(PULSE_MEDAL,usr.client)
 
 	if(!contents.len)
 		var/prizeselect = pickweight(prizes)
@@ -615,7 +614,7 @@
 					if(isliving(usr))
 						var/mob/living/L = usr
 						L.Stun(200, ignore_canstun = TRUE) //you can't run :^)
-					var/S = new /obj/singularity/academy(usr.loc)
+					var/S = new /obj/singularity(usr.loc)
 					addtimer(CALLBACK(src, /atom/movable/proc/say, "[S] winks out, just as suddenly as it appeared."), 50)
 					QDEL_IN(src, 50)
 			else

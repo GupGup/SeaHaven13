@@ -202,10 +202,6 @@
 		name = "dock[SSshuttle.stationary.len]"
 	baseturf_cache = typecacheof(baseturf_type)
 
-	if(mapload)
-		for(var/turf/T in return_turfs())
-			T.flags_1 |= NO_RUINS_1
-
 	#ifdef DOCKING_PORT_HIGHLIGHT
 	highlight("#f00")
 	#endif
@@ -520,7 +516,7 @@
 
 	// The baseturf that the gets assigned to the turf_type above
 	var/underlying_baseturf_type = /turf/open/space
-	
+
 	// The area that gets placed under where the shuttle moved from
 	var/underlying_area_type = /area/space
 
@@ -572,7 +568,7 @@
 	CHECK_TICK
 
 	/****************************************All beforeShuttleMove procs*****************************************/
-	
+
 	for(var/i in 1 to old_turfs.len)
 		CHECK_TICK
 		var/turf/oldT = old_turfs[i]
@@ -613,10 +609,10 @@
 					continue
 				moving_atom.onShuttleMove(newT, oldT, movement_force, movement_direction, old_dock, src)	//atoms
 				moved_atoms += moving_atom
-		
+
 		if(move_mode & MOVE_TURF)
 			oldT.onShuttleMove(newT, movement_force, movement_direction)									//turfs
-		
+
 		if(move_mode & MOVE_AREA)
 			var/area/shuttle_area = oldT.loc
 			shuttle_area.onShuttleMove(oldT, newT, underlying_old_area)										//areas

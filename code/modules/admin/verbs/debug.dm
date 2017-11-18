@@ -514,7 +514,7 @@ GLOBAL_PROTECT(LastAdminCalledProc)
 	var/list/areas_with_LS = list()
 	var/list/areas_with_intercom = list()
 	var/list/areas_with_camera = list()
-	var/list/station_areas_blacklist = typecacheof(list(/area/holodeck/rec_center, /area/shuttle, /area/engine/supermatter, /area/science/test_area, /area/space, /area/solar, /area/mine, /area/ruin))
+	var/list/station_areas_blacklist = typecacheof(list(/area/holodeck/rec_center, /area/shuttle, /area/engine/supermatter, /area/science/test_area, /area/space, /area/solar, /area/mine))
 
 	for(var/area/A in world)
 		if(on_station)
@@ -819,37 +819,6 @@ GLOBAL_PROTECT(LastAdminCalledProc)
 		return
 	debug_variables(GLOB.huds[i])
 
-/client/proc/jump_to_ruin()
-	set category = "Debug"
-	set name = "Jump to Ruin"
-	set desc = "Displays a list of all placed ruins to teleport to."
-	if(!holder)
-		return
-	var/list/names = list()
-	for(var/i in GLOB.ruin_landmarks)
-		var/obj/effect/landmark/ruin/ruin_landmark = i
-		var/datum/map_template/ruin/template = ruin_landmark.ruin_template
-
-		var/count = 1
-		var/name = template.name
-		var/original_name = name
-
-		while(name in names)
-			count++
-			name = "[original_name] ([count])"
-
-		names[name] = ruin_landmark
-
-	var/ruinname = input("Select ruin", "Jump to Ruin") as null|anything in names
-
-
-	var/obj/effect/landmark/ruin/landmark = names[ruinname]
-
-	if(istype(landmark))
-		var/datum/map_template/ruin/template = landmark.ruin_template
-		usr.forceMove(get_turf(landmark))
-		to_chat(usr, "<span class='name'>[template.name]</span>")
-		to_chat(usr, "<span class='italics'>[template.description]</span>")
 
 /client/proc/clear_dynamic_transit()
 	set category = "Debug"

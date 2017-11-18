@@ -194,14 +194,6 @@
 
 /obj/item/projectile/plasma/on_hit(atom/target)
 	. = ..()
-	if(ismineralturf(target))
-		var/turf/closed/mineral/M = target
-		M.gets_drilled(firer)
-		if(mine_range)
-			mine_range--
-			range++
-		if(range > 0)
-			return -1
 
 /obj/item/projectile/plasma/adv
 	damage = 28

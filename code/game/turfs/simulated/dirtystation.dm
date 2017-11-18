@@ -29,8 +29,7 @@
 														/area/mine/production,
 														/area/mine/living_quarters,
 														/area/mine/north_outpost,
-														/area/mine/west_outpost,
-														/area/ruin/space))
+														/area/mine/west_outpost))
 	if(is_type_in_typecache(A, high_dirt_areas))
 		new /obj/effect/decal/cleanable/dirt(src)	//vanilla, but it works
 		return
@@ -40,13 +39,11 @@
 		return
 
 		//Construction zones. Blood, sweat, and oil.  Oh, and dirt.
-	var/static/list/engine_dirt_areas = typecacheof(list(/area/engine,			
+	var/static/list/engine_dirt_areas = typecacheof(list(/area/engine,
 														/area/crew_quarters/heads/chief,
-														/area/ruin/space/derelict/assembly_line,
 														/area/science/robotics,
 														/area/maintenance,
-														/area/construction,
-														/area/survivalpod))
+														/area/construction))
 	if(is_type_in_typecache(A, engine_dirt_areas))
 		if(prob(3))
 			new /obj/effect/decal/cleanable/blood/old(src)
@@ -61,8 +58,7 @@
 		return
 
 		//Bathrooms. Blood, vomit, and shavings in the sinks.
-	var/static/list/bathroom_dirt_areas = typecacheof(list(	/area/crew_quarters/toilet,
-															/area/awaymission/research/interior/bathroom))
+	var/static/list/bathroom_dirt_areas = typecacheof(list(	/area/crew_quarters/toilet))
 	if(is_type_in_typecache(A, bathroom_dirt_areas))
 		if(prob(40))
 			if(prob(90))

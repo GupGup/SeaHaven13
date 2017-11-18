@@ -244,7 +244,6 @@ datum/action/innate/aux_base/place_fan/Activate()
 		to_chat(owner, "<span class='warning'>Fans may only be placed on a floor.</span>")
 		return
 
-	new /obj/structure/fans/tiny(fan_turf)
 	B.fans_remaining--
 	to_chat(owner, "<span class='notice'>Tiny fan placed. [B.fans_remaining] remaining.</span>")
 	playsound(fan_turf, 'sound/machines/click.ogg', 50, 1)

@@ -545,11 +545,6 @@
 			J.total_positions = -1
 			J.spawn_positions = -1
 			message_admins("[key_name_admin(usr)] has removed the cap on security officers.")
-
-		if("ctfbutton")
-			if(!check_rights(R_ADMIN))
-				return
-			toggle_all_ctf(usr)
 		if("masspurrbation")
 			if(!check_rights(R_FUN))
 				return

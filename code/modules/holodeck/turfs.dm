@@ -38,24 +38,6 @@
 	name = "water"
 	icon_state = "water"
 
-/turf/open/floor/holofloor/asteroid
-	name = "asteroid"
-	icon_state = "asteroid0"
-
-/turf/open/floor/holofloor/asteroid/Initialize()
-	icon_state = "asteroid[rand(0, 12)]"
-	. = ..()
-
-/turf/open/floor/holofloor/basalt
-	name = "basalt"
-	icon_state = "basalt0"
-
-/turf/open/floor/holofloor/basalt/Initialize()
-	. = ..()
-	if(prob(15))
-		icon_state = "basalt[rand(0, 12)]"
-		set_basalt_light(src)
-
 /turf/open/floor/holofloor/space
 	name = "Space"
 	icon = 'icons/turf/space.dmi'

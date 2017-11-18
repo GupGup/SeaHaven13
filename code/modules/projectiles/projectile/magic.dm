@@ -195,10 +195,6 @@
 						path = /mob/living/simple_animal/hostile/carp/ranged
 					if("chaosmagicarp")
 						path = /mob/living/simple_animal/hostile/carp/ranged/chaos
-					if("watcher")
-						path = /mob/living/simple_animal/hostile/asteroid/basilisk/watcher
-					if("goliath")
-						path = /mob/living/simple_animal/hostile/asteroid/goliath/beast
 					if("headcrab")
 						path = /mob/living/simple_animal/hostile/headcrab
 					if("morph")
@@ -207,8 +203,6 @@
 						path = /mob/living/simple_animal/hostile/stickman
 					if("stickdog")
 						path = /mob/living/simple_animal/hostile/stickman/dog
-					if("lesserdragon")
-						path = /mob/living/simple_animal/hostile/megafauna/dragon/lesser
 					if("gorilla")
 						path = /mob/living/simple_animal/hostile/gorilla
 			else

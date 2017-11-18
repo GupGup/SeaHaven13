@@ -41,7 +41,7 @@
 			if(!shapeshift_type) //If you aren't gonna decide I am!
 				shapeshift_type = pick(animal_list)
 			shapeshift_type = animal_list[shapeshift_type]
-		
+
 		var/obj/shapeshift_holder/S = locate() in M
 		if(S)
 			Restore(M)
@@ -65,18 +65,11 @@
 	var/obj/shapeshift_holder/H = locate() in shape
 	if(!H)
 		return
-	
+
 	H.restore()
 
 	clothes_req = initial(clothes_req)
 	human_req = initial(human_req)
-
-/obj/effect/proc_holder/spell/targeted/shapeshift/dragon
-	name = "Dragon Form"
-	desc = "Take on the shape a lesser ash drake."
-	invocation = "RAAAAAAAAWR!"
-
-	shapeshift_type = /mob/living/simple_animal/hostile/megafauna/dragon/lesser
 
 
 /obj/shapeshift_holder

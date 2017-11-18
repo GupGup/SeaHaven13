@@ -221,7 +221,6 @@
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/device/gps,
 		/obj/item/storage/bag/ore,
-		/obj/item/survivalcapsule,
 		/obj/item/device/t_scanner/adv_mining_scanner,
 		/obj/item/reagent_containers/pill,
 		/obj/item/storage/pill_bottle,
@@ -232,10 +231,6 @@
 		/obj/item/storage/bag/plants,
 		/obj/item/stack/marker_beacon
 		)
-
-
-/obj/item/storage/belt/mining/vendor
-	contents = newlist(/obj/item/survivalcapsule)
 
 /obj/item/storage/belt/mining/alt
 	icon_state = "explorer2"

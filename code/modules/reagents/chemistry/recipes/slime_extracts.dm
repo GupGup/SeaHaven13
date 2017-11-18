@@ -630,15 +630,3 @@
 /datum/chemical_reaction/slime/slime_transfer/on_reaction(datum/reagents/holder)
 	new /obj/item/slimepotion/transference(get_turf(holder.my_atom))
 	..()
-
-/datum/chemical_reaction/slime/flight_potion
-	name = "Flight Potion"
-	id = "flightpotion"
-	required_reagents = list("holywater" = 5, "uranium" = 5)
-	required_other = 1
-	required_container = /obj/item/slime_extract/rainbow
-
-/datum/chemical_reaction/slime/flight_potion/on_reaction(datum/reagents/holder)
-	new /obj/item/reagent_containers/glass/bottle/potion/flight(get_turf(holder.my_atom))
-	..()
-

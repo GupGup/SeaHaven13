@@ -489,7 +489,6 @@
 	new /obj/item/tank/internals/oxygen/red(src)
 	new /obj/item/pickaxe/emergency(src)
 	new /obj/item/pickaxe/emergency(src)
-	new /obj/item/survivalcapsule(src)
 	new /obj/item/storage/toolbox/emergency(src)
 
 /obj/item/storage/pod/attackby(obj/item/W, mob/user, params)

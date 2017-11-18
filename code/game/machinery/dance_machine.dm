@@ -234,11 +234,6 @@
 		continue
 	FOR_DVIEW_END
 
-/obj/machinery/disco/proc/hierofunk()
-	for(var/i in 1 to 10)
-		spawn_atom_to_turf(/obj/effect/temp_visual/hierophant/telegraph/edge, src, 1, FALSE)
-		sleep(5)
-
 /obj/machinery/disco/proc/lights_spin()
 	for(var/i in 1 to 25)
 		if(QDELETED(src) || !active)
@@ -311,8 +306,6 @@
 				glow.light_range = glow.range * 0.85
 				glow.update_light()
 				continue
-		if(prob(2))  // Unique effects for the dance floor that show up randomly to mix things up
-			INVOKE_ASYNC(src, .proc/hierofunk)
 		sleep(selection.song_beat)
 
 

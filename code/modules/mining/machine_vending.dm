@@ -23,7 +23,6 @@
 		new /datum/data/mining_equipment("Advanced Scanner",	/obj/item/device/t_scanner/adv_mining_scanner,							800),
 		new /datum/data/mining_equipment("Stabilizing Serum",	/obj/item/hivelordstabilizer,									400),
 		new /datum/data/mining_equipment("Fulton Beacon",		/obj/item/fulton_core,													400),
-		new /datum/data/mining_equipment("Shelter Capsule",		/obj/item/survivalcapsule,										400),
 		new /datum/data/mining_equipment("GAR Meson Scanners",	/obj/item/clothing/glasses/meson/gar,									500),
 		new /datum/data/mining_equipment("Explorer's Webbing",	/obj/item/storage/belt/mining,									500),
 		new /datum/data/mining_equipment("Survival Medipen",	/obj/item/reagent_containers/hypospray/medipen/survival,			500),
@@ -41,7 +40,6 @@
 		new /datum/data/mining_equipment("Mining Hardsuit",		/obj/item/clothing/suit/space/hardsuit/mining,							2000),
 		new /datum/data/mining_equipment("Diamond Pickaxe",		/obj/item/pickaxe/diamond,										2000),
 		new /datum/data/mining_equipment("Super Resonator",		/obj/item/resonator/upgraded,									2500),
-		new /datum/data/mining_equipment("Luxury Shelter Capsule",	/obj/item/survivalcapsule/luxury,							3000),
 		new /datum/data/mining_equipment("KA White Tracer Rounds",	/obj/item/borg/upgrade/modkit/tracer,								100),
 		new /datum/data/mining_equipment("KA Adjustable Tracer Rounds",	/obj/item/borg/upgrade/modkit/tracer/adjustable,				150),
 		new /datum/data/mining_equipment("KA Super Chassis",	/obj/item/borg/upgrade/modkit/chassis_mod,								250),
@@ -120,7 +118,7 @@
 					return
 				inserted_id = I
 				to_chat(usr, "<span class='notice'>You insert the ID into [src]'s card slot.</span>")
-			else 
+			else
 				to_chat(usr, "<span class='warning'>Error: No valid ID!</span>")
 				flick(icon_deny, src)
 	if(href_list["purchase"])
@@ -168,14 +166,12 @@
 	return ..()
 
 /obj/machinery/mineral/equipment_vendor/proc/RedeemVoucher(obj/item/mining_voucher/voucher, mob/redeemer)
-	var/items = list("Survival Capsule and Explorer's Webbing", "Resonator and Advanced Scanner", "Mining Drone", "Extraction and Rescue Kit", "Crusher Kit", "Mining Conscription Kit")
+	var/items = list("Resonator and Advanced Scanner", "Mining Drone", "Extraction and Rescue Kit", "Crusher Kit", "Mining Conscription Kit")
 
 	var/selection = input(redeemer, "Pick your equipment", "Mining Voucher Redemption") as null|anything in items
 	if(!selection || !Adjacent(redeemer) || QDELETED(voucher) || voucher.loc != redeemer)
 		return
 	switch(selection)
-		if("Survival Capsule and Explorer's Webbing")
-			new /obj/item/storage/belt/mining/vendor(src.loc)
 		if("Resonator and Advanced Scanner")
 			new /obj/item/resonator(src.loc)
 			new /obj/item/device/t_scanner/adv_mining_scanner(src.loc)
