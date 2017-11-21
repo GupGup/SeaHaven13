@@ -25,43 +25,6 @@
 	if(istype(AM))
 		playsound(src,sound,50,1)
 
-/turf/open/indestructible/necropolis
-	name = "necropolis floor"
-	desc = "It's regarding you suspiciously."
-	icon = 'icons/turf/floors.dmi'
-	icon_state = "necro1"
-	baseturf = /turf/open/indestructible/necropolis
-	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
-
-/turf/open/indestructible/necropolis/Initialize()
-	. = ..()
-	if(prob(12))
-		icon_state = "necro[rand(2,3)]"
-
-/turf/open/indestructible/necropolis/air
-	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
-
-/turf/open/indestructible/boss //you put stone tiles on this and use it as a base
-	name = "necropolis floor"
-	icon = 'icons/turf/boss_floors.dmi'
-	icon_state = "boss"
-	baseturf = /turf/open/indestructible/boss
-	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
-
-/turf/open/indestructible/boss/air
-	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
-
-/turf/open/indestructible/hierophant
-	icon = 'icons/turf/floors/hierophant_floor.dmi'
-	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
-	baseturf = /turf/open/indestructible/hierophant
-	smooth = SMOOTH_TRUE
-
-/turf/open/indestructible/hierophant/two
-
-/turf/open/indestructible/hierophant/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
-	return FALSE
-
 /turf/open/indestructible/paper
 	name = "notebook floor"
 	desc = "A floor made of invulnerable notebook paper."

@@ -22,62 +22,6 @@
 /turf/open/floor/plating/abductor2/burn_tile()
 	return //unburnable
 
-
-/turf/open/floor/plating/astplate
-	icon_state = "asteroidplating"
-
-/turf/open/floor/plating/airless/astplate
-	icon_state = "asteroidplating"
-
-
-/turf/open/floor/plating/ashplanet
-	icon = 'icons/turf/mining.dmi'
-	name = "ash"
-	icon_state = "ash"
-	smooth = SMOOTH_MORE|SMOOTH_BORDER
-	var/smooth_icon = 'icons/turf/floors/ash.dmi'
-	desc = "The ground is covered in volcanic ash."
-	baseturf = /turf/open/floor/plating/ashplanet/wateryrock //I assume this will be a chasm eventually, once this becomes an actual surface
-	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
-	planetary_atmos = TRUE
-	attachment_holes = FALSE
-
-/turf/open/floor/plating/ashplanet/Initialize()
-	if(smooth)
-		pixel_y = -4
-		pixel_x = -4
-		icon = smooth_icon
-	. = ..()
-
-/turf/open/floor/plating/ashplanet/break_tile()
-	return
-
-/turf/open/floor/plating/ashplanet/burn_tile()
-	return
-
-/turf/open/floor/plating/ashplanet/ash
-	canSmoothWith = list(/turf/open/floor/plating/ashplanet/ash, /turf/closed)
-	layer = HIGH_TURF_LAYER
-	slowdown = 1
-
-/turf/open/floor/plating/ashplanet/rocky
-	name = "rocky ground"
-	icon_state = "rockyash"
-	smooth_icon = 'icons/turf/floors/rocky_ash.dmi'
-	layer = MID_TURF_LAYER
-	canSmoothWith = list(/turf/open/floor/plating/ashplanet/rocky, /turf/closed)
-
-/turf/open/floor/plating/ashplanet/wateryrock
-	name = "wet rocky ground"
-	smooth = null
-	icon_state = "wateryrock"
-	slowdown = 2
-
-/turf/open/floor/plating/ashplanet/wateryrock/Initialize()
-	icon_state = "[icon_state][rand(1, 9)]"
-	. = ..()
-
-
 /turf/open/floor/plating/beach
 	name = "beach"
 	icon = 'icons/misc/beach.dmi'

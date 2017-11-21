@@ -142,18 +142,6 @@
 	e_cost = 50
 	fire_sound = 'sound/weapons/taser2.ogg'
 
-/obj/item/ammo_casing/energy/plasma
-	projectile_type = /obj/item/projectile/plasma
-	select_name = "plasma burst"
-	fire_sound = 'sound/weapons/plasma_cutter.ogg'
-	delay = 15
-	e_cost = 25
-
-/obj/item/ammo_casing/energy/plasma/adv
-	projectile_type = /obj/item/projectile/plasma/adv
-	delay = 10
-	e_cost = 10
-
 /obj/item/ammo_casing/energy/wormhole
 	projectile_type = /obj/item/projectile/beam/wormhole
 	e_cost = 0
@@ -238,11 +226,3 @@
 
 /obj/item/ammo_casing/energy/gravitychaos/New(var/obj/item/gun/energy/gravity_gun/G)
 	gun = G
-
-/obj/item/ammo_casing/energy/plasma
-	projectile_type = /obj/item/projectile/plasma
-	select_name = "plasma burst"
-	fire_sound = 'sound/weapons/pulse.ogg'
-
-/obj/item/ammo_casing/energy/plasma/adv
-	projectile_type = /obj/item/projectile/plasma/adv

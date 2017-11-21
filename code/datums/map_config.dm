@@ -9,8 +9,6 @@
 	var/map_path = "map_files/BoxStation"
 	var/map_file = "BoxStation.dmm"
 
-	var/minetype = "lavaland"
-
 	//Order matters here.
 	var/list/transition_config = list(CENTCOM = SELFLOOPING,
 									MAIN_STATION = CROSSLINKED,
@@ -68,7 +66,6 @@
 	map_path = json["map_path"]
 	map_file = json["map_file"]
 
-	minetype = json["minetype"] || minetype
 	allow_custom_shuttles = json["allow_custom_shuttles"] != FALSE
 
 	var/jtcl = json["transition_config"]

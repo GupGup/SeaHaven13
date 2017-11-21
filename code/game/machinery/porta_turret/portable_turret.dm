@@ -578,29 +578,6 @@
 /obj/machinery/porta_turret/ai/assess_perp(mob/living/carbon/human/perp)
 	return 10 //AI turrets shoot at everything not in their faction
 
-/obj/machinery/porta_turret/aux_base
-	name = "perimeter defense turret"
-	desc = "A plasma beam turret calibrated to defend outposts against non-humanoid fauna. It is more effective when exposed to the environment."
-	installation = null
-	lethal_projectile = /obj/item/projectile/plasma/turret
-	lethal_projectile_sound = 'sound/weapons/plasma_cutter.ogg'
-	mode = TURRET_LETHAL //It would be useless in stun mode anyway
-	faction = "neutral" //Minebots, medibots, etc that should not be shot.
-
-/obj/machinery/porta_turret/aux_base/assess_perp(mob/living/carbon/human/perp)
-	return 0 //Never shoot humanoids. You are on your own if Ashwalkers or the like attack!
-
-/obj/machinery/porta_turret/aux_base/setup()
-	return
-
-/obj/machinery/porta_turret/aux_base/interact(mob/user) //Controlled solely from the base console.
-	return
-
-/obj/machinery/porta_turret/aux_base/Initialize()
-	. = ..()
-	cover.name = name
-	cover.desc = desc
-
 /obj/machinery/porta_turret/centcom_shuttle
 	installation = null
 	max_integrity = 260
