@@ -204,14 +204,6 @@
 	build_path = /obj/item/circuitboard/computer/cargo/request
 	category = list("Computer Boards")
 
-/datum/design/board/stockexchange
-	name = "Computer Design (Stock Exchange Console)"
-	desc = "Allows for the construction of circuit boards used to build a Stock Exchange Console."
-	id = "stockexchange"
-	req_tech = list("programming" = 3)
-	build_path = /obj/item/circuitboard/computer/stockexchange
-	category = list("Computer Boards")
-
 /datum/design/board/mining
 	name = "Computer Design (Outpost Status Display)"
 	desc = "Allows for the construction of circuit boards used to build an outpost status display console."
