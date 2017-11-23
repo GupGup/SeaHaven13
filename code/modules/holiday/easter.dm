@@ -123,7 +123,6 @@
 	/obj/item/toy/balloon,
 	/obj/item/toy/gun,
 	/obj/item/toy/sword,
-	/obj/item/toy/foamblade,
 	/obj/item/toy/prize/ripley,
 	/obj/item/toy/prize/honk,
 	/obj/item/toy/plush/carpplushie,

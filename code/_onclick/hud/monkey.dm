@@ -90,12 +90,6 @@
 	pull_icon.screen_loc = ui_pull_resist
 	static_inventory += pull_icon
 
-	lingchemdisplay = new /obj/screen/ling/chems()
-	infodisplay += lingchemdisplay
-
-	lingstingdisplay = new /obj/screen/ling/sting()
-	infodisplay += lingstingdisplay
-
 
 	zone_select = new /obj/screen/zone_sel()
 	zone_select.icon = ui_style

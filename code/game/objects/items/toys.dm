@@ -270,22 +270,6 @@
 	else
 		return ..()
 
-/*
- * Foam armblade
- */
-/obj/item/toy/foamblade
-	name = "foam armblade"
-	desc = "It says \"Sternside Changs #1 fan\" on it."
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "foamblade"
-	item_state = "arm_blade"
-	lefthand_file = 'icons/mob/inhands/antag/changeling_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/antag/changeling_righthand.dmi'
-	attack_verb = list("pricked", "absorbed", "gored")
-	w_class = WEIGHT_CLASS_SMALL
-	resistance_flags = FLAMMABLE
-
-
 /obj/item/toy/windupToolbox
 	name = "windup toolbox"
 	desc = "A replica toolbox that rumbles when you turn the key."

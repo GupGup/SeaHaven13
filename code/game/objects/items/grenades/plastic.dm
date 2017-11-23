@@ -133,8 +133,6 @@
 			var/role = lowertext(user.mind.special_role)
 			if(role == "traitor" || role == "syndicate")
 				message_say = "FOR THE SYNDICATE!"
-			else if(role == "changeling")
-				message_say = "FOR THE HIVE!"
 			else if(role == "cultist")
 				message_say = "FOR NAR-SIE!"
 			else if(is_revolutionary(user))
@@ -179,8 +177,6 @@
 			var/role = lowertext(user.mind.special_role)
 			if(role == "traitor" || role == "syndicate")
 				message_say = "FOR THE SYNDICATE!"
-			else if(role == "changeling")
-				message_say = "FOR THE HIVE!"
 			else if(role == "cultist")
 				message_say = "FOR NAR-SIE!"
 			else if(is_revolutionary(user))

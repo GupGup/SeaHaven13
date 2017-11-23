@@ -36,7 +36,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		//Archived values of when antag pref defines were a bitfield+fitflags
 		var/B_traitor = 1
 		var/B_operative = 2
-		var/B_changeling = 4
 		var/B_wizard = 8
 		var/B_malf = 16
 		var/B_rev = 32
@@ -48,7 +47,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		var/B_gang = 4096
 		var/B_brother = 32768
 
-		var/list/archived = list(B_traitor,B_operative,B_changeling,B_wizard,B_malf,B_rev,B_alien,B_pai,B_cultist,B_blob,B_monkey,B_gang,B_brother)
+		var/list/archived = list(B_traitor,B_operative,B_wizard,B_malf,B_rev,B_alien,B_pai,B_cultist,B_blob,B_monkey,B_gang,B_brother)
 
 		be_special = list()
 
@@ -60,8 +59,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 						be_special += ROLE_TRAITOR
 					if(2)
 						be_special += ROLE_OPERATIVE
-					if(4)
-						be_special += ROLE_CHANGELING
 					if(8)
 						be_special += ROLE_WIZARD
 					if(16)

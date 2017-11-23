@@ -14,21 +14,10 @@
 	var/damaged_brain = FALSE //whether the brain organ is damaged.
 	var/decoy_override = FALSE	//I apologize to the security players, and myself, who abused this, but this is going to go.
 
-/obj/item/organ/brain/changeling_brain
-	vital = FALSE
-	decoy_override = TRUE
-
 /obj/item/organ/brain/Insert(mob/living/carbon/C, special = 0,no_id_transfer = FALSE)
 	..()
 
 	name = "brain"
-
-	if(C.mind && C.mind.has_antag_datum(/datum/antagonist/changeling) && !no_id_transfer)	//congrats, you're trapped in a body you don't control
-		if(brainmob && !(C.stat == DEAD || (C.status_flags & FAKEDEATH)))
-			to_chat(brainmob, "<span class = danger>You can't feel your body! You're still just a brain!</span>")
-		loc = C
-		C.update_hair()
-		return
 
 	if(brainmob)
 		if(C.key)

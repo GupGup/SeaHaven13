@@ -1057,40 +1057,6 @@
 	..()
 	. = 1
 
-//used for changeling's adrenaline power
-/datum/reagent/medicine/changelingAdrenaline
-	name = "Adrenaline"
-	id = "changelingAdrenaline"
-	description = "Reduces stun times. Also deals toxin damage at high amounts."
-	color = "#C8A5DC"
-	overdose_threshold = 30
-
-/datum/reagent/medicine/changelingAdrenaline/on_mob_life(mob/living/M as mob)
-	M.AdjustUnconscious(-20, 0)
-	M.AdjustStun(-20, 0)
-	M.AdjustKnockdown(-20, 0)
-	M.adjustStaminaLoss(-1, 0)
-	. = 1
-	..()
-
-/datum/reagent/medicine/changelingAdrenaline/overdose_process(mob/living/M as mob)
-	M.adjustToxLoss(1, 0)
-	. = 1
-	..()
-
-/datum/reagent/medicine/changelingAdrenaline2
-	name = "Adrenaline"
-	id = "changelingAdrenaline2"
-	description = "Drastically increases movement speed."
-	color = "#C8A5DC"
-	metabolization_rate = 1
-
-/datum/reagent/medicine/changelingAdrenaline2/on_mob_life(mob/living/M as mob)
-	M.status_flags |= GOTTAGOREALLYFAST
-	M.adjustToxLoss(2, 0)
-	. = 1
-	..()
-
 /datum/reagent/medicine/corazone
 	// Heart attack code will not do damage if corazone is present
 	// because it's SPACE MAGIC ASPIRIN

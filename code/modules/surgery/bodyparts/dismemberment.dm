@@ -145,7 +145,7 @@
 	loc = LB
 
 /obj/item/organ/brain/transfer_to_limb(obj/item/bodypart/head/LB, mob/living/carbon/human/C)
-	Remove(C)	//Changeling brain concerns are now handled in Remove
+	Remove(C)
 	loc = LB
 	LB.brain = src
 	if(brainmob)

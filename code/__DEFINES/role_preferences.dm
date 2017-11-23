@@ -8,7 +8,6 @@
 //then you MUST update the database!
 #define ROLE_TRAITOR			"traitor"
 #define ROLE_OPERATIVE			"operative"
-#define ROLE_CHANGELING			"changeling"
 #define ROLE_WIZARD				"wizard"
 #define ROLE_MALF				"malf AI"
 #define ROLE_REV				"revolutionary"
@@ -29,7 +28,6 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_TRAITOR = /datum/game_mode/traitor,
 	ROLE_BROTHER = /datum/game_mode/traitor/bros,
 	ROLE_OPERATIVE = /datum/game_mode/nuclear,
-	ROLE_CHANGELING = /datum/game_mode/changeling,
 	ROLE_WIZARD = /datum/game_mode/wizard,
 	ROLE_MALF,
 	ROLE_REV = /datum/game_mode/revolution,

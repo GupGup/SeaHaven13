@@ -41,7 +41,6 @@
 	zone_select.icon = ui_style
 	zone_select.update_icon(mymob)
 
-	lingchemdisplay = new /obj/screen/ling/chems()
 	devilsouldisplay = new /obj/screen/devil/soul_counter
 	infodisplay += devilsouldisplay
 

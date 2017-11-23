@@ -9,7 +9,7 @@
 	invocation_type = "whisper"
 	range = 1
 	cooldown_min = 200 //100 deciseconds reduction per rank
-	var/list/protected_roles = list("Wizard","Changeling","Cultist") //which roles are immune to the spell
+	var/list/protected_roles = list("Wizard", "Cultist") //which roles are immune to the spell
 	var/unconscious_amount_caster = 400 //how much the caster is stunned for after the spell
 	var/unconscious_amount_victim = 400 //how much the victim is stunned for after the spell
 

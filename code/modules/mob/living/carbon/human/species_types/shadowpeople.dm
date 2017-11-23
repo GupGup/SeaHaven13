@@ -112,17 +112,11 @@
 
 /obj/item/organ/heart/nightmare/Insert(mob/living/carbon/M, special = 0)
 	..()
-	if(special != HEART_SPECIAL_SHADOWIFY)
-		blade = new/obj/item/light_eater
-		M.put_in_hands(blade)
 	START_PROCESSING(SSobj, src)
 
 /obj/item/organ/heart/nightmare/Remove(mob/living/carbon/M, special = 0)
 	STOP_PROCESSING(SSobj, src)
 	respawn_progress = 0
-	if(blade && special != HEART_SPECIAL_SHADOWIFY)
-		QDEL_NULL(blade)
-		M.visible_message("<span class='warning'>\The [blade] disintegrates!</span>")
 	..()
 
 /obj/item/organ/heart/nightmare/Stop()
@@ -153,56 +147,6 @@
 		owner.visible_message("<span class='warning'>[owner] staggers to their feet!</span>")
 		playsound(owner, 'sound/hallucinations/far_noise.ogg', 50, 1)
 		respawn_progress = 0
-
-//Weapon
-
-/obj/item/light_eater
-	name = "light eater"
-	icon_state = "arm_blade"
-	item_state = "arm_blade"
-	force = 25
-	armour_penetration = 35
-	lefthand_file = 'icons/mob/inhands/antag/changeling_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/antag/changeling_righthand.dmi'
-	flags_1 = ABSTRACT_1 | NODROP_1 | DROPDEL_1
-	w_class = WEIGHT_CLASS_HUGE
-	sharpness = IS_SHARP
-
-/obj/item/light_eater/afterattack(atom/movable/AM, mob/user, proximity)
-	if(!proximity)
-		return
-	if(isopenturf(AM)) //So you can actually melee with it
-		return
-	if(isliving(AM))
-		var/mob/living/L = AM
-		if(iscyborg(AM))
-			var/mob/living/silicon/robot/borg = AM
-			if(!borg.lamp_cooldown)
-				borg.update_headlamp(TRUE, INFINITY)
-				to_chat(borg, "<span class='danger'>Your headlamp is fried! You'll need a human to help replace it.</span>")
-		else
-			for(var/obj/item/O in AM)
-				if(O.light_range && O.light_power)
-					disintegrate(O)
-		if(L.pulling && L.pulling.light_range && isitem(L.pulling))
-			disintegrate(L.pulling)
-	else if(isitem(AM))
-		var/obj/item/I = AM
-		if(I.light_range && I.light_power)
-			disintegrate(I)
-
-/obj/item/light_eater/proc/disintegrate(obj/item/O)
-	if(istype(O, /obj/item/device/pda))
-		var/obj/item/device/pda/PDA = O
-		PDA.set_light(0)
-		PDA.fon = 0
-		PDA.f_lum = 0
-		PDA.update_icon()
-		visible_message("<span class='danger'>The light in [PDA] shorts out!</span>")
-	else
-		visible_message("<span class='danger'>[O] is disintegrated by [src]!</span>")
-		O.burn()
-	playsound(src, 'sound/items/welder.ogg', 50, 1)
 
 #undef HEART_SPECIAL_SHADOWIFY
 #undef HEART_RESPAWN_THRESHHOLD

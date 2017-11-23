@@ -153,28 +153,6 @@
 	toxpwr = 2
 	taste_description = "fish"
 
-/datum/reagent/toxin/zombiepowder
-	name = "Zombie Powder"
-	id = "zombiepowder"
-	description = "A strong neurotoxin that puts the subject into a death-like state."
-	reagent_state = SOLID
-	color = "#669900" // rgb: 102, 153, 0
-	toxpwr = 0.5
-	taste_description = "death"
-
-/datum/reagent/toxin/zombiepowder/on_mob_life(mob/living/carbon/M)
-	M.status_flags |= FAKEDEATH
-	M.adjustOxyLoss(0.5*REM, 0)
-	M.Knockdown(100, 0)
-	M.silent = max(M.silent, 5)
-	M.tod = worldtime2text()
-	..()
-	. = 1
-
-/datum/reagent/toxin/zombiepowder/on_mob_delete(mob/M)
-	M.status_flags &= ~FAKEDEATH
-	..()
-
 /datum/reagent/toxin/mindbreaker
 	name = "Mindbreaker Toxin"
 	id = "mindbreaker"

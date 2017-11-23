@@ -105,9 +105,7 @@
 	healths = null
 	healthdoll = null
 	internals = null
-	lingchemdisplay = null
 	devilsouldisplay = null
-	lingstingdisplay = null
 	blobpwrdisplay = null
 	alien_plasma_display = null
 	alien_queen_finder = null

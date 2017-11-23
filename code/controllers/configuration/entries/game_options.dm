@@ -64,10 +64,6 @@ CONFIG_DEF(number/brother_scaling_coeff)	//how many players per brother team
 	value = 25
 	min_val = 1
 
-CONFIG_DEF(number/changeling_scaling_coeff)	//how much does the amount of players get divided by to determine changelings
-	value = 6
-	min_val = 1
-
 CONFIG_DEF(number/security_scaling_coeff)	//how much does the amount of players get divided by to determine open security officer positions
 	value = 8
 	min_val = 1
@@ -88,7 +84,7 @@ CONFIG_DEF(flag/protect_assistant_from_antagonist)	//If assistants can be traito
 
 CONFIG_DEF(flag/enforce_human_authority)	//If non-human species are barred from joining as a head of staff
 
-CONFIG_DEF(flag/allow_latejoin_antagonists)	// If late-joining players can be traitor/changeling
+CONFIG_DEF(flag/allow_latejoin_antagonists)	// If late-joining players can be traitor
 
 CONFIG_DEF(number/midround_antag_time_check)	// How late (in minutes) you want the midround antag system to stay on, setting this to 0 will disable the system
 	value = 60

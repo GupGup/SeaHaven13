@@ -297,7 +297,7 @@
 	hitsound = 'sound/items/bikehorn.ogg'
 	sharpness = IS_SHARP
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
-	
+
 /obj/item/nullrod/pride_hammer
 	icon_state = "pride"
 	name = "Pride-struck Hammer"
@@ -308,7 +308,7 @@
 	slot_flags = SLOT_BACK
 	attack_verb = list("attacked", "smashed", "crushed", "splattered", "cracked")
 	hitsound = 'sound/weapons/blade1.ogg'
-	
+
 /obj/item/nullrod/pride_hammer/afterattack(atom/A as mob|obj|turf|area, mob/user, proximity)
 	if(!proximity)
 		return
@@ -342,22 +342,6 @@
 	throwforce = 30
 	sharpness = IS_SHARP
 	attack_verb = list("enlightened", "redpilled")
-
-/obj/item/nullrod/armblade
-	name = "dark blessing"
-	desc = "Particularly twisted dieties grant gifts of dubious value."
-	icon_state = "arm_blade"
-	item_state = "arm_blade"
-	lefthand_file = 'icons/mob/inhands/antag/changeling_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/antag/changeling_righthand.dmi'
-	flags_1 = ABSTRACT_1 | NODROP_1
-	w_class = WEIGHT_CLASS_HUGE
-	sharpness = IS_SHARP
-
-/obj/item/nullrod/armblade/tentacle
-	name = "unholy blessing"
-	icon_state = "tentacle"
-	item_state = "tentacle"
 
 /obj/item/nullrod/carp
 	name = "carp-sie plushie"

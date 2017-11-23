@@ -98,7 +98,7 @@
 	if(is_type_in_typecache(user, mob_type_blacklist_typecache))
 		return FALSE
 	if(status_check)
-		if(user.stat > stat_allowed  || (user.status_flags & FAKEDEATH))
+		if(user.stat > stat_allowed)
 			to_chat(user, "<span class='notice'>You cannot [key] while unconscious.</span>")
 			return FALSE
 		if(restraint_check && (user.restrained() || user.buckled))

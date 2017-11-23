@@ -48,7 +48,6 @@
 	var/list/spell_list = list() // Wizard mode & "Give Spell" badmin button.
 
 	var/datum/faction/faction 			//associated faction
-	var/datum/changeling/changeling		//changeling holder
 	var/linglink
 	var/datum/martial_art/martial_art
 	var/static/default_martial_art = new/datum/martial_art
@@ -186,12 +185,6 @@
 			objectives -= O
 			qdel(O)
 
-/datum/mind/proc/remove_changeling()
-	var/datum/antagonist/changeling/C = has_antag_datum(/datum/antagonist/changeling)
-	if(C)
-		remove_antag_datum(/datum/antagonist/changeling)
-		special_role = null
-
 /datum/mind/proc/remove_traitor()
 	if(src in SSticker.mode.traitors)
 		remove_antag_datum(ANTAG_DATUM_TRAITOR)
@@ -240,7 +233,6 @@
 			R.traitor_frequency = 0
 
 /datum/mind/proc/remove_all_antag() //For the Lazy amongst us.
-	remove_changeling()
 	remove_traitor()
 	remove_nukeop()
 	remove_wizard()
@@ -383,7 +375,6 @@
 
 	var/list/sections = list(
 		"traitor", // "traitorchan",
-		"changeling",
 		"nuclear",
 		"wizard",
 		"revolution",
@@ -430,29 +421,6 @@
 			text += " | Disabled in Prefs"
 
 		sections["brother"] = text
-
-		/** CHANGELING ***/
-		text = "changeling"
-		if (SSticker.mode.config_tag=="changeling" || SSticker.mode.config_tag=="traitorchan")
-			text = uppertext(text)
-		text = "<i><b>[text]</b></i>: "
-		var/datum/antagonist/changeling/C = has_antag_datum(/datum/antagonist/changeling)
-		if(C)
-			text += "<b>[C.name]</b> | <a href='?src=[REF(src)];changeling=clear'>No</a>"
-			if (objectives.len==0)
-				text += "<br>Objectives are empty! <a href='?src=[REF(src)];changeling=autoobjectives'>Randomize!</a>"
-			if(C.stored_profiles.len && (current.real_name != C.first_prof.name) )
-				text += "<br><a href='?src=[REF(src)];changeling=initialdna'>Transform to initial appearance.</a>"
-		else
-			text += "<a href='?src=[REF(src)];changeling=changeling'>yes</a> | <b>NO</b>"
-
-		if(current && current.client && (ROLE_CHANGELING in current.client.prefs.be_special))
-			text += " | Enabled in Prefs"
-		else
-			text += " | Disabled in Prefs"
-
-		sections["changeling"] = text
-
 
 		/** MONKEY ***/
 		text = "monkey"
@@ -657,13 +625,6 @@
 				if (R.emagged)
 					n_e_robots++
 			text += "<br>[n_e_robots] of [ai.connected_robots.len] slaved cyborgs are emagged. <a href='?src=[REF(src)];silicon=unemagcyborgs'>Unemag</a>"
-	if (SSticker.mode.config_tag == "traitorchan")
-		if (sections["traitor"])
-			out += sections["traitor"]+"<br>"
-		if (sections["changeling"])
-			out += sections["changeling"]+"<br><br>"
-		sections -= "traitor"
-		sections -= "changeling"
 	else
 		if (sections[SSticker.mode.config_tag])
 			out += sections[SSticker.mode.config_tag]+"<br><br>"
@@ -837,9 +798,6 @@
 					if("capture")
 						new_objective = new /datum/objective/capture
 						new_objective.explanation_text = "Capture [target_number] lifeforms with an energy net. Live, rare specimens are worth more."
-					if("absorb")
-						new_objective = new /datum/objective/absorb
-						new_objective.explanation_text = "Absorb [target_number] compatible genomes."
 				new_objective.owner = src
 				new_objective.target_amount = target_number
 
@@ -987,35 +945,6 @@
 					log_admin("[key_name(usr)] has wizard'ed [current].")
 			if("lair")
 				current.forceMove(pick(GLOB.wizardstart))
-
-	else if (href_list["changeling"])
-		switch(href_list["changeling"])
-			if("clear")
-				remove_antag_datum(/datum/antagonist/changeling)
-				special_role = null
-				to_chat(current, "<span class='userdanger'>You grow weak and lose your powers! You are no longer a changeling and are stuck in your current form!</span>")
-				message_admins("[key_name_admin(usr)] has de-changeling'ed [current].")
-				log_admin("[key_name(usr)] has de-changeling'ed [current].")
-			if("changeling")
-				var/datum/antagonist/changeling/C = make_Changling()
-				to_chat(current, "<span class='boldannounce'>Our powers have awoken. A flash of memory returns to us...we are [C.changelingID], a changeling!</span>")
-				message_admins("[key_name_admin(usr)] has changeling'ed [current].")
-				log_admin("[key_name(usr)] has changeling'ed [current].")
-			if("autoobjectives")
-				var/datum/antagonist/changeling/C = has_antag_datum(/datum/antagonist/changeling)
-				if(C)
-					C.forge_objectives()
-				to_chat(usr, "<span class='notice'>The objectives for changeling [key] have been generated. You can edit them and anounce manually.</span>")
-			if("initialdna")
-				var/datum/antagonist/changeling/ling = has_antag_datum(/datum/antagonist/changeling)
-				if( !ling || !ling.stored_profiles.len || !iscarbon(current))
-					to_chat(usr, "<span class='danger'>Resetting DNA failed!</span>")
-				else
-					var/mob/living/carbon/C = current
-					ling.first_prof.dna.transfer_identity(C, transfer_SE=1)
-					C.real_name = ling.first_prof.name
-					C.updateappearance(mutcolor_update=1)
-					C.domutcheck()
 
 	else if (href_list["nuclear"])
 		switch(href_list["nuclear"])
@@ -1307,13 +1236,6 @@
 			SSticker.mode.prepare_syndicate_leader(src,nuke_code)
 		else
 			current.real_name = "[syndicate_name()] Operative #[SSticker.mode.syndicates.len-1]"
-
-/datum/mind/proc/make_Changling()
-	var/datum/antagonist/changeling/C = has_antag_datum(/datum/antagonist/changeling)
-	if(!C)
-		C = add_antag_datum(/datum/antagonist/changeling)
-		special_role = "Changeling"
-	return C
 
 /datum/mind/proc/make_Wizard()
 	if(!has_antag_datum(/datum/antagonist/wizard))

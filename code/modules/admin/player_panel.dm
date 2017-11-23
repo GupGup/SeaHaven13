@@ -442,23 +442,6 @@
 					dat += "<td><A href='?priv_msg=[N.key]'>PM</A></td></tr>"
 			dat += "</table>"
 
-
-		var/list/lings = get_antagonists(/datum/antagonist/changeling)
-		if(lings.len > 0)
-			dat += "<br><table cellspacing=5><tr><td><B>Changelings</B></td><td></td><td></td></tr>"
-			for(var/datum/mind/changeling in lings)
-				var/datum/antagonist/changeling/lingantag = changeling.has_antag_datum(/datum/antagonist/changeling)
-				var/mob/M = changeling.current
-				if(M)
-					dat += "<tr><td>[lingantag.changelingID]([lingantag.name]) as <a href='?_src_=holder;[HrefToken()];adminplayeropts=[REF(M)]'>[M.real_name]</a>[M.client ? "" : " <i>(No Client)</i>"][M.stat == DEAD ? " <b><font color=red>(DEAD)</font></b>" : ""]</td>"
-					dat += "<td><A href='?priv_msg=[M.ckey]'>PM</A></td>"
-					dat += "<td><A href='?_src_=holder;[HrefToken()];adminplayerobservefollow=[REF(M)]'>FLW</a></td>"
-					dat += "<td><A HREF='?_src_=holder;[HrefToken()];traitor=[REF(M)]'>Show Objective</A></td></tr>"
-				else
-					dat += "<tr><td><a href='?_src_=vars;[HrefToken()];Vars=[REF(changeling)]'>[changeling.name]([changeling.key])</a><i>Changeling body destroyed!</i></td>"
-					dat += "<td><A href='?priv_msg=[changeling.key]'>PM</A></td></tr>"
-			dat += "</table>"
-
 		if(SSticker.mode.wizards.len > 0)
 			dat += "<br><table cellspacing=5><tr><td><B>Wizards</B></td><td></td><td></td></tr>"
 			for(var/datum/mind/wizard in SSticker.mode.wizards)

@@ -248,7 +248,7 @@
 		to_chat(M, "<span class='warning'>You can't put them out with just your bare hands!</span>")
 		return
 
-	if(health >= 0 && !(status_flags & FAKEDEATH))
+	if(health >= 0)
 
 		if(lying)
 			if(buckled)

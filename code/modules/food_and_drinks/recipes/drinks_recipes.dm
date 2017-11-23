@@ -353,12 +353,6 @@
 	results = list("amasec" = 10)
 	required_reagents = list("iron" = 1, "wine" = 5, "vodka" = 5)
 
-/datum/chemical_reaction/changelingsting
-	name = "Changeling Sting"
-	id = "changelingsting"
-	results = list("changelingsting" = 5)
-	required_reagents = list("screwdrivercocktail" = 1, "lemon_lime" = 2)
-
 /datum/chemical_reaction/aloe
 	name = "Aloe"
 	id = "aloe"

@@ -62,24 +62,6 @@
 /obj/screen/devil/soul_counter/proc/clear()
 	invisibility = INVISIBILITY_ABSTRACT
 
-/obj/screen/ling
-	invisibility = INVISIBILITY_ABSTRACT
-
-/obj/screen/ling/sting
-	name = "current sting"
-	screen_loc = ui_lingstingdisplay
-
-/obj/screen/ling/sting/Click()
-	if(isobserver(usr))
-		return
-	var/mob/living/carbon/U = usr
-	U.unset_sting()
-
-/obj/screen/ling/chems
-	name = "chemical storage"
-	icon_state = "power_display"
-	screen_loc = ui_lingchemdisplay
-
 /mob/living/carbon/human/create_mob_hud()
 	if(client && !hud_used)
 		hud_used = new /datum/hud/human(src, ui_style2icon(client.prefs.UI_style))
@@ -289,12 +271,6 @@
 	pull_icon.screen_loc = ui_pull_resist
 	static_inventory += pull_icon
 
-	lingchemdisplay = new /obj/screen/ling/chems()
-	infodisplay += lingchemdisplay
-
-	lingstingdisplay = new /obj/screen/ling/sting()
-	infodisplay += lingstingdisplay
-
 	devilsouldisplay = new /obj/screen/devil/soul_counter
 	infodisplay += devilsouldisplay
 
@@ -308,7 +284,7 @@
 			inv.hud = src
 			inv_slots[inv.slot_id] = inv
 			inv.update_icon()
-	
+
 	update_locked_slots()
 
 /datum/hud/human/update_locked_slots()

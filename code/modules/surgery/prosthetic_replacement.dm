@@ -17,7 +17,7 @@
 
 /datum/surgery_step/add_prosthetic
 	name = "add prosthetic"
-	implements = list(/obj/item/bodypart = 100, /obj/item/organ_storage = 100, /obj/item/twohanded/required/chainsaw = 100, /obj/item/melee/synthetic_arm_blade = 100)
+	implements = list(/obj/item/bodypart = 100, /obj/item/organ_storage = 100, /obj/item/twohanded/required/chainsaw = 100)
 	time = 32
 	var/organ_rejection_dam = 0
 
@@ -81,8 +81,3 @@
 			var/obj/item/mounted_chainsaw/new_arm = new(target)
 			target_zone == "r_arm" ? target.put_in_r_hand(new_arm) : target.put_in_l_hand(new_arm)
 			return 1
-		else if(istype(tool, /obj/item/melee/synthetic_arm_blade))
-			var/obj/item/melee/arm_blade/new_arm = new(target,TRUE,TRUE)
-			target_zone == "r_arm" ? target.put_in_r_hand(new_arm) : target.put_in_l_hand(new_arm)
-			return 1
-

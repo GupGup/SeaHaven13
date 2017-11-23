@@ -945,25 +945,6 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	glass_name = "Amasec"
 	glass_desc = "Always handy before COMBAT!!!"
 
-/datum/reagent/consumable/ethanol/changelingsting
-	name = "Changeling Sting"
-	id = "changelingsting"
-	description = "You take a tiny sip and feel a burning sensation..."
-	color = "#2E6671" // rgb: 46, 102, 113
-	boozepwr = 95
-	taste_description = "your brain coming out your nose"
-	glass_icon_state = "changelingsting"
-	glass_name = "Changeling Sting"
-	glass_desc = "A stingy drink."
-
-/datum/reagent/consumable/ethanol/changelingsting/on_mob_life(mob/living/M)
-	if(M.mind) //Changeling Sting assists in the recharging of changeling chemicals.
-		var/datum/antagonist/changeling/changeling = M.mind.has_antag_datum(/datum/antagonist/changeling)
-		if(changeling)
-			changeling.chem_charges += metabolization_rate
-			changeling.chem_charges = Clamp(changeling.chem_charges, 0, changeling.chem_storage)
-	return ..()
-
 /datum/reagent/consumable/ethanol/irishcarbomb
 	name = "Irish Car Bomb"
 	id = "irishcarbomb"

@@ -98,9 +98,6 @@ global procs
 	hivecheck()
 		Returns 1 if the mob can hear and talk in the alien hivemind.
 
-	lingcheck()
-		Returns 1 if the mob can hear and talk in the changeling hivemind.
-
 /mob/living
 	say(message)
 		The say() of mob_living is significantly more complex than that of objects.
@@ -131,7 +128,7 @@ global procs
 		DOES NOT TRIM THE MESSAGE. This is done manually.
 
 	handle_inherent_channels(message, message_mode)
-		If message_mode is MODE_BINARY, MODE_ALIEN or MODE_CHANGELING (or, for AIs, MODE_HOLOPAD), this will
+		If message_mode is MODE_BINARY, MODE_ALIEN (or, for AIs, MODE_HOLOPAD), this will
 		handle speaking in those modes. Return 1 to exit say().
 
 	treat_message(message)

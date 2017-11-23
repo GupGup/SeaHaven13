@@ -51,13 +51,6 @@
 	unit_name = "alien egg sac"
 	export_types = list(/obj/item/organ/alien/eggsac)
 
-
-// Other alien organs.
-/datum/export/organ/alien/changeling_egg
-	cost = 50000 // Holy. Fuck.
-	unit_name = "changeling egg"
-	export_types = list(/obj/item/organ/body_egg/changeling_egg)
-
 // Mutant race organs.
 /datum/export/organ/mutant/cat_ears
 	cost = 1000

@@ -92,12 +92,6 @@
 			var/obj/item/organ/I = X
 			I.Remove(O, 1)
 
-		if(mind)
-			mind.transfer_to(O)
-			var/datum/antagonist/changeling/changeling = O.mind.has_antag_datum(/datum/antagonist/changeling)
-			if(changeling)
-				changeling.purchasedpowers += new /obj/effect/proc_holder/changeling/humanform(null)
-
 		for(var/X in internal_organs)
 			var/obj/item/organ/I = X
 			int_organs += I
@@ -119,17 +113,8 @@
 			for(var/X in O.internal_organs)
 				var/obj/item/organ/G = X
 				if(BP.body_zone == check_zone(G.zone))
-					if(mind && mind.has_antag_datum(/datum/antagonist/changeling) && istype(G, /obj/item/organ/brain))
-						continue //so headless changelings don't lose their brain when transforming
 					qdel(G) //we lose the organs in the missing limbs
 		qdel(BP)
-
-	//transfer mind if we didn't yet
-	if(mind)
-		mind.transfer_to(O)
-		var/datum/antagonist/changeling/changeling = O.mind.has_antag_datum(/datum/antagonist/changeling)
-		if(changeling)
-			changeling.purchasedpowers += new /obj/effect/proc_holder/changeling/humanform(null)
 
 
 	if (tr_flags & TR_DEFAULTMSG)
@@ -248,13 +233,6 @@
 			var/obj/item/organ/I = X
 			I.Remove(O, 1)
 
-		if(mind)
-			mind.transfer_to(O)
-			var/datum/antagonist/changeling/changeling = O.mind.has_antag_datum(/datum/antagonist/changeling)
-			if(changeling)
-				for(var/obj/effect/proc_holder/changeling/humanform/HF in changeling.purchasedpowers)
-					changeling.purchasedpowers -= HF
-
 		for(var/X in internal_organs)
 			var/obj/item/organ/I = X
 			int_organs += I
@@ -277,17 +255,8 @@
 			for(var/X in O.internal_organs)
 				var/obj/item/organ/G = X
 				if(BP.body_zone == check_zone(G.zone))
-					if(mind && mind.has_antag_datum(/datum/antagonist/changeling) && istype(G, /obj/item/organ/brain))
-						continue //so headless changelings don't lose their brain when transforming
 					qdel(G) //we lose the organs in the missing limbs
 		qdel(BP)
-
-	if(mind)
-		mind.transfer_to(O)
-		var/datum/antagonist/changeling/changeling = O.mind.has_antag_datum(/datum/antagonist/changeling)
-		if(changeling)
-			for(var/obj/effect/proc_holder/changeling/humanform/HF in changeling.purchasedpowers)
-				changeling.purchasedpowers -= HF
 
 	O.a_intent = INTENT_HELP
 	if (tr_flags & TR_DEFAULTMSG)

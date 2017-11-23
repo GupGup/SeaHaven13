@@ -1116,21 +1116,15 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 //////////////////
 
 /datum/species/proc/help(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
-	if(target.health >= 0 && !(target.status_flags & FAKEDEATH))
-		target.help_shake_act(user)
-		if(target != user)
-			add_logs(user, target, "shaked")
-		return 1
-	else
-		var/we_breathe = (!(NOBREATH in user.dna.species.species_traits))
-		var/we_lung = user.getorganslot(ORGAN_SLOT_LUNGS)
+	var/we_breathe = (!(NOBREATH in user.dna.species.species_traits))
+	var/we_lung = user.getorganslot(ORGAN_SLOT_LUNGS)
 
-		if(we_breathe && we_lung)
-			user.do_cpr(target)
-		else if(we_breathe && !we_lung)
-			to_chat(user, "<span class='warning'>You have no lungs to breathe with, so you cannot peform CPR.</span>")
-		else
-			to_chat(user, "<span class='notice'>You do not breathe, so you cannot perform CPR.</span>")
+	if(we_breathe && we_lung)
+		user.do_cpr(target)
+	else if(we_breathe && !we_lung)
+		to_chat(user, "<span class='warning'>You have no lungs to breathe with, so you cannot peform CPR.</span>")
+	else
+		to_chat(user, "<span class='notice'>You do not breathe, so you cannot perform CPR.</span>")
 
 /datum/species/proc/grab(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	if(target.check_block())
