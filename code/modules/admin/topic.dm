@@ -18,7 +18,7 @@
 		message_admins("[usr.key] has attempted to override the admin panel!")
 		log_admin("[key_name(usr)] tried to use the admin panel without authorization.")
 		return
-	
+
 	if(!CheckAdminHref(href, href_list))
 		return
 
@@ -106,10 +106,6 @@
 				else
 					message_admins("[key_name_admin(usr)] tried to create a nuke team. Unfortunately, there were not enough candidates available.")
 					log_admin("[key_name(usr)] failed to create a nuke team.")
-			if("ninja")
-				message_admins("[key_name(usr)] spawned a ninja.")
-				log_admin("[key_name(usr)] spawned a ninja.")
-				src.makeSpaceNinja()
 			if("aliens")
 				message_admins("[key_name(usr)] started an alien infestation.")
 				log_admin("[key_name(usr)] started an alien infestation.")

@@ -338,7 +338,6 @@ RANDOM_LAWS corporate
 
 ## Bad idea laws. Probably shouldn't enable these
 #RANDOM_LAWS syndie
-#RANDOM_LAWS ninja
 #RANDOM_LAWS antimov
 #RANDOM_LAWS thermodynamic
 #RANDOM_LAWS ratvar
@@ -370,7 +369,6 @@ LAW_WEIGHT reporter,4
 
 ## Bad idea laws. Probably shouldn't enable these
 LAW_WEIGHT syndie,0
-LAW_WEIGHT ninja,0
 LAW_WEIGHT antimov,0
 LAW_WEIGHT thermodynamic,0
 LAW_WEIGHT ratvar,0

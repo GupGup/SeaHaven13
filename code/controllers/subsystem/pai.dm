@@ -18,10 +18,7 @@ SUBSYSTEM_DEF(pai)
 			if(check_ready(candidate) != candidate)
 				return FALSE
 			var/mob/living/silicon/pai/pai = new(card)
-			if(!candidate.name)
-				pai.name = pick(GLOB.ninja_names)
-			else
-				pai.name = candidate.name
+			pai.name = candidate.name
 			pai.real_name = pai.name
 			pai.key = candidate.key
 

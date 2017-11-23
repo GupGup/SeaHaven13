@@ -103,7 +103,6 @@
 /obj/item/twohanded/required/cult_bastard/Initialize()
 	. = ..()
 	set_light(4)
-	jaunt = new(src)
 	linked_action = new(src)
 
 /obj/item/twohanded/required/cult_bastard/can_be_pulled(user)
@@ -132,14 +131,12 @@
 			user.apply_damage(30, BRUTE, pick("l_arm", "r_arm"))
 			user.Knockdown(50)
 			return
-	jaunt.Grant(user, src)
 	linked_action.Grant(user, src)
 	user.update_icons()
 
 /obj/item/twohanded/required/cult_bastard/dropped(mob/user)
 	. = ..()
 	linked_action.Remove(user)
-	jaunt.Remove(user)
 	user.update_icons()
 
 /obj/item/twohanded/required/cult_bastard/IsReflect()
@@ -163,9 +160,6 @@
 
 /obj/item/twohanded/required/cult_bastard/afterattack(atom/target, mob/user, proximity, click_parameters)
 	. = ..()
-	if(dash_toggled)
-		jaunt.Teleport(user, target)
-		return
 	if(!proximity)
 		return
 	if(ishuman(target))
@@ -180,23 +174,6 @@
 		if(istype(SS))
 			SS.transfer_soul("CONSTRUCT",target,user)
 			qdel(SS)
-
-/datum/action/innate/dash/cult
-	name = "Rend the Veil"
-	desc = "Use the sword to shear open the flimsy fabric of this reality and teleport to your target."
-	icon_icon = 'icons/mob/actions/actions_cult.dmi'
-	button_icon_state = "phaseshift"
-	dash_sound = 'sound/magic/enter_blood.ogg'
-	recharge_sound = 'sound/magic/exit_blood.ogg'
-	beam_effect = "sendbeam"
-	phasein = /obj/effect/temp_visual/dir_setting/cult/phase
-	phaseout = /obj/effect/temp_visual/dir_setting/cult/phase/out
-
-/datum/action/innate/dash/cult/IsAvailable()
-	if(iscultist(holder) && current_charges)
-		return TRUE
-	else
-		return FALSE
 
 
 

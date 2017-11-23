@@ -81,14 +81,9 @@
 	if(M.dna.species.id != "nightmare")
 		M.set_species(/datum/species/shadow/nightmare)
 		visible_message("<span class='warning'>[M] thrashes as [src] takes root in their body!</span>")
-	var/obj/effect/proc_holder/spell/targeted/shadowwalk/SW = new
-	M.AddSpell(SW)
-	shadowwalk = SW
 
 
 /obj/item/organ/brain/nightmare/Remove(mob/living/carbon/M, special = 0)
-	if(shadowwalk)
-		M.RemoveSpell(shadowwalk)
 	..()
 
 

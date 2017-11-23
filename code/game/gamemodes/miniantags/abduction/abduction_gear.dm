@@ -62,26 +62,11 @@
 	if(disguise == null)
 		return
 	stealth_active = 1
-	if(ishuman(loc))
-		var/mob/living/carbon/human/M = loc
-		new /obj/effect/temp_visual/dir_setting/ninja/cloak(get_turf(M), M.dir)
-		M.name_override = disguise.name
-		M.icon = disguise.icon
-		M.icon_state = disguise.icon_state
-		M.cut_overlays()
-		M.add_overlay(disguise.overlays)
-		M.update_inv_hands()
 
 /obj/item/clothing/suit/armor/abductor/vest/proc/DeactivateStealth()
 	if(!stealth_active)
 		return
 	stealth_active = 0
-	if(ishuman(loc))
-		var/mob/living/carbon/human/M = loc
-		new /obj/effect/temp_visual/dir_setting/ninja(get_turf(M), M.dir)
-		M.name_override = null
-		M.cut_overlays()
-		M.regenerate_icons()
 
 /obj/item/clothing/suit/armor/abductor/vest/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	DeactivateStealth()

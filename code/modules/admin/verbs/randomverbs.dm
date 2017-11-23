@@ -387,14 +387,6 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		if("Syndicate")
 			new_character.forceMove(pick(GLOB.nukeop_start))
 			call(/datum/game_mode/proc/equip_syndicate)(new_character)
-		if("Space Ninja")
-			var/list/ninja_spawn = list()
-			for(var/obj/effect/landmark/carpspawn/L in GLOB.landmarks_list)
-				ninja_spawn += L
-			var/datum/antagonist/ninja/ninjadatum = new_character.mind.has_antag_datum(ANTAG_DATUM_NINJA)
-			ninjadatum.equip_space_ninja()
-			if(ninja_spawn.len)
-				new_character.forceMove(pick(ninja_spawn))
 
 		else//They may also be a cyborg or AI.
 			switch(new_character.mind.assigned_role)
