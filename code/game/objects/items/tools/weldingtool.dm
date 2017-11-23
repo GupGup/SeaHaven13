@@ -294,21 +294,6 @@
 /obj/item/weldingtool/mini/flamethrower_screwdriver()
 	return
 
-/obj/item/weldingtool/abductor
-	name = "alien welding tool"
-	desc = "An alien welding tool. Whatever fuel it uses, it never runs out."
-	icon = 'icons/obj/abductor.dmi'
-	icon_state = "welder"
-	toolspeed = 0.1
-	light_intensity = 0
-	change_icons = 0
-	origin_tech = "plasmatech=5;engineering=5;abductor=3"
-
-/obj/item/weldingtool/abductor/process()
-	if(get_fuel() <= max_fuel)
-		reagents.add_reagent("welding_fuel", 1)
-	..()
-
 /obj/item/weldingtool/hugetank
 	name = "upgraded industrial welding tool"
 	desc = "An upgraded welder based of the industrial welder."

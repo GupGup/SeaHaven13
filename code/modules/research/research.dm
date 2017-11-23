@@ -269,13 +269,6 @@ research holder datum.
 
 //Secret Technologies (hidden by default, require rare items to reveal)
 
-/datum/tech/abductor
-	name = "Alien Technologies Research"
-	desc = "The study of technologies used by the advanced alien race known as Abductors."
-	id = "abductor"
-	rare = 5
-	level = 0
-
 /datum/tech/arcane
 	name = "Arcane Research"
 	desc = "When sufficiently analyzed, any magic becomes indistinguishable from technology."

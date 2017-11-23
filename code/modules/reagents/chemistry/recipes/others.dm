@@ -151,12 +151,6 @@
 	results = list("jellymutationtoxin" = 1)
 	required_reagents = list("unstablemutationtoxin" = 1, "slimejelly" = 1) //why would you even make this
 
-/datum/chemical_reaction/abductor_mutation_toxin
-	name = "Abductor Mutation Toxin"
-	id = "abductormutationtoxin"
-	results = list("abductormutationtoxin" = 1)
-	required_reagents = list("unstablemutationtoxin" = 1, "morphine" = 1)
-
 /datum/chemical_reaction/android_mutation_toxin
 	name = "Android Mutation Toxin"
 	id = "androidmutationtoxin"

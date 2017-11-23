@@ -212,23 +212,3 @@
 			last_event = world.time
 			active = 0
 			return
-
-// ALIEN ALLOY
-/turf/open/floor/mineral/abductor
-	name = "alien floor"
-	icon_state = "alienpod1"
-	floor_tile = /obj/item/stack/tile/mineral/abductor
-	icons = list("alienpod1", "alienpod2", "alienpod3", "alienpod4", "alienpod5", "alienpod6", "alienpod7", "alienpod8", "alienpod9")
-
-/turf/open/floor/mineral/abductor/Initialize()
-	. = ..()
-	icon_state = "alienpod[rand(1,9)]"
-
-/turf/open/floor/mineral/abductor/break_tile()
-	return //unbreakable
-
-/turf/open/floor/mineral/abductor/burn_tile()
-	return //unburnable
-
-/turf/open/floor/mineral/abductor/make_plating()
-	return ChangeTurf(/turf/open/floor/plating/abductor2)

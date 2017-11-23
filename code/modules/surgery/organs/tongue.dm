@@ -71,31 +71,6 @@
 		message = fly_buZZ.Replace(message, "ZZZ")
 	return message
 
-/obj/item/organ/tongue/abductor
-	name = "superlingual matrix"
-	desc = "A mysterious structure that allows for instant communication between users. Pretty impressive until you need to eat something."
-	icon_state = "tongueayylmao"
-	say_mod = "gibbers"
-	taste_sensitivity = 101 // ayys cannot taste anything.
-
-/obj/item/organ/tongue/abductor/TongueSpeech(var/message)
-	//Hacks
-	var/mob/living/carbon/human/user = usr
-	var/rendered = "<span class='abductor'><b>[user.name]:</b> [message]</span>"
-	for(var/mob/living/carbon/human/H in GLOB.living_mob_list)
-		var/obj/item/organ/tongue/T = H.getorganslot(ORGAN_SLOT_TONGUE)
-		if(!T || T.type != type)
-			continue
-		if(H.dna && H.dna.species.id == "abductor" && user.dna && user.dna.species.id == "abductor")
-			var/datum/antagonist/abductor/A = user.mind.has_antag_datum(ANTAG_DATUM_ABDUCTOR)
-			if(!A || !(H.mind in A.team.members))
-				continue
-		to_chat(H, rendered)
-	for(var/mob/M in GLOB.dead_mob_list)
-		var/link = FOLLOW_LINK(M, user)
-		to_chat(M, "[link] [rendered]")
-	return ""
-
 /obj/item/organ/tongue/zombie
 	name = "rotting tongue"
 	desc = "Between the decay and the fact that it's just lying there you doubt a tongue has ever seemed less sexy."

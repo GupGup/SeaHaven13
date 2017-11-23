@@ -68,9 +68,6 @@
 	icon = 'icons/turf/walls/uranium_wall.dmi'
 	icon_state = "uranium"
 
-/turf/closed/indestructible/abductor
-	icon_state = "alien1"
-
 /turf/closed/indestructible/opshuttle
 	icon_state = "wall3"
 

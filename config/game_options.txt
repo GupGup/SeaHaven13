@@ -113,7 +113,6 @@ CONTINUOUS CLOCKWORK_CULT
 CONTINUOUS CHANGELING
 CONTINUOUS WIZARD
 CONTINUOUS BLOB
-CONTINUOUS ABDUCTION
 #CONTINUOUS MONKEY
 
 ##Note: do not toggle continuous off for these modes, as they have no antagonists and would thus end immediately!
@@ -137,7 +136,6 @@ MIDROUND_ANTAG CLOCKWORK_CULT
 MIDROUND_ANTAG CHANGELING
 MIDROUND_ANTAG WIZARD
 MIDROUND_ANTAG BLOB
-MIDROUND_ANTAG ABDUCTION
 #MIDROUND_ANTAG  MONKEY
 
 ## Uncomment these for overrides of the minimum / maximum number of players in a round type. 
@@ -403,7 +401,6 @@ ROUNDSTART_RACES plasmaman
 #ROUNDSTART_RACES gold
 #ROUNDSTART_RACES silver
 #ROUNDSTART_RACES uranium
-#ROUNDSTART_RACES abductor
 #ROUNDSTART_RACES synth
 
 ## Races that are straight upgrades. If these are on expect powergamers to always pick them

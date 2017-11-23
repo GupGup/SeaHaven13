@@ -154,7 +154,6 @@ h1.alert, h2.alert		{color: #000000;}
 
 .memo					{color: #638500;	text-align: center;}
 .memoedit				{text-align: center;	font-size: 2;}
-.abductor				{color: #800080; font-style: italic;}
 .slime					{color: #00CED1;}
 .drone					{color: #848482;}
 .monkey					{color: #975032;}

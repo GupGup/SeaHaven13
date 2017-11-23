@@ -54,15 +54,6 @@
 	random_color = FALSE
 	toolspeed = 0.5
 
-/obj/item/wirecutters/abductor
-	name = "alien wirecutters"
-	desc = "Extremely sharp wirecutters, made out of a silvery-green metal."
-	icon = 'icons/obj/abductor.dmi'
-	icon_state = "cutters"
-	toolspeed = 0.1
-	origin_tech = "materials=5;engineering=4;abductor=3"
-	random_color = FALSE
-
 /obj/item/wirecutters/cyborg
 	name = "wirecutters"
 	desc = "This cuts wires."

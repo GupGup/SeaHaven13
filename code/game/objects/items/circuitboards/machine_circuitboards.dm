@@ -36,11 +36,6 @@
 		/obj/item/stock_parts/manipulator = 2,
 		/obj/item/stack/sheet/glass = 1)
 
-/obj/item/circuitboard/machine/abductor
-	name = "alien board (Report This)"
-	icon_state = "abductor_mod"
-	origin_tech = "programming=5;abductor=3"
-
 /obj/item/circuitboard/machine/clockwork
 	name = "clockwork board (Report This)"
 	icon_state = "clock_mod"
@@ -479,18 +474,6 @@
 		/obj/item/stock_parts/micro_laser = 1,
 		/obj/item/stack/sheet/mineral/uranium = 10,
 		/obj/item/stack/sheet/mineral/plasma = 5)
-
-/obj/item/circuitboard/machine/abductor/core
-	name = "alien board (Void Core)"
-	build_path = /obj/machinery/power/rtg/abductor
-	origin_tech = "programming=5;abductor=5;powerstorage=8;engineering=8"
-	req_components = list(
-		/obj/item/stock_parts/capacitor = 1,
-		/obj/item/stock_parts/micro_laser = 1,
-		/obj/item/stock_parts/cell/infinite/abductor = 1)
-	def_components = list(
-		/obj/item/stock_parts/capacitor = /obj/item/stock_parts/capacitor/quadratic,
-		/obj/item/stock_parts/micro_laser = /obj/item/stock_parts/micro_laser/quadultra)
 
 /obj/item/circuitboard/machine/emitter
 	name = "Emitter (Machine Board)"

@@ -88,16 +88,6 @@
 	toolspeed = 0.5
 	random_color = FALSE
 
-/obj/item/screwdriver/abductor
-	name = "alien screwdriver"
-	desc = "An ultrasonic screwdriver."
-	icon = 'icons/obj/abductor.dmi'
-	icon_state = "screwdriver_a"
-	item_state = "screwdriver_nuke"
-	usesound = 'sound/items/pshoom.ogg'
-	toolspeed = 0.1
-	random_color = FALSE
-
 /obj/item/screwdriver/power
 	name = "hand drill"
 	desc = "A simple powered hand drill. It's fitted with a screw bit."

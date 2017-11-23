@@ -477,14 +477,6 @@
 	race = /datum/species/golem/random
 	mutationtext = "<span class='danger'>The pain subsides. You feel... rocky.</span>"
 
-/datum/reagent/stableslimetoxin/abductor
-	name = "Abductor Mutation Toxin"
-	id = "abductormutationtoxin"
-	description = "An alien toxin produced by slimes."
-	color = "#5EFF3B" //RGB: 94, 255, 59
-	race = /datum/species/abductor
-	mutationtext = "<span class='danger'>The pain subsides. You feel... alien.</span>"
-
 /datum/reagent/stableslimetoxin/android
 	name = "Android Mutation Toxin"
 	id = "androidmutationtoxin"

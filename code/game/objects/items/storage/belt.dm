@@ -266,22 +266,6 @@
 	item_state = "militarywebbing"
 	max_w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/storage/belt/military/abductor
-	name = "agent belt"
-	desc = "A belt used by abductor agents."
-	icon = 'icons/obj/abductor.dmi'
-	icon_state = "belt"
-	item_state = "security"
-
-/obj/item/storage/belt/military/abductor/full/PopulateContents()
-	new /obj/item/screwdriver/abductor(src)
-	new /obj/item/wrench/abductor(src)
-	new /obj/item/weldingtool/abductor(src)
-	new /obj/item/crowbar/abductor(src)
-	new /obj/item/wirecutters/abductor(src)
-	new /obj/item/device/multitool/abductor(src)
-	new /obj/item/stack/cable_coil(src,30,"white")
-
 
 /obj/item/storage/belt/military/army
 	name = "army belt"

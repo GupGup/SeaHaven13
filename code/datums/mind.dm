@@ -389,7 +389,6 @@
 		"revolution",
 		"cult",
 		"clockcult",
-		"abductor",
 		"devil",
 		"monkey"
 	)
@@ -576,22 +575,6 @@
 			text += " | Disabled in Prefs"
 
 		sections["revolution"] = text
-
-		/** ABDUCTION **/
-		text = "abductor"
-		if(SSticker.mode.config_tag == "abductor")
-			text = uppertext(text)
-		text = "<i><b>[text]</b></i>: "
-		if(src in SSticker.mode.abductors)
-			text += "<b>Abductor</b> | <a href='?src=[REF(src)];abductor=clear'>human</a>"
-			text += " | <a href='?src=[REF(src)];common=undress'>undress</a> | <a href='?src=[REF(src)];abductor=equip'>equip</a>"
-
-		if(current && current.client && (ROLE_ABDUCTOR in current.client.prefs.be_special))
-			text += " | Enabled in Prefs"
-		else
-			text += " | Disabled in Prefs"
-
-		sections["abductor"] = text
 
 
 		/** DEVIL ***/
@@ -1154,23 +1137,6 @@
 				else
 					to_chat(usr, "<span class='warning'>This only works on humans!</span>")
 					return
-	else if(href_list["abductor"])
-		switch(href_list["abductor"])
-			if("clear")
-				to_chat(usr, "Not implemented yet. Sorry!")
-				//SSticker.mode.update_abductor_icons_removed(src)
-			if("equip")
-				if(!ishuman(current))
-					to_chat(usr, "<span class='warning'>This only works on humans!</span>")
-					return
-
-				var/mob/living/carbon/human/H = current
-				var/gear = alert("Agent or Scientist Gear","Gear","Agent","Scientist")
-				if(gear)
-					if(gear=="Agent")
-						H.equipOutfit(/datum/outfit/abductor/agent)
-					else
-						H.equipOutfit(/datum/outfit/abductor/scientist)
 
 	else if (href_list["monkey"])
 		var/mob/living/L = current

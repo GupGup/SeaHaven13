@@ -211,7 +211,7 @@
 	for(var/color in colors)
 		payload.Add(list(list(
 			"color" = color,
-			"wire" = (IsAdminGhost(user) || (user.is_holding_item_of_type(/obj/item/device/multitool/abductor)) ? get_wire(color) : null),
+			"wire" = (IsAdminGhost(user) || (user.is_holding_item_of_type(/obj/item/device/multitool)) ? get_wire(color) : null),
 			"cut" = is_color_cut(color),
 			"attached" = is_attached(color)
 		)))

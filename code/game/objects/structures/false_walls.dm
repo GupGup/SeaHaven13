@@ -292,15 +292,6 @@
 	walltype = /turf/closed/wall/mineral/iron
 	canSmoothWith = list(/obj/structure/falsewall/iron, /turf/closed/wall/mineral/iron)
 
-/obj/structure/falsewall/abductor
-	name = "alien wall"
-	desc = "A wall with alien alloy plating."
-	icon = 'icons/turf/walls/abductor_wall.dmi'
-	icon_state = "abductor"
-	mineral = /obj/item/stack/sheet/mineral/abductor
-	walltype = /turf/closed/wall/mineral/abductor
-	canSmoothWith = list(/obj/structure/falsewall/abductor, /turf/closed/wall/mineral/abductor)
-
 /obj/structure/falsewall/titanium
 	name = "wall"
 	desc = "A light-weight titanium wall used in shuttles."

@@ -536,33 +536,6 @@
 						dat += "<td><A href='?priv_msg=[brother.key]'>PM</A></td></tr>"
 			dat += "</table>"
 
-		if(SSticker.mode.abductors.len)
-			dat += "<br><table cellspacing=5><tr><td><B>Abductors</B></td><td></td><td></td></tr>"
-			for(var/datum/mind/abductor in SSticker.mode.abductors)
-				var/mob/M = abductor.current
-				if(M)
-					dat += "<tr><td><a href='?_src_=holder;[HrefToken()];adminplayeropts=[REF(M)]'>[M.real_name]</a>[M.client ? "" : " <i>(No Client)</i>"][M.stat == DEAD ? " <b><font color=red>(DEAD)</font></b>" : ""]</td>"
-					dat += "<td><A href='?priv_msg=[M.ckey]'>PM</A></td>"
-					dat += "<td><A href='?_src_=holder;[HrefToken()];adminplayerobservefollow=[REF(M)]'>FLW</a></td>"
-					dat += "<td><A HREF='?_src_=holder;[HrefToken()];traitor=[REF(M)]'>Show Objective</A></td></tr>"
-				else
-					dat += "<tr><td><a href='?_src_=vars;[HrefToken()];Vars=[REF(abductor)]'>[abductor.name]([abductor.key])</a><i>Abductor body destroyed!</i></td></tr>"
-					dat += "<td><A href='?priv_msg=[abductor.key]'>PM</A></td>"
-			dat += "</table>"
-			dat += "<br><table cellspacing=5><tr><td><B>Abductees</B></td><td></td><td></td></tr>"
-			for(var/obj/machinery/abductor/experiment/E in GLOB.machines)
-				for(var/datum/mind/abductee in E.abductee_minds)
-					var/mob/M = abductee.current
-					if(M)
-						dat += "<tr><td><a href='?_src_=holder[HrefToken()];;adminplayeropts=[REF(M)]'>[M.real_name]</a>[M.client ? "" : " <i>(No Client)</i>"][M.stat == DEAD ? " <b><font color=red>(DEAD)</font></b>" : ""]</td>"
-						dat += "<td><A href='?priv_msg=[M.ckey]'>PM</A></td>"
-						dat += "<td><A href='?_src_=holder;[HrefToken()];adminplayerobservefollow=[REF(M)]'>FLW</a></td>"
-						dat += "<td><A HREF='?_src_=holder;[HrefToken()];traitor=[REF(M)]'>Show Objective</A></td></tr>"
-					else
-						dat += "<tr><td><a href='?_src_=vars;[HrefToken()];Vars=[REF(abductee)]'>[abductee.name]([abductee.key])</a><i>Abductee body destroyed!</i></td>"
-						dat += "<td><A href='?priv_msg=[abductee.key]'>PM</A></td></tr>"
-			dat += "</table>"
-
 		if(SSticker.mode.devils.len)
 			dat += "<br><table cellspacing=5><tr><td><B>devils</B></td><td></td><td></td></tr>"
 			for(var/X in SSticker.mode.devils)
@@ -610,7 +583,7 @@
 					dat += "<td><A href='?priv_msg=[blob.key]'>PM</A></td></tr>"
 			dat += "</table>"
 
-		
+
 		var/list/pirates = get_antagonists(/datum/antagonist/pirate)
 		if(pirates.len > 0)
 			dat += "<br><table cellspacing=5><tr><td><B>Pirates</B></td><td></td></tr>"

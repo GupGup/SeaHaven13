@@ -17,7 +17,7 @@
 /obj/machinery/door/airlock/engineering
 	icon = 'icons/obj/doors/airlocks/station/engineering.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_eng
-	
+
 /obj/machinery/door/airlock/engineering/abandoned
 	abandoned = TRUE
 
@@ -360,21 +360,6 @@
 	icon = 'icons/obj/doors/airlocks/shuttle/shuttle.dmi'
 	overlays_file = 'icons/obj/doors/airlocks/shuttle/overlays.dmi'
 	assemblytype = /obj/structure/door_assembly/door_assembly_shuttle
-
-/obj/machinery/door/airlock/abductor
-	name = "alien airlock"
-	desc = "With humanity's current technological level, it could take years to hack this advanced airlock... or maybe we should give a screwdriver a try?"
-	icon = 'icons/obj/doors/airlocks/abductor/abductor_airlock.dmi'
-	overlays_file = 'icons/obj/doors/airlocks/abductor/overlays.dmi'
-	assemblytype = /obj/structure/door_assembly/door_assembly_abductor
-	note_overlay_file = 'icons/obj/doors/airlocks/external/overlays.dmi'
-	damage_deflection = 30
-	opacity = 1
-	explosion_block = 3
-	hackProof = TRUE
-	aiControlDisabled = 1
-	normal_integrity = 700
-	security_level = 1
 
 //////////////////////////////////
 /*

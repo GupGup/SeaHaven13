@@ -3,25 +3,6 @@
 	icon_state = "plating"
 	initial_gas_mix = "TEMP=2.7"
 
-/turf/open/floor/plating/abductor
-	name = "alien floor"
-	icon_state = "alienpod1"
-
-/turf/open/floor/plating/abductor/Initialize()
-	. = ..()
-	icon_state = "alienpod[rand(1,9)]"
-
-
-/turf/open/floor/plating/abductor2
-	name = "alien plating"
-	icon_state = "alienplating"
-
-/turf/open/floor/plating/abductor2/break_tile()
-	return //unbreakable
-
-/turf/open/floor/plating/abductor2/burn_tile()
-	return //unburnable
-
 /turf/open/floor/plating/beach
 	name = "beach"
 	icon = 'icons/misc/beach.dmi'

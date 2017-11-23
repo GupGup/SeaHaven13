@@ -61,20 +61,3 @@
 	burst_size = 3
 	fire_delay = 2
 	actions_types = list(/datum/action/item_action/toggle_firemode)
-
-/obj/item/gun/ballistic/automatic/pistol/stickman
-	name = "flat gun"
-	desc = "A 2 dimensional gun.. what?"
-	icon_state = "flatgun"
-	origin_tech = "combat=3;materials=2;abductor=3"
-
-/obj/item/gun/ballistic/automatic/pistol/stickman/pickup(mob/living/user)
-	to_chat(user, "<span class='notice'>As you try to pick up [src], it slips out of your grip..</span>")
-	if(prob(50))
-		to_chat(user, "<span class='notice'>..and vanishes from your vision! Where the hell did it go?</span>")
-		qdel(src)
-		user.update_icons()
-	else
-		to_chat(user, "<span class='notice'>..and falls into view. Whew, that was a close one.</span>")
-		user.dropItemToGround(src)
-

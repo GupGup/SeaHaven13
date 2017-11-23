@@ -133,14 +133,6 @@
 				else
 					message_admins("[key_name_admin(usr)] tried to create a CentCom response team. Unfortunately, there were not enough candidates available.")
 					log_admin("[key_name(usr)] failed to create a CentCom response team.")
-			if("abductors")
-				message_admins("[key_name(usr)] is creating an abductor team...")
-				if(src.makeAbductorTeam())
-					message_admins("[key_name(usr)] created an abductor team.")
-					log_admin("[key_name(usr)] created an abductor team.")
-				else
-					message_admins("[key_name_admin(usr)] tried to create an abductor team. Unfortunatly there were not enough candidates available.")
-					log_admin("[key_name(usr)] failed to create an abductor team.")
 			if("clockcult")
 				if(src.makeClockCult())
 					message_admins("[key_name(usr)] started a clockwork cult.")
@@ -849,12 +841,6 @@
 			dat += "<td width='20%'><a href='?src=[REF(src)];[HrefToken()];jobban3=wizard;jobban4=[REF(M)]'><font color=red>Wizard</font></a></td>"
 		else
 			dat += "<td width='20%'><a href='?src=[REF(src)];[HrefToken()];jobban3=wizard;jobban4=[REF(M)]'>Wizard</a></td>"
-
-		//Abductor
-		if(jobban_isbanned(M, "abductor") || isbanned_dept)
-			dat += "<td width='20%'><a href='?src=[REF(src)];[HrefToken()];jobban3=abductor;jobban4=[REF(M)]'><font color=red>Abductor</font></a></td>"
-		else
-			dat += "<td width='20%'><a href='?src=[REF(src)];[HrefToken()];jobban3=abductor;jobban4=[REF(M)]'>Abductor</a></td>"
 
 		//Alien
 		if(jobban_isbanned(M, "alien candidate") || isbanned_dept)

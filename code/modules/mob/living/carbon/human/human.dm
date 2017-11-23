@@ -887,9 +887,6 @@
 	. = ..()
 	set_species(race)
 
-/mob/living/carbon/human/species/abductor
-	race = /datum/species/abductor
-
 /mob/living/carbon/human/species/android
 	race = /datum/species/android
 
@@ -931,9 +928,6 @@
 
 /mob/living/carbon/human/species/golem/plastitanium
 	race = /datum/species/golem/plastitanium
-
-/mob/living/carbon/human/species/golem/alien_alloy
-	race = /datum/species/golem/alloy
 
 /mob/living/carbon/human/species/golem/wood
 	race = /datum/species/golem/wood

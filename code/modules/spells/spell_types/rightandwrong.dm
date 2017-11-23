@@ -89,8 +89,6 @@
 					G = new /obj/item/gun/ballistic/automatic/l6_saw(get_turf(H))
 				if("car")
 					G = new /obj/item/gun/ballistic/automatic/m90(get_turf(H))
-				if("alienpistol")
-					G = new /obj/item/gun/energy/alien(get_turf(H))
 				if("dragnet")
 					G = new /obj/item/gun/energy/e_gun/dragnet(get_turf(H))
 				if("turret")

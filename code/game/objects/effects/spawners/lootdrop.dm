@@ -97,22 +97,6 @@
 
 	loot = list("" = 80)
 
-/obj/effect/spawner/lootdrop/organ_spawner
-	name = "organ spawner"
-	loot = list(
-		/obj/item/organ/heart/gland/bloody = 7,
-		/obj/item/organ/heart/gland/bodysnatch = 4,
-		/obj/item/organ/heart/gland/egg = 7,
-		/obj/item/organ/heart/gland/emp = 3,
-		/obj/item/organ/heart/gland/mindshock = 5,
-		/obj/item/organ/heart/gland/plasma = 7,
-		/obj/item/organ/heart/gland/pop = 5,
-		/obj/item/organ/heart/gland/slime = 4,
-		/obj/item/organ/heart/gland/spiderman = 5,
-		/obj/item/organ/heart/gland/ventcrawling = 1,
-		/obj/item/organ/body_egg/alien_embryo = 1)
-	lootcount = 3
-
 /obj/effect/spawner/lootdrop/two_percent_xeno_egg_spawner
 	name = "2% chance xeno egg spawner"
 	loot = list(
