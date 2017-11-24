@@ -61,12 +61,6 @@
 			if(isliving(target))
 				var/mob/living/L = target
 				if(!L.null_rod_check())
-					if(isrevenant(L))
-						var/mob/living/simple_animal/revenant/R = L
-						if(R.revealed)
-							R.unreveal_time += 2
-						else
-							R.reveal(10)
 					if(prob(50))
 						L.playsound_local(null,'sound/machines/clockcult/ocularwarden-dot1.ogg',75 * get_efficiency_mod(),1)
 					else
@@ -119,10 +113,6 @@
 			if(("ratvar" in H.faction) || (!H.mind && "neutral" in H.faction))
 				continue
 			if(ismegafauna(H) || (!H.mind && H.AIStatus == AI_OFF))
-				continue
-		else if(isrevenant(L))
-			var/mob/living/simple_animal/revenant/R = L
-			if(R.stasis) //Don't target any revenants that are respawning
 				continue
 		else if(!L.mind)
 			continue

@@ -571,17 +571,6 @@
 	if(method != TOUCH)
 		M.ForceContractDisease(new /datum/disease/transformation/slime(0))
 
-/datum/reagent/gluttonytoxin
-	name = "Gluttony's Blessing"
-	id = "gluttonytoxin"
-	description = "An advanced corruptive toxin produced by something terrible."
-	color = "#5EFF3B" //RGB: 94, 255, 59
-	can_synth = 0
-	taste_description = "decay"
-
-/datum/reagent/gluttonytoxin/reaction_mob(mob/M, method=TOUCH, reac_volume)
-	M.ForceContractDisease(new /datum/disease/transformation/morph(0))
-
 /datum/reagent/serotrotium
 	name = "Serotrotium"
 	id = "serotrotium"

@@ -73,9 +73,9 @@
 	C.prefs.copy_to(M)
 	M.key = C.key
 	var/datum/mind/app_mind = M.mind
-	
-	
-	
+
+
+
 	var/datum/antagonist/wizard/apprentice/app = new(app_mind)
 	app.master = user
 	app.school = school
@@ -186,76 +186,3 @@
 
 	R.key = C.key
 	R.mind.make_Nuke(null, nuke_code = null,leader=0, telecrystals = TRUE)
-
-///////////SLAUGHTER DEMON
-
-/obj/item/antag_spawner/slaughter_demon //Warning edgiest item in the game
-	name = "vial of blood"
-	desc = "A magically infused bottle of blood, distilled from countless murder victims. Used in unholy rituals to attract horrifying creatures."
-	icon = 'icons/obj/wizard.dmi'
-	icon_state = "vial"
-
-	var/shatter_msg = "<span class='notice'>You shatter the bottle, no turning back now!</span>"
-	var/veil_msg = "<span class='warning'>You sense a dark presence lurking just beyond the veil...</span>"
-	var/objective_verb = "Kill"
-	var/mob/living/demon_type = /mob/living/simple_animal/slaughter
-
-
-/obj/item/antag_spawner/slaughter_demon/attack_self(mob/user)
-	if(!(user.z in GLOB.station_z_levels))
-		to_chat(user, "<span class='notice'>You should probably wait until you reach the station.</span>")
-		return
-	if(used)
-		return
-	var/list/demon_candidates = pollCandidatesForMob("Do you want to play as a [initial(demon_type.name)]?", null, null, ROLE_ALIEN, 50, src)
-	if(demon_candidates.len)
-		if(used)
-			return
-		used = 1
-		var/mob/dead/observer/theghost = pick(demon_candidates)
-		spawn_antag(theghost.client, get_turf(src), initial(demon_type.name))
-		to_chat(user, shatter_msg)
-		to_chat(user, veil_msg)
-		playsound(user.loc, 'sound/effects/glassbr1.ogg', 100, 1)
-		qdel(src)
-	else
-		to_chat(user, "<span class='notice'>You can't seem to work up the nerve to shatter the bottle. Perhaps you should try again later.</span>")
-
-
-/obj/item/antag_spawner/slaughter_demon/spawn_antag(client/C, turf/T, type = "")
-
-	var/obj/effect/dummy/slaughter/holder = new /obj/effect/dummy/slaughter(T)
-	var/mob/living/simple_animal/slaughter/S = new demon_type(holder)
-	S.holder = holder
-	S.key = C.key
-	S.mind.assigned_role = S.name
-	S.mind.special_role = S.name
-	SSticker.mode.traitors += S.mind
-	var/datum/objective/assassinate/new_objective
-	if(usr)
-		new_objective = new /datum/objective/assassinate
-		new_objective.owner = S.mind
-		new_objective.target = usr.mind
-		new_objective.explanation_text = "[objective_verb] [usr.real_name], the one who summoned you."
-		S.mind.objectives += new_objective
-	var/datum/objective/new_objective2 = new /datum/objective
-	new_objective2.owner = S.mind
-	new_objective2.explanation_text = "[objective_verb] everyone[usr ? " else while you're at it":""]."
-	S.mind.objectives += new_objective2
-	to_chat(S, S.playstyle_string)
-	to_chat(S, "<B>You are currently not currently in the same plane of existence as the station. \
-	Ctrl+Click a blood pool to manifest.</B>")
-	if(new_objective)
-		to_chat(S, "<B>Objective #[1]</B>: [new_objective.explanation_text]")
-	to_chat(S, "<B>Objective #[new_objective ? "[2]":"[1]"]</B>: [new_objective2.explanation_text]")
-
-/obj/item/antag_spawner/slaughter_demon/laughter
-	name = "vial of tickles"
-	desc = "A magically infused bottle of clown love, distilled from countless hugging attacks. Used in funny rituals to attract adorable creatures."
-	icon = 'icons/obj/wizard.dmi'
-	icon_state = "vial"
-	color = "#FF69B4" // HOT PINK
-
-	veil_msg = "<span class='warning'>You sense an adorable presence lurking just beyond the veil...</span>"
-	objective_verb = "Hug and Tickle"
-	demon_type = /mob/living/simple_animal/slaughter/laughter

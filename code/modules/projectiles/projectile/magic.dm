@@ -195,8 +195,6 @@
 						path = /mob/living/simple_animal/hostile/carp/ranged
 					if("chaosmagicarp")
 						path = /mob/living/simple_animal/hostile/carp/ranged/chaos
-					if("morph")
-						path = /mob/living/simple_animal/hostile/morph
 					if("stickman")
 						path = /mob/living/simple_animal/hostile/stickman
 					if("stickdog")

@@ -61,56 +61,6 @@
 		new_mob.real_name = new_mob.name
 		qdel(affected_mob)
 
-
-
-/datum/disease/transformation/jungle_fever
-	name = "Jungle Fever"
-	cure_text = "Bananas"
-	cures = list("banana")
-	spread_text = "Monkey Bites"
-	spread_flags = VIRUS_SPREAD_SPECIAL
-	viable_mobtypes = list(/mob/living/carbon/monkey, /mob/living/carbon/human)
-	permeability_mod = 1
-	cure_chance = 1
-	disease_flags = CAN_CARRY|CAN_RESIST
-	desc = "Monkeys with this disease will bite humans, causing humans to mutate into a monkey."
-	severity = VIRUS_SEVERITY_BIOHAZARD
-	stage_prob = 4
-	visibility_flags = 0
-	agent = "Kongey Vibrion M-909"
-	new_form = /mob/living/carbon/monkey
-
-	stage1	= null
-	stage2	= null
-	stage3	= null
-	stage4	= list("<span class='warning'>Your back hurts.</span>", "<span class='warning'>You breathe through your mouth.</span>",
-					"<span class='warning'>You have a craving for bananas.</span>", "<span class='warning'>Your mind feels clouded.</span>")
-	stage5	= list("<span class='warning'>You feel like monkeying around.</span>")
-
-/datum/disease/transformation/jungle_fever/do_disease_transformation(mob/living/carbon/affected_mob)
-	if(!ismonkey(affected_mob))
-		SSticker.mode.add_monkey(affected_mob.mind)
-		affected_mob.monkeyize(TR_KEEPITEMS | TR_KEEPIMPLANTS | TR_KEEPORGANS | TR_KEEPDAMAGE | TR_KEEPVIRUS | TR_KEEPSE)
-
-/datum/disease/transformation/jungle_fever/stage_act()
-	..()
-	switch(stage)
-		if(2)
-			if(prob(2))
-				to_chat(affected_mob, "<span class='notice'>Your [pick("back", "arm", "leg", "elbow", "head")] itches.</span>")
-		if(3)
-			if(prob(4))
-				to_chat(affected_mob, "<span class='danger'>You feel a stabbing pain in your head.</span>")
-				affected_mob.confused += 10
-		if(4)
-			if(prob(3))
-				affected_mob.say(pick("Eeek, ook ook!", "Eee-eeek!", "Eeee!", "Ungh, ungh."))
-
-/datum/disease/transformation/jungle_fever/cure()
-	SSticker.mode.remove_monkey(affected_mob.mind)
-	..()
-
-
 /datum/disease/transformation/robot
 
 	name = "Robotic Transformation"
@@ -224,19 +174,3 @@
 		if(4)
 			if (prob(20))
 				affected_mob.say(pick("Bark!", "AUUUUUU"))
-
-/datum/disease/transformation/morph
-	name = "Gluttony's Blessing"
-	cure_text = "nothing"
-	cures = list("adminordrazine")
-	agent = "Gluttony's Blessing"
-	desc = "A 'gift' from somewhere terrible."
-	stage_prob = 20
-	severity = VIRUS_SEVERITY_BIOHAZARD
-	visibility_flags = 0
-	stage1	= list("Your stomach rumbles.")
-	stage2	= list("Your skin feels saggy.")
-	stage3	= list("<span class='danger'>Your appendages are melting away.</span>", "<span class='danger'>Your limbs begin to lose their shape.</span>")
-	stage4	= list("<span class='danger'>You're ravenous.</span>")
-	stage5	= list("<span class='danger'>You have become a morph.</span>")
-	new_form = /mob/living/simple_animal/hostile/morph

@@ -91,11 +91,7 @@
 	to_chat(src, "<span class='danger'>You begin to feast on [victim]. You can not move while you are doing this.</span>")
 
 	var/sound
-	if(istype(src, /mob/living/simple_animal/slaughter))
-		var/mob/living/simple_animal/slaughter/SD = src
-		sound = SD.feast_sound
-	else
-		sound = 'sound/magic/demon_consume.ogg'
+	sound = 'sound/magic/demon_consume.ogg'
 
 	for(var/i in 1 to 3)
 		playsound(get_turf(src),sound, 100, 1)

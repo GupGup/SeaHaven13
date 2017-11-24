@@ -71,10 +71,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 						be_special += ROLE_PAI
 					if(256)
 						be_special += ROLE_CULTIST
-					if(512)
-						be_special += ROLE_BLOB
-					if(2048)
-						be_special += ROLE_MONKEY
 					if(32768)
 						be_special += ROLE_BROTHER
 

@@ -422,34 +422,6 @@
 
 		sections["brother"] = text
 
-		/** MONKEY ***/
-		text = "monkey"
-		if (SSticker.mode.config_tag=="monkey")
-			text = uppertext(text)
-		text = "<i><b>[text]</b></i>: "
-		if (ishuman(current))
-			text += "<a href='?src=[REF(src)];monkey=healthy'>healthy</a> | <a href='?src=[REF(src)];monkey=infected'>infected</a> | <b>HUMAN</b> | other"
-		else if(ismonkey(current))
-			var/found = FALSE
-			for(var/datum/disease/transformation/jungle_fever/JF in current.viruses)
-				found = TRUE
-				break
-
-			if(found)
-				text += "<a href='?src=[REF(src)];monkey=healthy'>healthy</a> | <b>INFECTED</b> | <a href='?src=[REF(src)];monkey=human'>human</a> | other"
-			else
-				text += "<b>HEALTHY</b> | <a href='?src=[REF(src)];monkey=infected'>infected</a> | <a href='?src=[REF(src)];monkey=human'>human</a> | other"
-
-		else
-			text += "healthy | infected | human | <b>OTHER</b>"
-
-		if(current && current.client && (ROLE_MONKEY in current.client.prefs.be_special))
-			text += " | Enabled in Prefs"
-		else
-			text += " | Disabled in Prefs"
-
-		sections["monkey"] = text
-
 	if(ishuman(current))
 
 		/** NUCLEAR ***/
@@ -1058,14 +1030,6 @@
 				add_devil(current, TRUE)
 				message_admins("[key_name_admin(usr)] has devil'ed [current].  The devil has been marked as ascendable.")
 				log_admin("[key_name(usr)] has devil'ed [current]. The devil has been marked as ascendable.")
-			if("sintouched")
-				if(ishuman(current))
-					var/mob/living/carbon/human/H = current
-					H.influenceSin()
-					message_admins("[key_name_admin(usr)] has sintouch'ed [current].")
-				else
-					to_chat(usr, "<span class='warning'>This only works on humans!</span>")
-					return
 
 	else if (href_list["monkey"])
 		var/mob/living/L = current
@@ -1086,32 +1050,6 @@
 						for(var/thing in M.viruses)
 							var/datum/disease/D = thing
 							D.cure(0)
-			if("infected")
-				if (check_rights(R_ADMIN, 0))
-					var/mob/living/carbon/human/H = current
-					var/mob/living/carbon/monkey/M = current
-					if (istype(H))
-						log_admin("[key_name(usr)] attempting to monkeyize and infect [key_name(current)]")
-						message_admins("<span class='notice'>[key_name_admin(usr)] attempting to monkeyize and infect [key_name_admin(current)]</span>")
-						src = null
-						M = H.monkeyize()
-						src = M.mind
-						current.ForceContractDisease(new /datum/disease/transformation/jungle_fever)
-					else if (istype(M))
-						current.ForceContractDisease(new /datum/disease/transformation/jungle_fever)
-			if("human")
-				if (check_rights(R_ADMIN, 0))
-					var/mob/living/carbon/human/H = current
-					var/mob/living/carbon/monkey/M = current
-					if (istype(M))
-						for(var/datum/disease/transformation/jungle_fever/JF in M.viruses)
-							JF.cure(0)
-							stoplag() //because deleting of virus is doing throught spawn(0) //What
-						log_admin("[key_name(usr)] attempting to humanize [key_name(current)]")
-						message_admins("<span class='notice'>[key_name_admin(usr)] attempting to humanize [key_name_admin(current)]</span>")
-						H = M.humanize(TR_KEEPITEMS  |  TR_KEEPIMPLANTS  |  TR_KEEPORGANS  |  TR_KEEPDAMAGE  |  TR_KEEPVIRUS  |  TR_DEFAULTMSG)
-						if(H)
-							src = H.mind
 
 	else if (href_list["brother"])
 		switch(href_list["brother"])

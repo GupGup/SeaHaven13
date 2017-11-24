@@ -267,8 +267,6 @@
 			return 1
 
 /mob/living/ex_act(severity, target, origin)
-	if(origin && istype(origin, /datum/spacevine_mutation) && isvineimmune(src))
-		return
 	..()
 
 //Looking for irradiate()? It's been moved to radiation.dm under the rad_act() for mobs.

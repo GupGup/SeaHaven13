@@ -103,8 +103,6 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 		/obj/effect/proc_holder/spell/targeted/conjure_item/summon_pitchfork/greater,
 		/obj/effect/proc_holder/spell/targeted/conjure_item/summon_pitchfork/ascended,
 		/obj/effect/proc_holder/spell/targeted/infernal_jaunt,
-		/obj/effect/proc_holder/spell/targeted/sintouch,
-		/obj/effect/proc_holder/spell/targeted/sintouch/ascended,
 		/obj/effect/proc_holder/spell/targeted/summon_contract,
 		/obj/effect/proc_holder/spell/targeted/conjure_item/violin,
 		/obj/effect/proc_holder/spell/targeted/summon_dancefloor))
@@ -333,11 +331,9 @@ GLOBAL_LIST_INIT(devil_suffix, list(" the Red", " the Soulless", " the Master", 
 	owner.AddSpell(new /obj/effect/proc_holder/spell/targeted/conjure_item/summon_pitchfork/greater(null))
 	owner.AddSpell(new /obj/effect/proc_holder/spell/aimed/fireball/hellish(null))
 	owner.AddSpell(new /obj/effect/proc_holder/spell/targeted/infernal_jaunt(null))
-	owner.AddSpell(new /obj/effect/proc_holder/spell/targeted/sintouch(null))
 
 /datum/antagonist/devil/proc/give_arch_spells()
 	owner.AddSpell(new /obj/effect/proc_holder/spell/targeted/conjure_item/summon_pitchfork/ascended(null))
-	owner.AddSpell(new /obj/effect/proc_holder/spell/targeted/sintouch/ascended(null))
 
 /datum/antagonist/devil/proc/beginResurrectionCheck(mob/living/body)
 	if(SOULVALUE>0)

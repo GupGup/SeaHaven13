@@ -13,4 +13,3 @@
 	if (new_pb && !SSdbcore.Connect())
 		message_admins("The Database is not connected! Panic bunker will not work until the connection is reestablished.")
 	SSblackbox.add_details("admin_toggle","Toggle Panic Bunker|[new_pb]") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-

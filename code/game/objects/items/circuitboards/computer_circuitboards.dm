@@ -293,8 +293,3 @@
 /obj/item/circuitboard/computer/syndicate_shuttle/Destroy()
 	GLOB.syndicate_shuttle_boards -= src
 	return ..()
-
-/obj/item/circuitboard/computer/sat_control
-	name = "Satellite Network Control (Computer Board)"
-	build_path = /obj/machinery/computer/sat_control
-	origin_tech = "engineering=3"

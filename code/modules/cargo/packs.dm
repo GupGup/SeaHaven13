@@ -1600,7 +1600,6 @@
 	num_contained = 5
 	contains = list(/obj/item/toy/spinningtoy,
 	                /obj/item/toy/sword,
-	                /obj/item/toy/talking/AI,
 	                /obj/item/toy/talking/owl,
 	                /obj/item/toy/talking/griffin,
 	                /obj/item/toy/nuke,
@@ -1719,26 +1718,6 @@
 					/obj/item/device/dna_probe
 					)
 	crate_name= "dna samplers crate"
-
-
-/datum/supply_pack/misc/shield_sat
-	name = "Shield Generator Satellite"
-	cost = 3000
-	special = TRUE
-	contains = list(
-					/obj/machinery/satellite/meteor_shield,
-					/obj/machinery/satellite/meteor_shield,
-					/obj/machinery/satellite/meteor_shield
-					)
-	crate_name= "shield sat crate"
-
-
-/datum/supply_pack/misc/shield_sat_control
-	name = "Shield System Control Board"
-	cost = 5000
-	special = TRUE
-	contains = list(/obj/item/circuitboard/computer/sat_control)
-	crate_name= "shield control board crate"
 
 /datum/supply_pack/misc/bicycle
 	name = "Bicycle"
