@@ -104,8 +104,6 @@
 
 	revolution.update_objectives()
 	revolution.update_heads()
-
-	SSshuttle.registerHostileEnvironment(src)
 	..()
 
 
@@ -131,10 +129,6 @@
 //Checks if the round is over//
 ///////////////////////////////
 /datum/game_mode/revolution/check_finished()
-	if(CONFIG_GET(keyed_flag_list/continuous)["revolution"])
-		if(finished)
-			SSshuttle.clearHostileEnvironment(src)
-		return ..()
 	if(finished != 0)
 		return TRUE
 	else

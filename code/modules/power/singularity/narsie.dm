@@ -66,8 +66,6 @@
 	priority_announce("Simulations on acausal dimensional event complete. Deploying solution package now. Deployment ETA: TWO MINUTES. ","Central Command Higher Dimensional Affairs")
 	sleep(50)
 	set_security_level("delta")
-	SSshuttle.registerHostileEnvironment(src)
-	SSshuttle.lockdown = TRUE
 	sleep(1150)
 	if(resolved == FALSE)
 		resolved = TRUE

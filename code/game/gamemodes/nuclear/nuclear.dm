@@ -144,8 +144,6 @@
 /datum/game_mode/nuclear/OnNukeExplosion(off_station)
 	..()
 	nukes_left--
-	var/obj/docking_port/mobile/Shuttle = SSshuttle.getShuttle("syndicate")
-	syndies_didnt_escape = (Shuttle && (Shuttle.z == ZLEVEL_CENTCOM || Shuttle.z == ZLEVEL_TRANSIT)) ? 0 : 1
 	nuke_off_station = off_station
 
 /datum/game_mode/nuclear/check_win()
@@ -162,8 +160,6 @@
 /datum/game_mode/nuclear/check_finished() //to be called by SSticker
 	if(replacementmode && round_converted == 2)
 		return replacementmode.check_finished()
-	if((SSshuttle.emergency.mode == SHUTTLE_ENDGAME) || station_was_nuked)
-		return TRUE
 	if(are_operatives_dead())
 		var/obj/machinery/nuclearbomb/N
 		pass(N)	//suppress unused warning
@@ -177,7 +173,6 @@
 		if(!D.onCentCom())
 			disk_rescued = 0
 			break
-	var/crew_evacuated = (SSshuttle.emergency.mode == SHUTTLE_ENDGAME)
 	//var/operatives_are_dead = is_operatives_are_dead()
 
 
@@ -222,7 +217,7 @@
 
 		SSticker.news_report = NUKE_MISS
 
-	else if ((disk_rescued || SSshuttle.emergency.mode != SHUTTLE_ENDGAME) && are_operatives_dead())
+	else if ((disk_rescued && are_operatives_dead()))
 		SSticker.mode_result = "loss - evacuation - disk secured - syndi team dead"
 		to_chat(world, "<FONT size = 3><B>Crew Major Victory!</B></FONT>")
 		to_chat(world, "<B>The Research Staff has saved the disk and killed the [syndicate_name()] Operatives</B>")
@@ -243,14 +238,14 @@
 
 		SSticker.news_report = OPERATIVE_SKIRMISH
 
-	else if (!disk_rescued &&  crew_evacuated)
+	else if (!disk_rescued)
 		SSticker.mode_result = "halfwin - detonation averted"
 		to_chat(world, "<FONT size = 3><B>Syndicate Minor Victory!</B></FONT>")
 		to_chat(world, "<B>[syndicate_name()] operatives survived the assault but did not achieve the destruction of [station_name()].</B> Next time, don't lose the disk!")
 
 		SSticker.news_report = OPERATIVE_SKIRMISH
 
-	else if (!disk_rescued && !crew_evacuated)
+	else if (!disk_rescued)
 		SSticker.mode_result = "halfwin - interrupted"
 		to_chat(world, "<FONT size = 3><B>Neutral Victory</B></FONT>")
 		to_chat(world, "<B>Round was mysteriously interrupted!</B>")

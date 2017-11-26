@@ -16,9 +16,6 @@
 	if(eyeobj)
 		eyeobj.setLoc(get_turf(src))
 
-	GLOB.shuttle_caller_list -= src
-	SSshuttle.autoEvac()
-
 	ShutOffDoomsdayDevice()
 
 	if(explosive)
@@ -41,5 +38,4 @@
 
 	if(doomsday_device)
 		doomsday_device.timing = FALSE
-		SSshuttle.clearHostileEnvironment(doomsday_device)
 		qdel(doomsday_device)

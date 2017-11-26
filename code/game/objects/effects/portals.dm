@@ -141,8 +141,6 @@
 		return FALSE
 	if(!ismecha(M) && M.anchored && !allow_anchored)
 		return
-	if(ismegafauna(M))
-		message_admins("[M] has used a portal at [ADMIN_COORDJMP(src)] made by [usr].")
 	if(do_teleport(M, real_target, 0))
 		if(istype(M, /obj/item/projectile))
 			var/obj/item/projectile/P = M

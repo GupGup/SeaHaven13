@@ -1033,14 +1033,6 @@ GLOBAL_LIST_EMPTY(uplink_items) // Global list so we only initialize this once.
 	item = /obj/item/device/healthanalyzer/rad_laser
 	cost = 3
 
-/datum/uplink_item/device_tools/assault_pod
-	name = "Assault Pod Targeting Device"
-	desc = "Use to select the landing zone of your assault pod."
-	item = /obj/item/device/assault_pod
-	cost = 30
-	surplus = 0
-	include_modes = list(/datum/game_mode/nuclear)
-
 /datum/uplink_item/device_tools/shield
 	name = "Energy Shield"
 	desc = "An incredibly useful personal shield projector, capable of reflecting energy projectiles and defending \

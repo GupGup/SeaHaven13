@@ -62,15 +62,6 @@
 		body.key = ghost.key
 		new /obj/effect/temp_visual/gravpush(get_turf(body))
 
-/obj/effect/fun_balloon/sentience/emergency_shuttle
-	name = "shuttle sentience fun balloon"
-	var/trigger_time = 60
-
-/obj/effect/fun_balloon/sentience/emergency_shuttle/check()
-	. = FALSE
-	if(SSshuttle.emergency && (SSshuttle.emergency.timeLeft() <= trigger_time) && (SSshuttle.emergency.mode == SHUTTLE_CALL))
-		. = TRUE
-
 /obj/effect/fun_balloon/scatter
 	name = "scatter fun balloon"
 	desc = "When this pops, you're not going to be around here anymore."
@@ -91,90 +82,4 @@
 	anchored = TRUE
 
 /obj/effect/station_crash/New()
-	for(var/S in SSshuttle.stationary)
-		var/obj/docking_port/stationary/SM = S
-		if(SM.id == "emergency_home")
-			var/new_dir = turn(SM.dir, 180)
-			SM.loc = get_ranged_target_turf(SM, new_dir, rand(3,15))
-			break
 	qdel(src)
-
-
-//Shuttle Build
-
-/obj/effect/shuttle_build
-	name = "shuttle_build"
-	desc = "Some assembly required."
-	icon = 'icons/obj/items_and_weapons.dmi'
-	icon_state = "syndballoon"
-	anchored = TRUE
-
-/obj/effect/shuttle_build/New()
-	SSshuttle.emergency.dock(SSshuttle.getDock("emergency_home"))
-	qdel(src)
-
-//Arena
-
-/obj/effect/forcefield/arena_shuttle
-	name = "portal"
-	var/list/warp_points = list()
-
-
-/obj/effect/forcefield/arena_shuttle/CollidedWith(atom/movable/AM)
-	if(!isliving(AM))
-		return
-	if(!warp_points.len)
-		warp_points = get_area_turfs(/area/shuttle/escape)
-		for(var/turf/T in warp_points)
-			for(var/atom/movable/TAM in T)
-				if(TAM.density && TAM.anchored)
-					warp_points -= T
-					break
-
-	var/mob/living/L = AM
-	if(L.pulling && istype(L.pulling, /obj/item/bodypart/head))
-		to_chat(L, "Your offering is accepted. You may pass.")
-		qdel(L.pulling)
-		var/turf/LA = pick(warp_points)
-		L.forceMove(LA)
-		L.hallucination = 0
-		to_chat(L, "<span class='reallybig redtext'>The battle is won. Your bloodlust subsides.</span>")
-		for(var/obj/item/twohanded/required/chainsaw/doomslayer/chainsaw in L)
-			qdel(chainsaw)
-	else
-		to_chat(L, "You are not yet worthy of passing. Drag a severed head to the barrier to be allowed entry to the hall of champions.")
-
-/obj/effect/landmark/shuttle_arena_safe
-	name = "hall of champions"
-	desc = "For the winners."
-
-/obj/effect/landmark/shuttle_arena_entrance
-	name = "the arena"
-	desc = "A lava filled battlefield."
-
-
-/obj/effect/forcefield/arena_shuttle_entrance
-	name = "portal"
-	var/list/warp_points = list()
-
-/obj/effect/forcefield/arena_shuttle_entrance/CollidedWith(atom/movable/AM)
-	if(!isliving(AM))
-		return
-
-	if(!warp_points.len)
-		for(var/obj/effect/landmark/shuttle_arena_entrance/S in GLOB.landmarks_list)
-			warp_points |= S
-
-	var/obj/effect/landmark/LA = pick(warp_points)
-	var/mob/living/M = AM
-	M.forceMove(get_turf(LA))
-	to_chat(M, "<span class='reallybig redtext'>You're trapped in a deadly arena! To escape, you'll need to drag a severed head to the escape portals.</span>")
-	spawn()
-		var/obj/effect/mine/pickup/bloodbath/B = new (M)
-		B.mineEffect(M)
-
-
-/area/shuttle_arena
-	name = "arena"
-	has_gravity = TRUE
-	requires_power = FALSE

@@ -87,16 +87,6 @@
 	var/mob/living/silicon/ai/AI = usr
 	AI.announcement()
 
-/obj/screen/ai/call_shuttle
-	name = "Call Emergency Shuttle"
-	icon_state = "call_shuttle"
-
-/obj/screen/ai/call_shuttle/Click()
-	if(..())
-		return
-	var/mob/living/silicon/ai/AI = usr
-	AI.ai_call_shuttle()
-
 /obj/screen/ai/state_laws
 	name = "State Laws"
 	icon_state = "state_laws"
@@ -216,11 +206,6 @@
 //Announcement
 	using = new /obj/screen/ai/announcement()
 	using.screen_loc = ui_ai_announcement
-	static_inventory += using
-
-//Shuttle
-	using = new /obj/screen/ai/call_shuttle()
-	using.screen_loc = ui_ai_shuttle
 	static_inventory += using
 
 //Laws

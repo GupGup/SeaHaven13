@@ -32,8 +32,6 @@
 
 /turf/open/space/transit/proc/throw_atom(atom/movable/AM)
 	set waitfor = FALSE
-	if(!AM || istype(AM, /obj/docking_port))
-		return
 	if(AM.loc != src) 	// Multi-tile objects are "in" multiple locs but its loc is it's true placement.
 		return			// Don't move multi tile objects if their origin isnt in transit
 	var/max = world.maxx-TRANSITIONEDGE
@@ -70,7 +68,6 @@
 
 
 /turf/open/space/transit/CanBuildHere()
-	return SSshuttle.is_in_shuttle_bounds(src)
 
 
 /turf/open/space/transit/Initialize()

@@ -45,8 +45,6 @@
 				var/obj/machinery/power/apc/A = V
 				if(A.malfhack && A.occupier)
 					target = A
-		if(TRACK_INFILTRATOR)
-			target = SSshuttle.getShuttle("syndicate")
 	..()
 
 /obj/item/pinpointer/nuke/proc/switch_mode_to(new_mode)

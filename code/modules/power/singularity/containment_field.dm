@@ -47,12 +47,6 @@
 	if(!FG1 || !FG2)
 		qdel(src)
 		return
-	if(ismegafauna(M))
-		M.visible_message("<span class='warning'>[M] glows fiercely as the containment field flickers out!</span>")
-		FG1.calc_power(INFINITY) //rip that 'containment' field
-		M.adjustHealth(-M.obj_damage)
-	else
-		..()
 
 /obj/machinery/field/containment/Crossed(mob/mover)
 	if(isliving(mover))

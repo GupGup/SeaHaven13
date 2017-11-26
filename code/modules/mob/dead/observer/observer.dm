@@ -574,10 +574,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!target)
 		return 0
 
-	if(ismegafauna(target))
-		to_chat(src, "<span class='warning'>This creature is too powerful for you to possess!</span>")
-		return 0
-
 	if(istype (target, /mob/living/simple_animal/hostile/spawner))
 		to_chat(src, "<span class='warning'>This isn't really a creature, now is it!</span>")
 		return 0

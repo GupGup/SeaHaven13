@@ -153,25 +153,6 @@
 
 		if("purchase_menu")
 			state = STATE_PURCHASE
-
-		if("callshuttle")
-			state = STATE_DEFAULT
-			if(authenticated)
-				state = STATE_CALLSHUTTLE
-		if("callshuttle2")
-			if(authenticated)
-				SSshuttle.requestEvac(usr, href_list["call"])
-				if(SSshuttle.emergency.timer)
-					post_status("shuttle")
-			state = STATE_DEFAULT
-		if("cancelshuttle")
-			state = STATE_DEFAULT
-			if(authenticated)
-				state = STATE_CANCELSHUTTLE
-		if("cancelshuttle2")
-			if(authenticated)
-				SSshuttle.cancelEvac(usr)
-			state = STATE_DEFAULT
 		if("messagelist")
 			currmsg = 0
 			state = STATE_MESSAGELIST
@@ -303,11 +284,6 @@
 		if("ai-main")
 			aicurrmsg = null
 			aistate = STATE_DEFAULT
-		if("ai-callshuttle")
-			aistate = STATE_CALLSHUTTLE
-		if("ai-callshuttle2")
-			SSshuttle.requestEvac(usr, href_list["call"])
-			aistate = STATE_DEFAULT
 		if("ai-messagelist")
 			aicurrmsg = null
 			aistate = STATE_MESSAGELIST
@@ -405,10 +381,6 @@
 
 	user.set_machine(src)
 	var/dat = ""
-	if(SSshuttle.emergency.mode == SHUTTLE_CALL)
-		var/timeleft = SSshuttle.emergency.timeLeft()
-		dat += "<B>Emergency shuttle</B>\n<BR>\nETA: [timeleft / 60 % 60]:[add_zero(num2text(timeleft % 60), 2)]"
-
 
 	var/datum/browser/popup = new(user, "communications", "Communications Console", 400, 500)
 	popup.set_title_image(user.browse_rsc_icon(icon, icon_state))
@@ -424,21 +396,11 @@
 	switch(state)
 		if(STATE_DEFAULT)
 			if (authenticated)
-				if(SSshuttle.emergencyCallAmount)
-					if(SSshuttle.emergencyLastCallLoc)
-						dat += "Most recent shuttle call/recall traced to: <b>[format_text(SSshuttle.emergencyLastCallLoc.name)]</b><BR>"
-					else
-						dat += "Unable to trace most recent shuttle call/recall signal.<BR>"
 				dat += "Logged in as: [auth_id]"
 				dat += "<BR>"
 				dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=logout'>Log Out</A> \]<BR>"
 				dat += "<BR><B>General Functions</B>"
 				dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=messagelist'>Message List</A> \]"
-				switch(SSshuttle.emergency.mode)
-					if(SHUTTLE_IDLE, SHUTTLE_RECALL)
-						dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=callshuttle'>Call Emergency Shuttle</A> \]"
-					else
-						dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=cancelshuttle'>Cancel Shuttle Call</A> \]"
 
 				dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=status'>Set Status Display</A> \]"
 				if (authenticated==2)
@@ -572,26 +534,17 @@
 	var/dat = ""
 	switch(aistate)
 		if(STATE_DEFAULT)
-			if(SSshuttle.emergencyCallAmount)
-				if(SSshuttle.emergencyLastCallLoc)
-					dat += "Latest emergency signal trace attempt successful.<BR>Last signal origin: <b>[format_text(SSshuttle.emergencyLastCallLoc.name)]</b>.<BR>"
-				else
-					dat += "Latest emergency signal trace attempt failed.<BR>"
 			if(authenticated)
 				dat += "Current login: [auth_id]"
 			else
 				dat += "Current login: None"
 			dat += "<BR><BR><B>General Functions</B>"
 			dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=ai-messagelist'>Message List</A> \]"
-			if(SSshuttle.emergency.mode == SHUTTLE_IDLE)
-				dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=ai-callshuttle'>Call Emergency Shuttle</A> \]"
 			dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=ai-status'>Set Status Display</A> \]"
 			dat += "<BR><BR><B>Special Functions</B>"
 			dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=ai-announce'>Make an Announcement</A> \]"
 			dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=ai-changeseclevel'>Change Alert Level</A> \]"
 			dat += "<BR>\[ <A HREF='?src=[REF(src)];operation=ai-emergencyaccess'>Emergency Maintenance Access</A> \]"
-		if(STATE_CALLSHUTTLE)
-			dat += get_call_shuttle_form(1)
 		if(STATE_MESSAGELIST)
 			dat += "Messages:"
 			for(var/i in 1 to messages.len)
@@ -683,8 +636,6 @@
 
 
 /obj/machinery/computer/communications/Destroy()
-	GLOB.shuttle_caller_list -= src
-	SSshuttle.autoEvac()
 	return ..()
 
 /obj/machinery/computer/communications/proc/overrideCooldown()

@@ -112,7 +112,7 @@
 			var/mob/living/simple_animal/hostile/H = L
 			if(("ratvar" in H.faction) || (!H.mind && "neutral" in H.faction))
 				continue
-			if(ismegafauna(H) || (!H.mind && H.AIStatus == AI_OFF))
+			if(!H.mind && H.AIStatus == AI_OFF)
 				continue
 		else if(!L.mind)
 			continue

@@ -373,10 +373,7 @@ SUBSYSTEM_DEF(ticker)
 
 /datum/controller/subsystem/ticker/proc/declare_completion()
 	set waitfor = FALSE
-	var/station_evacuated = EMERGENCY_ESCAPED_OR_ENDGAMED
 	var/num_survivors = 0
-	var/num_escapees = 0
-	var/num_shuttle_escapees = 0
 
 	to_chat(world, "<BR><BR><BR><FONT size=3><B>The round has ended.</B></FONT>")
 	if(LAZYLEN(GLOB.round_end_notifiees))
@@ -392,19 +389,7 @@ SUBSYSTEM_DEF(ticker)
 		if(Player.mind && !isnewplayer(Player))
 			if(Player.stat != DEAD && !isbrain(Player))
 				num_survivors++
-				if(station_evacuated) //If the shuttle has already left the station
-					var/list/area/shuttle_areas
-					if(SSshuttle && SSshuttle.emergency)
-						shuttle_areas = SSshuttle.emergency.shuttle_areas
-					if(!Player.onCentCom() && !Player.onSyndieBase())
-						to_chat(Player, "<font color='blue'><b>You managed to survive, but were marooned on [station_name()]...</b></FONT>")
-					else
-						num_escapees++
-						to_chat(Player, "<font color='green'><b>You managed to survive the events on [station_name()] as [Player.real_name].</b></FONT>")
-						if(shuttle_areas[get_area(Player)])
-							num_shuttle_escapees++
-				else
-					to_chat(Player, "<font color='green'><b>You managed to survive the events on [station_name()] as [Player.real_name].</b></FONT>")
+				to_chat(Player, "<font color='green'><b>You managed to survive the events on [station_name()] as [Player.real_name].</b></FONT>")
 			else
 				to_chat(Player, "<font color='red'><b>You did not survive the events on [station_name()]...</b></FONT>")
 
@@ -422,12 +407,6 @@ SUBSYSTEM_DEF(ticker)
 	var/total_players = GLOB.joined_player_list.len
 	if(total_players)
 		to_chat(world, "<BR>[GLOB.TAB]Total Population: <B>[total_players]</B>")
-		if(station_evacuated)
-			to_chat(world, "<BR>[GLOB.TAB]Evacuation Rate: <B>[num_escapees] ([PERCENT(num_escapees/total_players)]%)</B>")
-			to_chat(world, "<BR>[GLOB.TAB](on emergency shuttle): <B>[num_shuttle_escapees] ([PERCENT(num_shuttle_escapees/total_players)]%)</B>")
-			news_report = STATION_EVACUATED
-			if(SSshuttle.emergency.is_hijacked())
-				news_report = SHUTTLE_HIJACK
 		to_chat(world, "<BR>[GLOB.TAB]Survival Rate: <B>[num_survivors] ([PERCENT(num_survivors/total_players)]%)</B>")
 	to_chat(world, "<BR>")
 
@@ -566,8 +545,6 @@ SUBSYSTEM_DEF(ticker)
 
 /datum/controller/subsystem/ticker/proc/check_maprotate()
 	if (!CONFIG_GET(flag/maprotation))
-		return
-	if (SSshuttle.emergency && SSshuttle.emergency.mode != SHUTTLE_ESCAPE || SSshuttle.canRecall())
 		return
 	if (maprotatechecked)
 		return

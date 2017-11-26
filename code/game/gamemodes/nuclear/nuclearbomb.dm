@@ -461,10 +461,6 @@
 	else
 		off_station = NUKE_MISS_STATION
 
-	if(off_station < 2)
-		SSshuttle.registerHostileEnvironment(src)
-		SSshuttle.lockdown = TRUE
-
 	//Cinematic
 	SSticker.mode.OnNukeExplosion(off_station)
 	var/bombz = z

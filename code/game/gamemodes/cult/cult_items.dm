@@ -450,26 +450,6 @@
 		to_chat(user, "<span class='warning'>Nar-Sie is already on this plane, there is no delaying the end of all things.</span>")
 		return
 
-	if(SSshuttle.emergency.mode == SHUTTLE_CALL)
-		var/cursetime = 1800
-		var/timer = SSshuttle.emergency.timeLeft(1) + cursetime
-		SSshuttle.emergency.setTimer(timer)
-		to_chat(user, "<span class='danger'>You shatter the orb! A dark essence spirals into the air, then disappears.</span>")
-		playsound(user.loc, 'sound/effects/glassbr1.ogg', 50, 1)
-		qdel(src)
-		sleep(20)
-		var/global/list/curses
-		if(!curses)
-			curses = list("A fuel technician just slit his own throat and begged for death. The shuttle will be delayed by three minutes.",
-			"The shuttle's navigation programming was replaced by a file containing two words, IT COMES. The shuttle will be delayed by three minutes.",
-			"The shuttle's custodian tore out his guts and began painting strange shapes on the floor. The shuttle will be delayed by three minutes.",
-			"A shuttle engineer began screaming 'DEATH IS NOT THE END' and ripped out wires until an arc flash seared off her flesh. The shuttle will be delayed by three minutes.",
-			"A shuttle inspector started laughing madly over the radio and then threw herself into an engine turbine. The shuttle will be delayed by three minutes.",
-			"The shuttle dispatcher was found dead with bloody symbols carved into their flesh. The shuttle will be delayed by three minutes.")
-		var/message = pick_n_take(curses)
-		priority_announce("[message]", "System Failure", 'sound/misc/notice1.ogg')
-		curselimit++
-
 /obj/item/device/cult_shift
 	name = "veil shifter"
 	desc = "This relic teleports you forward a medium distance."

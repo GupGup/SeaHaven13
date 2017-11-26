@@ -291,9 +291,6 @@ Turf and target are separate in case you want to teleport some distance from a t
 	var/list/namecounts = list()
 	var/list/pois = list()
 	for(var/mob/M in mobs)
-		if(skip_mindless && (!M.mind && !M.ckey))
-			if(!isbot(M) && !iscameramob(M) && !ismegafauna(M))
-				continue
 		if(M.client && M.client.holder && M.client.holder.fakekey) //stealthmins
 			continue
 		var/name = avoid_assoc_duplicate_keys(M.name, namecounts)

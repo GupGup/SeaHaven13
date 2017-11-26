@@ -239,7 +239,6 @@
 		/obj/item/stack/rods/cyborg,
 		/obj/item/stack/tile/plasteel/cyborg,
 		/obj/item/extinguisher,
-		/obj/item/pickaxe,
 		/obj/item/restraints/handcuffs/cable/zipties/cyborg,
 		/obj/item/soap/nanotrasen,
 		/obj/item/borg/cyborghug)

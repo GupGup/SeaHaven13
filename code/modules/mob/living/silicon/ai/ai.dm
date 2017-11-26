@@ -156,7 +156,6 @@
 /mob/living/silicon/ai/Destroy()
 	GLOB.ai_list -= src
 	GLOB.shuttle_caller_list -= src
-	SSshuttle.autoEvac()
 	qdel(eyeobj) // No AI, no Eye
 	malfhack = null
 
@@ -307,25 +306,6 @@
 	src << browse(dat, "window=airoster")
 	onclose(src, "airoster")
 
-/mob/living/silicon/ai/proc/ai_call_shuttle()
-	if(control_disabled)
-		to_chat(usr, "<span class='warning'>Wireless control is disabled!</span>")
-		return
-
-	var/reason = input(src, "What is the nature of your emergency? ([CALL_SHUTTLE_REASON_LENGTH] characters required.)", "Confirm Shuttle Call") as null|text
-
-	if(incapacitated())
-		return
-
-	if(trim(reason))
-		SSshuttle.requestEvac(src, reason)
-
-	// hack to display shuttle timer
-	if(!EMERGENCY_IDLE_OR_RECALLED)
-		var/obj/machinery/computer/communications/C = locate() in GLOB.machines
-		if(C)
-			C.post_status("shuttle")
-
 /mob/living/silicon/ai/cancel_camera()
 	view_core()
 
@@ -349,7 +329,6 @@
 	if(control_disabled)
 		to_chat(src, "<span class='warning'>Wireless control is disabled!</span>")
 		return
-	SSshuttle.cancelEvac(src)
 
 /mob/living/silicon/ai/restrained(ignore_grab)
 	. = 0

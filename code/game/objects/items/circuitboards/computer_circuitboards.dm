@@ -209,14 +209,6 @@
 	build_path = /obj/machinery/computer/telecomms/server
 	origin_tech = "programming=3;magnets=3;bluespace=2"
 
-/obj/item/circuitboard/computer/ferry
-	name = "Transport Ferry (Computer Board)"
-	build_path = /obj/machinery/computer/shuttle/ferry
-
-/obj/item/circuitboard/computer/ferry/request
-	name = "Transport Ferry Console (Computer Board)"
-	build_path = /obj/machinery/computer/shuttle/ferry/request
-
 /obj/item/circuitboard/computer/holodeck// Not going to let people get this, but it's just here for future
 	name = "Holodeck Control (Computer Board)"
 	build_path = /obj/machinery/computer/holodeck
@@ -249,21 +241,3 @@
 	name = "\improper Power Flow Control Console (Computer Board)"
 	build_path = /obj/machinery/computer/apc_control
 	origin_tech = "programming=3;engineering=3;powerstorage=2"
-
-/obj/item/circuitboard/computer/monastery_shuttle
-	name = "Monastery Shuttle (Computer Board)"
-	build_path = /obj/machinery/computer/shuttle/monastery_shuttle
-
-/obj/item/circuitboard/computer/syndicate_shuttle
-	name = "Syndicate Shuttle (Computer Board)"
-	build_path = /obj/machinery/computer/shuttle/syndicate
-	var/challenge = FALSE
-	var/moved = FALSE
-
-/obj/item/circuitboard/computer/syndicate_shuttle/Initialize()
-	. = ..()
-	GLOB.syndicate_shuttle_boards += src
-
-/obj/item/circuitboard/computer/syndicate_shuttle/Destroy()
-	GLOB.syndicate_shuttle_boards -= src
-	return ..()

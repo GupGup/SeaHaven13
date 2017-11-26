@@ -334,7 +334,6 @@ GLOBAL_LIST_INIT(blacklisted_malf_machines, typecacheof(list(
 /obj/machinery/doomsday_device/Destroy()
 	QDEL_NULL(countdown)
 	STOP_PROCESSING(SSfastprocess, src)
-	SSshuttle.clearHostileEnvironment(src)
 	SSmapping.remove_nuke_threat(src)
 	for(var/A in GLOB.ai_list)
 		var/mob/living/silicon/ai/AI = A
@@ -348,7 +347,6 @@ GLOBAL_LIST_INIT(blacklisted_malf_machines, typecacheof(list(
 	timing = TRUE
 	countdown.start()
 	START_PROCESSING(SSfastprocess, src)
-	SSshuttle.registerHostileEnvironment(src)
 	SSmapping.add_nuke_threat(src) //This causes all blue "circuit" tiles on the map to change to animated red icon state.
 
 /obj/machinery/doomsday_device/proc/seconds_remaining()
@@ -358,7 +356,6 @@ GLOBAL_LIST_INIT(blacklisted_malf_machines, typecacheof(list(
 	var/turf/T = get_turf(src)
 	if(!T || !(T.z in GLOB.station_z_levels))
 		minor_announce("DOOMSDAY DEVICE OUT OF STATION RANGE, ABORTING", "ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4", TRUE)
-		SSshuttle.clearHostileEnvironment(src)
 		qdel(src)
 		return
 	if(!timing)

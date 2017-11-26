@@ -79,8 +79,6 @@
 	switch(mode)
 		if(0)				//blank
 			remove_display()
-		if(1)				//emergency shuttle timer
-			display_shuttle_status()
 		if(2)				//custom messages
 			var/line1
 			var/line2
@@ -103,25 +101,10 @@
 				if(index2 > message2_len)
 					index2 -= message2_len
 			update_display(line1, line2)
-		if(5)
-			display_shuttle_status()
 
 /obj/machinery/status_display/examine(mob/user)
 	. = ..()
 	switch(mode)
-		if(1,5)  // Emergency or generic shuttle
-			var/obj/docking_port/mobile/shuttle
-			if(mode == 1)
-				shuttle = SSshuttle.emergency
-			else
-				shuttle = SSshuttle.getShuttle(shuttle_id)
-
-			if (!shuttle)
-				to_chat(user, "The display says:<br>\t<xmp>Shuttle?</xmp>")
-			else if (shuttle.timer)
-				to_chat(user, "The display says:<br>\t<xmp>[shuttle.getModeStr()]: [shuttle.getTimerStr()]</xmp>")
-			if (mode == 1 && shuttle)
-				to_chat(user, "Current shuttle: [shuttle.name].")
 		if(2)  // Custom message
 			if (message1 || message2)
 				var/msg = "The display says:"
@@ -161,26 +144,6 @@
 	cut_overlays()
 	if(maptext)
 		maptext = ""
-
-/obj/machinery/status_display/proc/display_shuttle_status()
-	var/obj/docking_port/mobile/shuttle
-
-	if(mode == 1)
-		shuttle = SSshuttle.emergency
-	else
-		shuttle = SSshuttle.getShuttle(shuttle_id)
-
-	if(!shuttle)
-		update_display("shutl?","")
-	else if(shuttle.timer)
-		var/line1 = "-[shuttle.getModeStr()]-"
-		var/line2 = shuttle.getTimerStr()
-
-		if(length(line2) > CHARS_PER_LINE)
-			line2 = "Error!"
-		update_display(line1, line2)
-	else
-		remove_display()
 
 
 /obj/machinery/status_display/receive_signal(datum/signal/signal)
