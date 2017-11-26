@@ -42,7 +42,6 @@
 	var/datum/objective/loot/getbooty = new()
 	getbooty.team = src
 	getbooty.storage_area = locate(/area/shuttle/pirate/vault) in GLOB.sortedAreas
-	getbooty.update_initial_value()
 	getbooty.update_explanation_text()
 	objectives += getbooty
 	for(var/datum/mind/M in members)
@@ -90,20 +89,6 @@ GLOBAL_LIST_INIT(pirate_loot_cache, typecacheof(list(
 		text += "[amount] [key][amount > 1 ? "s":""], "
 	return text
 
-/datum/objective/loot/proc/get_loot_value()
-	if(!storage_area)
-		return 0
-	var/value = 0
-	for(var/turf/T in storage_area.contents)
-		value += export_item_and_contents(T,TRUE, TRUE, dry_run = TRUE)
-	return value - initial_value
-
-/datum/objective/loot/proc/update_initial_value()
-	initial_value = get_loot_value()
-
-/datum/objective/loot/check_completion()
-	return ..() || get_loot_value() >= target_value
-
 
 //These need removal ASAP as everything is converted to datum antags.
 /datum/game_mode/proc/auto_declare_completion_pirates()
@@ -121,7 +106,6 @@ GLOBAL_LIST_INIT(pirate_loot_cache, typecacheof(list(
 			text += "<br>Loot stolen: "
 			var/datum/objective/loot/L = locate() in crew.objectives
 			text += L.loot_listing()
-			text += "<br>Total loot value : [L.get_loot_value()]/[L.target_value] credits"
 
 			var/all_dead = TRUE
 			for(var/datum/mind/M in crew.members)

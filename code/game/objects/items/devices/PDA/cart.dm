@@ -430,37 +430,6 @@ Code:
 
 			menu += "<br>"
 
-		if (47) //quartermaster order records
-			menu = "<h4><img src=pda_crate.png> Supply Record Interlink</h4>"
-
-			menu += "<BR><B>Supply shuttle</B><BR>"
-			menu += "Location: "
-			switch(SSshuttle.supply.mode)
-				if(SHUTTLE_CALL)
-					menu += "Moving to "
-					if(!(SSshuttle.supply.z in GLOB.station_z_levels))
-						menu += "station"
-					else
-						menu += "centcom"
-					menu += " ([SSshuttle.supply.timeLeft(600)] Mins)"
-				else
-					menu += "At "
-					if(!(SSshuttle.supply.z in GLOB.station_z_levels))
-						menu += "centcom"
-					else
-						menu += "station"
-			menu += "<BR>Current approved orders: <BR><ol>"
-			for(var/S in SSshuttle.shoppinglist)
-				var/datum/supply_order/SO = S
-				menu += "<li>#[SO.id] - [SO.pack.name] approved by [SO.orderer] [SO.reason ? "([SO.reason])":""]</li>"
-			menu += "</ol>"
-
-			menu += "Current requests: <BR><ol>"
-			for(var/S in SSshuttle.requestlist)
-				var/datum/supply_order/SO = S
-				menu += "<li>#[SO.id] - [SO.pack.name] requested by [SO.orderer]</li>"
-			menu += "</ol><font size=\"-3\">Upgrade NOW to Space Parts & Space Vendors PLUS for full remote order control and inventory management."
-
 		if (49) //janitorial locator
 			menu = "<h4><img src=pda_bucket.png> Persistent Custodial Object Locator</h4>"
 

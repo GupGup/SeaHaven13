@@ -8,16 +8,11 @@
 
 /obj/structure/closet/crate/large/attack_hand(mob/user)
 	add_fingerprint(user)
-	if(manifest)
-		tear_manifest(user)
-	else
-		to_chat(user, "<span class='warning'>You need a crowbar to pry this open!</span>")
+	to_chat(user, "<span class='warning'>You need a crowbar to pry this open!</span>")
 
 /obj/structure/closet/crate/large/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/crowbar))
 		var/turf/T = get_turf(src)
-		if(manifest)
-			tear_manifest(user)
 
 		user.visible_message("[user] pries \the [src] open.", \
 							 "<span class='notice'>You pry open \the [src].</span>", \

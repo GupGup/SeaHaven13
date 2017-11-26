@@ -58,16 +58,8 @@ SUBSYSTEM_DEF(shuttle)
 		WARNING("No /obj/docking_port/mobile/emergency placed on the map!")
 	if(!backup_shuttle)
 		WARNING("No /obj/docking_port/mobile/emergency/backup placed on the map!")
-	if(!supply)
-		WARNING("No /obj/docking_port/mobile/supply placed on the map!")
 
 	ordernum = rand(1, 9000)
-
-	for(var/pack in subtypesof(/datum/supply_pack))
-		var/datum/supply_pack/P = new pack()
-		if(!P.contains)
-			continue
-		supply_packs[P.type] = P
 
 	if(!transit_turfs.len)
 		setup_transit_zone()
@@ -335,30 +327,6 @@ SUBSYSTEM_DEF(shuttle)
 	hostileEnvironments -= bad
 	checkHostileEnvironment()
 
-
-/datum/controller/subsystem/shuttle/proc/registerTradeBlockade(datum/bad)
-	tradeBlockade[bad] = TRUE
-	checkTradeBlockade()
-
-/datum/controller/subsystem/shuttle/proc/clearTradeBlockade(datum/bad)
-	tradeBlockade -= bad
-	checkTradeBlockade()
-
-
-/datum/controller/subsystem/shuttle/proc/checkTradeBlockade()
-	for(var/datum/d in tradeBlockade)
-		if(!istype(d) || QDELETED(d))
-			tradeBlockade -= d
-	supplyBlocked = tradeBlockade.len
-
-	if(supplyBlocked && (supply.mode == SHUTTLE_IGNITING))
-		supply.mode = SHUTTLE_STRANDED
-		supply.timer = null
-		//Make all cargo consoles speak up
-	if(!supplyBlocked && (supply.mode == SHUTTLE_STRANDED))
-		supply.mode = SHUTTLE_DOCKED
-		//Make all cargo consoles speak up
-
 /datum/controller/subsystem/shuttle/proc/checkHostileEnvironment()
 	for(var/datum/d in hostileEnvironments)
 		if(!istype(d) || QDELETED(d))
@@ -579,9 +547,6 @@ SUBSYSTEM_DEF(shuttle)
 
 	if (istype(SSshuttle.hostileEnvironments))
 		hostileEnvironments = SSshuttle.hostileEnvironments
-
-	if (istype(SSshuttle.supply))
-		supply = SSshuttle.supply
 
 	if (istype(SSshuttle.discoveredPlants))
 		discoveredPlants = SSshuttle.discoveredPlants

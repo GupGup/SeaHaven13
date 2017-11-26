@@ -190,32 +190,6 @@
 	build_path = /obj/machinery/computer/mech_bay_power_console
 	origin_tech = "programming=3;powerstorage=3"
 
-/obj/item/circuitboard/computer/cargo
-	name = "Supply Console (Computer Board)"
-	build_path = /obj/machinery/computer/cargo
-	origin_tech = "programming=3"
-	var/contraband = FALSE
-
-/obj/item/circuitboard/computer/cargo/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/device/multitool))
-		if(!emagged)
-			contraband = !contraband
-			to_chat(user, "<span class='notice'>Receiver spectrum set to [contraband ? "Broad" : "Standard"].</span>")
-		else
-			to_chat(user, "<span class='notice'>The spectrum chip is unresponsive.</span>")
-	else if(istype(I, /obj/item/card/emag))
-		if(!emagged)
-			contraband = TRUE
-			emagged = TRUE
-			to_chat(user, "<span class='notice'>You adjust [src]'s routing and receiver spectrum, unlocking special supplies and contraband.</span>")
-	else
-		return ..()
-
-
-/obj/item/circuitboard/computer/cargo/request
-	name = "Supply Request Console (Computer Board)"
-	build_path = /obj/machinery/computer/cargo/request
-
 /obj/item/circuitboard/computer/operating
 	name = "Operating Computer (Computer Board)"
 	build_path = /obj/machinery/computer/operating

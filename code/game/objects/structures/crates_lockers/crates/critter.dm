@@ -28,8 +28,6 @@
 		add_overlay("crittercrate_door_open")
 	else
 		add_overlay("crittercrate_door")
-		if(manifest)
-			add_overlay("manifest")
 
 /obj/structure/closet/crate/critter/return_air()
 	if(tank)

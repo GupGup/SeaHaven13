@@ -16,5 +16,4 @@
 	new /obj/item/tank/internals/emergency_oxygen(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/clothing/head/soft(src)
-	new /obj/item/device/export_scanner(src)
 	new /obj/item/door_remote/quartermaster(src)

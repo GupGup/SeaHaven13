@@ -188,22 +188,6 @@
 	build_path = /obj/item/circuitboard/computer/rdconsole
 	category = list("Computer Boards")
 
-/datum/design/board/cargo
-	name = "Computer Design (Supply Console)"
-	desc = "Allows for the construction of circuit boards used to build a Supply Console."
-	id = "cargo"
-	req_tech = list("programming" = 3)
-	build_path = /obj/item/circuitboard/computer/cargo
-	category = list("Computer Boards")
-
-/datum/design/board/cargorequest
-	name = "Computer Design (Supply Request Console)"
-	desc = "Allows for the construction of circuit boards used to build a Supply Request Console."
-	id = "cargorequest"
-	req_tech = list("programming" = 2)
-	build_path = /obj/item/circuitboard/computer/cargo/request
-	category = list("Computer Boards")
-
 /datum/design/board/mining
 	name = "Computer Design (Outpost Status Display)"
 	desc = "Allows for the construction of circuit boards used to build an outpost status display console."

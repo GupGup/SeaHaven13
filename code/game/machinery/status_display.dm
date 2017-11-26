@@ -103,20 +103,6 @@
 				if(index2 > message2_len)
 					index2 -= message2_len
 			update_display(line1, line2)
-		if(4)				// supply shuttle timer
-			var/line1
-			var/line2
-			if(SSshuttle.supply.mode == SHUTTLE_IDLE)
-				if(SSshuttle.supply.z in GLOB.station_z_levels)
-					line1 = "CARGO"
-					line2 = "Docked"
-			else
-				line1 = "CARGO"
-				line2 = SSshuttle.supply.getTimerStr()
-				if(lentext(line2) > CHARS_PER_LINE)
-					line2 = "Error"
-
-			update_display(line1, line2)
 		if(5)
 			display_shuttle_status()
 
@@ -136,16 +122,6 @@
 				to_chat(user, "The display says:<br>\t<xmp>[shuttle.getModeStr()]: [shuttle.getTimerStr()]</xmp>")
 			if (mode == 1 && shuttle)
 				to_chat(user, "Current shuttle: [shuttle.name].")
-		if(4)  // Supply shuttle
-			var/obj/docking_port/mobile/shuttle = SSshuttle.supply
-			var/shuttleMsg = null
-			if (shuttle.mode == SHUTTLE_IDLE)
-				if (shuttle.z in GLOB.station_z_levels)
-					shuttleMsg = "Docked"
-			else
-				shuttleMsg = "[shuttle.getModeStr()]: [shuttle.getTimerStr()]"
-			if (shuttleMsg)
-				to_chat(user, "The display says:<br>\t<xmp>[shuttleMsg]</xmp>")
 		if(2)  // Custom message
 			if (message1 || message2)
 				var/msg = "The display says:"
